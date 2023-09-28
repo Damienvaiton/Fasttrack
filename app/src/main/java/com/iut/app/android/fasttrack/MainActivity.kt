@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.iut.app.android.fasttrack.model.schedule.Schedule
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -14,7 +13,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun getTimeResponseSuccess(schedule : Schedule) : Unit {
 
-    }
 }
