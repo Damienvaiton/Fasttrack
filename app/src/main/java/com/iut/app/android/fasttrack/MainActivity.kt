@@ -4,18 +4,17 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.iut.app.android.fasttrack.model.schedule.Schedule
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.sign_in_page)
+        setContentView(R.layout.activity_main)
 
-        val signUpFragment : Button = findViewById(R.id.sign_up_btn)
-        val signInFragment : Button = findViewById(R.id.sign_in_btn)
+    }
 
-        signUpFragment.setOnClickListener {
-            setContentView(R.layout.sign_up_page)
-        }
+    fun getTimeResponseSuccess(schedule : Schedule) : Unit {
+
     }
 }
