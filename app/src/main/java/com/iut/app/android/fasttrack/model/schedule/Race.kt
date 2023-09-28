@@ -12,5 +12,4 @@ data class Race(
     val round: String,
     val season: String,
     val time: String,
-    val url: String
 )
