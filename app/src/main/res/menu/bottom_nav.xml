@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Accueil"
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"/>
+    <item android:title="Calendrier"
+        android:id="@+id/calendar"
+        android:icon="@drawable/ic_baseline_calendar_month_24"/>
+    <item android:title="Résultats"
+        android:id="@+id/stat"
+        android:icon="@drawable/ic_baseline_bar_chart_24"/>
+    <item android:title="Shop"
+        android:id="@+id/shop"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
+    <item android:title="Compte"
+        android:id="@+id/account"
+        android:icon="@drawable/ic_baseline_person_24"/>
+</menu>
