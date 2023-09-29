@@ -3,8 +3,12 @@ package com.iut.app.android.fasttrack
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.iut.app.android.fasttrack.databinding.ActivityMainBinding
+import com.iut.app.android.fasttrack.model.manager.ApiManager
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        executeCall()
         replaceFragment(Home())
 
 
