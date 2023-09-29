@@ -8,7 +8,7 @@
     tools:context=".Home">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/damierHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -16,7 +16,7 @@
         android:src="@drawable/damier" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textFastTrack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -27,7 +27,7 @@
         android:textSize="42sp" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/divNextGp"
         android:layout_width="wrap_content"
         android:layout_height="213dp"
         android:layout_marginHorizontal="20dp"
@@ -35,7 +35,7 @@
         android:src="@drawable/rectblanc" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/divSmallNextGp"
         android:layout_width="159dp"
         android:layout_height="161dp"
         android:layout_marginHorizontal="25dp"
@@ -43,7 +43,7 @@
         android:src="@drawable/rectrouge" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/divNextGpInfos"
         android:layout_width="134dp"
         android:layout_height="80dp"
         android:layout_marginHorizontal="25dp"
@@ -51,7 +51,7 @@
         android:src="@drawable/rectrougetwo" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageTrackNextGp"
         android:layout_width="142dp"
         android:layout_height="81dp"
         android:layout_marginHorizontal="35dp"
@@ -59,7 +59,7 @@
         android:src="@drawable/suzukatwo" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/firstNameNextGp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/major_mono_display"
@@ -70,7 +70,7 @@
         android:layout_marginTop="183dp"/>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/secondNameNextGp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/monomaniac"
@@ -81,7 +81,7 @@
         android:layout_marginTop="210dp"/>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/dateNextGP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/monomaniac"
@@ -92,7 +92,7 @@
         android:layout_marginTop="227dp"/>
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/divActus"
         android:layout_width="345dp"
         android:layout_height="310dp"
         android:layout_marginHorizontal="20dp"
@@ -100,7 +100,7 @@
         android:src="@drawable/grandrectblanc" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/titleActualites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -111,7 +111,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/texteFirstActu"
         android:layout_width="257dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -122,7 +122,7 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/redTextFirstActu"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
@@ -133,7 +133,7 @@
         android:textSize="8sp" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/imageFirstActu"
         android:layout_width="64dp"
         android:layout_height="55dp"
         android:layout_marginHorizontal="290dp"
@@ -141,7 +141,7 @@
         android:src="@drawable/perez" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textSecondActu"
         android:layout_width="257dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -152,7 +152,7 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/redTextSecondActu"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="117dp"
@@ -163,7 +163,7 @@
         android:textSize="8sp" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageSecondActu"
         android:layout_width="64dp"
         android:layout_height="55dp"
         android:layout_marginHorizontal="290dp"
@@ -171,7 +171,7 @@
         android:src="@drawable/piastri" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textThirdActu"
         android:layout_width="257dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -182,7 +182,7 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/redTextThirdActu"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="90dp"
@@ -193,7 +193,7 @@
         android:textSize="8sp" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/imageThridActu"
         android:layout_width="64dp"
         android:layout_height="55dp"
         android:layout_marginHorizontal="290dp"

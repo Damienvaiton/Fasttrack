@@ -8,7 +8,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/damierAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -16,7 +16,7 @@
         android:src="@drawable/damier" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titleAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="115dp"
@@ -25,5 +25,159 @@
         android:text="Compte"
         android:textColor="#FFFFFF"
         android:textSize="42sp" />
+
+    <ImageView
+        android:id="@+id/divInfoAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="239dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/rectgris" />
+
+    <ImageView
+        android:id="@+id/divSmallInfoAccount"
+        android:layout_width="257dp"
+        android:layout_height="197dp"
+        android:layout_marginHorizontal="106dp"
+        android:layout_marginTop="170dp"
+        android:src="@drawable/rectgrisclair" />
+
+    <ImageView
+        android:id="@+id/imageAvatarAccount"
+        android:layout_width="149dp"
+        android:layout_height="161dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="190dp"
+        android:src="@drawable/avatar" />
+
+    <TextView
+        android:id="@+id/firstNameAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="165dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="Ewen"
+        android:textColor="#FFFFFF"
+        android:textSize="33sp" />
+
+    <TextView
+        android:id="@+id/lastNameAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="200dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="VAITON"
+        android:textColor="#FFFFFF"
+        android:textSize="33sp" />
+
+    <ImageView
+        android:id="@+id/divNumberDriverAccount"
+        android:layout_width="149dp"
+        android:layout_height="161dp"
+        android:layout_marginHorizontal="190dp"
+        android:layout_marginTop="225dp"
+        android:src="@drawable/rectnoir" />
+
+    <TextView
+        android:id="@+id/numberDriverAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="233dp"
+        android:layout_marginTop="245dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="25"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp" />
+
+    <ImageView
+        android:id="@+id/divMyTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="239dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="410dp"
+        android:src="@drawable/rectgris" />
+
+    <TextView
+        android:id="@+id/titleMyTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="420dp"
+        android:fontFamily="@font/leckerli_one"
+        android:text="My Team"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp" />
+
+    <ImageView
+        android:id="@+id/imageBackgroundFavoriteDriver"
+        android:layout_width="102dp"
+        android:layout_height="127dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="495dp"
+        android:src="@drawable/carreredbull" />
+
+    <ImageView
+        android:id="@+id/imageFavoriteDriver"
+        android:layout_width="73dp"
+        android:layout_height="96dp"
+        android:layout_marginHorizontal="44dp"
+        android:layout_marginTop="490dp"
+        android:src="@drawable/verstappenf1" />
+
+    <TextView
+        android:id="@+id/nameFavoriteDriver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="570dp"
+        android:fontFamily="@font/major_mono_display"
+        android:text="VER"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp" />
+
+    <ImageView
+        android:id="@+id/imageBackgroundFavoriteDriverTwo"
+        android:layout_width="102dp"
+        android:layout_height="127dp"
+        android:layout_marginHorizontal="142dp"
+        android:layout_marginTop="495dp"
+        android:src="@drawable/carreferrari" />
+
+    <ImageView
+        android:id="@+id/imageFavoriteDriverTwo"
+        android:layout_width="73dp"
+        android:layout_height="96dp"
+        android:layout_marginHorizontal="157dp"
+        android:layout_marginTop="490dp"
+        android:src="@drawable/leclercf1" />
+
+    <TextView
+        android:id="@+id/nameFavoriteDriverTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="570dp"
+        android:fontFamily="@font/major_mono_display"
+        android:text="LEC"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp" />
+
+    <ImageView
+        android:id="@+id/imageBackgroundFavoriteTeam"
+        android:layout_width="102dp"
+        android:layout_height="127dp"
+        android:layout_marginHorizontal="255dp"
+        android:layout_marginTop="495dp"
+        android:src="@drawable/carrealpine" />
+
+    <ImageView
+        android:id="@+id/imageFavoriteTeam"
+        android:layout_width="73dp"
+        android:layout_height="96dp"
+        android:layout_marginHorizontal="267dp"
+        android:layout_marginTop="500dp"
+        android:src="@drawable/alpinef1" />
 
 </FrameLayout>
