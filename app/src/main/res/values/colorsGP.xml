@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="barhein">#DA291C</color>
+    <color name="barhein">#DA1C1C</color>
     <color name="saudi_arabia">#005430</color>
     <color name="australia">#012169</color>
     <color name="Azerbaijan">#00B5E2</color>
@@ -17,7 +17,12 @@
     <color name="Netherlands">#21468B</color>
     <color name="Singapore">#ED2939</color>
     <color name="Japan">#BC002D</color>
+    <color name="Quatar">#681639</color>
     <color name="Mexico">#006545</color>
     <color name="Brazil">#009638</color>
     <color name="Abu_Dhabi">#000000</color>
+
+    <color name="barhein2">#FFFFFF</color>
+
+
 </resources>
