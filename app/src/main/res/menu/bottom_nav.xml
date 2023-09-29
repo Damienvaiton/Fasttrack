@@ -7,10 +7,10 @@
     <item android:title="Calendrier"
         android:id="@+id/calendar"
         android:icon="@drawable/ic_baseline_calendar_month_24"/>
-    <item android:title="Résultats"
+    <item android:title="Classement"
         android:id="@+id/stat"
         android:icon="@drawable/ic_baseline_bar_chart_24"/>
-    <item android:title="Shop"
+    <item android:title="Boutique"
         android:id="@+id/shop"
         android:icon="@drawable/ic_baseline_shopping_cart_24"/>
     <item android:title="Compte"
