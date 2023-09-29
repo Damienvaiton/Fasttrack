@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiManager {
 
-    var BASE_URL: String = "https://ergast.com/"
+    var BASE_URL: String = "https://ergast.com/api/f1/"
 
     private val gson: Gson by lazy {
         GsonBuilder()

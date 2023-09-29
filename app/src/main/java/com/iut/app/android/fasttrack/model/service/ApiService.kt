@@ -8,6 +8,12 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("/api/f1/current.json")
+    @GET("current.json")
     suspend fun getCurrentSeason(): Response<Schedule>
+
+    @GET("current/{id}.json")
+    suspend fun getCurrantRaceByNumber(@Path ("id") raceId : Int): Response<Schedule>
+
+
+
 }

@@ -13,3 +13,4 @@ data class Race(
     val season: String,
     val time: String,
 )
+

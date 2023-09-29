@@ -32,6 +32,12 @@ class MainActivity : AppCompatActivity() {
                 } catch (e: Exception) {
                     Log.e("Testapi", "erreur : ${e.message}")
             }
+
+
+
+
+
+
         }
     }
 }
