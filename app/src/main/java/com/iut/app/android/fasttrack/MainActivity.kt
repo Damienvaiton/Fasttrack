@@ -7,7 +7,9 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import com.iut.app.android.fasttrack.model.manager.ApiManager
+import com.iut.app.android.fasttrack.model.repository.ScheduleRepository
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.collect
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -16,28 +18,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         executeCall()
 
+
     }
 
     private fun executeCall() {
         GlobalScope.launch {
-            try {
-                val response = ApiManager.apiService.getCurrentSeason()
-                if (response.isSuccessful && response.body() != null) {
-                    Log.e("Testapi", "response : ${response.body()}")
-
-                } else {
-                    Log.e("Testapi", "response invalide")
-                }
-
-                } catch (e: Exception) {
-                    Log.e("Testapi", "erreur : ${e.message}")
-            }
-
-
-
-
-
-
+            ScheduleRepository.getCurrentSeason().asLiveData().observe(this@MainActivity, {
+                Log.d("TAG", "executeCall: ${it.body()}")
+            })
         }
     }
 }
