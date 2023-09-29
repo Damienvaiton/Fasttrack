@@ -1,5 +1,6 @@
 package com.iut.app.android.fasttrack
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -46,4 +47,28 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()
     }
+
+    private fun executeCall() {
+        GlobalScope.launch {
+            try {
+                val response = ApiManager.apiService.getCurrentSeason()
+                if (response.isSuccessful && response.body() != null) {
+                    Log.e("Testapi", "response : ${response.body()}")
+
+                } else {
+                    Log.e("Testapi", "response invalide")
+                }
+
+                } catch (e: Exception) {
+                    Log.e("Testapi", "erreur : ${e.message}")
+            }
+
+
+
+
+
+
+        }
+    }
 }
+
