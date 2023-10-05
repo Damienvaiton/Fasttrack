@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back"
+    tools:context=".Home">
+
+    <ImageView
+        android:id="@+id/damierHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:src="@drawable/damier" />
+
+    <TextView
+        android:id="@+id/textFastTrack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/leckerli_one"
+        android:text="FastTrack"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp" />
+
+    <ImageView
+        android:id="@+id/divNextGp"
+        android:layout_width="wrap_content"
+        android:layout_height="213dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/rectblanc" />
+
+    <ImageView
+        android:id="@+id/divSmallNextGp"
+        android:layout_width="159dp"
+        android:layout_height="161dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/rectrouge" />
+
+    <ImageView
+        android:id="@+id/divNextGpInfos"
+        android:layout_width="134dp"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="188dp"
+        android:src="@drawable/rectrougetwo" />
+
+    <ImageView
+        android:id="@+id/imageTrackNextGp"
+        android:layout_width="142dp"
+        android:layout_height="81dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="250dp"
+        android:src="@drawable/suzukatwo" />
+
+    <TextView
+        android:id="@+id/firstNameNextGp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/major_mono_display"
+        android:text="Japon"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="183dp"/>
+
+    <TextView
+        android:id="@+id/secondNameNextGp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/monomaniac"
+        android:text="Suzuka GP"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="43dp"
+        android:layout_marginTop="210dp"/>
+
+    <TextView
+        android:id="@+id/dateNextGP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/monomaniac"
+        android:text="22 - 24 SEP"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:layout_marginHorizontal="43dp"
+        android:layout_marginTop="227dp"/>
+
+    <ImageView
+        android:id="@+id/divActus"
+        android:layout_width="345dp"
+        android:layout_height="310dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="390dp"
+        android:src="@drawable/grandrectblanc" />
+
+    <TextView
+        android:id="@+id/titleActualites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="390dp"
+        android:fontFamily="@font/leckerli_one"
+        android:text="Actualités"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/texteFirstActu"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="440dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="Sergio Perez n'a toujours pas de contrat avec Redbull pour la saison 2024."
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/redTextFirstActu"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="463dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="Motorsport.com"
+        android:textColor="#F44336"
+        android:textSize="8sp" />
+
+    <ImageView
+        android:id="@+id/imageFirstActu"
+        android:layout_width="64dp"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="290dp"
+        android:layout_marginTop="440dp"
+        android:src="@drawable/perez" />
+
+    <TextView
+        android:id="@+id/textSecondActu"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="530dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="Oscra Piastri impressionne McLaren, le constructeur veut prolonger le pilote pour 2 ans supplémentaire."
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/redTextSecondActu"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="573dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="f1lover.com"
+        android:textColor="#F44336"
+        android:textSize="8sp" />
+
+    <ImageView
+        android:id="@+id/imageSecondActu"
+        android:layout_width="64dp"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="290dp"
+        android:layout_marginTop="530dp"
+        android:src="@drawable/piastri" />
+
+    <TextView
+        android:id="@+id/textThirdActu"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="620dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="Fernando Alonso est devenu ce week-end le pilote ayant effectué le plus de tour sur une carrière de Formule 1."
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/redTextThirdActu"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="662dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="racing365.com"
+        android:textColor="#F44336"
+        android:textSize="8sp" />
+
+    <ImageView
+        android:id="@+id/imageThridActu"
+        android:layout_width="64dp"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="290dp"
+        android:layout_marginTop="620dp"
+        android:src="@drawable/alonso" />
+</FrameLayout>
