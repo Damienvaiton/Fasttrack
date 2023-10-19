@@ -14,7 +14,7 @@ interface ApiService {
 
     @GET("current.json")
 
-    suspend fun getCurrentSeasonFlow(): Flow<Response<Schedule>>
+    suspend fun getCurrentSeasonFlow(): Response<Schedule>
 
     @GET("current/{id}.json")
     suspend fun getCurrantRaceByNumber(@Path ("id") raceId : Int): Response<Schedule>
