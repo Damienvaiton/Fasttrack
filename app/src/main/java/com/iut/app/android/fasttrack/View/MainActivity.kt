@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
 
+    val scope = CoroutineScope(Dispatchers.IO + CoroutineName("MainScope"))
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -59,10 +61,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun executeCall() {
-        GlobalScope.launch {/*
-            ScheduleRepository.getCurrentSeason().asLiveData().observe(this@MainActivity, {
-                Log.d("TAG", "executeCall: ${it.body()}")
-            })*/
+        MainScope().launch {
+
         }
     }
 }
