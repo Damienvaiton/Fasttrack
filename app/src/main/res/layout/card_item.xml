@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardScheduleQatar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/clear"
+    app:cardUseCompatPadding="true">
+
+    <ImageView
+        android:id="@+id/divSchedulePrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/rectqatarschedule" />
+
+    <ImageView
+        android:id="@+id/divScheduleGagnant"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="265dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/rectgagnantqatarschedule" />
+
+    <ImageView
+        android:id="@+id/divScheduleLarge"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/scheduleqatarrectlarge" />
+
+    <ImageView
+        android:id="@+id/scheduleTrack"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/qatartrack" />
+
+    <TextView
+        android:id="@+id/nameGpSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/leckerli_one"
+        android:text="FastTrack"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp" />
+
+</androidx.cardview.widget.CardView>
