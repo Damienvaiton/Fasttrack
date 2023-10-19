@@ -58,10 +58,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun executeCall() {
-        GlobalScope.launch {
+        GlobalScope.launch {/*
             ScheduleRepository.getCurrentSeason().asLiveData().observe(this@MainActivity, {
                 Log.d("TAG", "executeCall: ${it.body()}")
-            })
+            })*/
         }
     }
 }
