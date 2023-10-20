@@ -11,17 +11,12 @@ import retrofit2.Response
 object ScheduleRepository {
 
     suspend fun getCurrentSeason(): Flow<Response<Schedule>>  = flow {
-
-        val respnse = ApiManager.apiService.getCurrentSeasonFlow()
-        respnse.collect {
-            emit(it)
-        }
-
-
-
+        emit(ApiManager.apiService.getCurrentSeasonFlow())
     }
 
-    suspend fun getCurrentSeason2(): Flow<Response<Schedule>> = ApiManager.apiService.getCurrentSeasonFlow()
+    suspend fun getNextRace(): Flow<Response<Schedule>>  = flow {
+        emit(ApiManager.apiService.getNextRace())
+    }
 
 
 }
