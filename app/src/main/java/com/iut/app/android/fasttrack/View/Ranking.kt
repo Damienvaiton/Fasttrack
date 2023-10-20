@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.model.schedule.Location
+import com.iut.app.android.fasttrack.model.schedule.Sprint
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +26,8 @@ class Ranking : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var contacts: ArrayList<Sprint>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -36,6 +42,20 @@ class Ranking : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ranking, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val rvContacts = view.findViewById(R.id.rvRanking) as RecyclerView
+
+        contacts = Sprint.createContactsList(20)
+
+        val adapter = RankingAdapter(contacts)
+
+        rvContacts.adapter = adapter
+
+        rvContacts.layoutManager = LinearLayoutManager(this.context)
+
     }
 
     companion object {

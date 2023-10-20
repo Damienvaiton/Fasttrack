@@ -20,7 +20,7 @@
         android:id="@+id/divScheduleGagnant"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="265dp"
+        android:layout_marginLeft="270dp"
         android:layout_marginTop="23dp"
         android:src="@drawable/rectgagnantqatarschedule" />
 
@@ -28,7 +28,7 @@
         android:id="@+id/divScheduleLarge"
         android:layout_width="140dp"
         android:layout_height="80dp"
-        android:layout_marginLeft="14dp"
+        android:layout_marginLeft="7dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/scheduleqatarrectlarge" />
 
@@ -36,7 +36,7 @@
         android:id="@+id/scheduleTrack"
         android:layout_width="100dp"
         android:layout_height="70dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="23dp"
         android:layout_marginTop="13dp"
         android:src="@drawable/qatartrack" />
 
