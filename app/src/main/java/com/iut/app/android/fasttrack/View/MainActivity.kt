@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.databinding.ActivityMainBinding
 import com.iut.app.android.fasttrack.model.manager.ApiManager
+import com.iut.app.android.fasttrack.model.repository.ConstructorRankingRepository
+import com.iut.app.android.fasttrack.model.repository.DriverRankingRepository
 import com.iut.app.android.fasttrack.model.repository.ScheduleRepository
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
@@ -64,6 +66,12 @@ class MainActivity : AppCompatActivity() {
         MainScope().launch {
             ScheduleRepository.getCurrentSeason().collect {
                 Log.d("MainActivity", "Current season : ${it.body()}")
+            }
+            DriverRankingRepository.getCurrentDriverRanking().collect {
+                Log.d("MainActivity", "Current driver ranking : ${it.body()}")
+            }
+            ConstructorRankingRepository.getCurrentConstructorRanking().collect {
+                Log.d("MainActivity", "Current constructor ranking : ${it.body()}")
             }
         }
     }

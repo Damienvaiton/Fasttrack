@@ -16,5 +16,4 @@ object ScheduleRepository {
 
     suspend fun getCurrentSeason2(): Response<Schedule> = ApiManager.apiService.getCurrentSeasonFlow()
 
-
 }
