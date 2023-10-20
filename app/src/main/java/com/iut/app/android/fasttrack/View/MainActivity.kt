@@ -62,7 +62,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun executeCall() {
         MainScope().launch {
-
+            ScheduleRepository.getCurrentSeason().collect {
+                Log.d("MainActivity", "Current season : ${it.body()}")
+            }
         }
     }
 }
