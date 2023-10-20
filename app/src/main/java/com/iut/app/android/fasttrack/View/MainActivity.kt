@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.databinding.ActivityMainBinding
 import com.iut.app.android.fasttrack.model.manager.ApiManager
+import com.iut.app.android.fasttrack.model.repository.ConstructorRankingRepository
+import com.iut.app.android.fasttrack.model.repository.DriverRankingRepository
 import com.iut.app.android.fasttrack.model.repository.ScheduleRepository
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
@@ -17,6 +19,8 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
+
+    val scope = CoroutineScope(Dispatchers.IO + CoroutineName("MainScope"))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,10 +63,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun executeCall() {
-        GlobalScope.launch {/*
-            ScheduleRepository.getCurrentSeason().asLiveData().observe(this@MainActivity, {
-                Log.d("TAG", "executeCall: ${it.body()}")
-            })*/
+        MainScope().launch {
+            ScheduleRepository.getCurrentSeason().collect {
+                Log.d("MainActivity", "Current season : ${it.body()}")
+            }
+            ScheduleRepository.getNextRace().collect{
+                Log.d("MainActivity", "Next Race : ${it.body()}")
+            }
+            DriverRankingRepository.getCurrentDriverRanking().collect {
+                Log.d("MainActivity", "Current driver ranking : ${it.body()}")
+            }
+            ConstructorRankingRepository.getCurrentConstructorRanking().collect {
+                Log.d("MainActivity", "Current constructor ranking : ${it.body()}")
+            }
+
+
         }
     }
 }

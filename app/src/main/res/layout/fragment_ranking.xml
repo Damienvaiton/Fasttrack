@@ -26,4 +26,11 @@
         android:textColor="#FFFFFF"
         android:textSize="42sp" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRanking"
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:layout_marginTop="140dp"
+        tools:listitem="@layout/ranking_card_item"/>
+
 </FrameLayout>

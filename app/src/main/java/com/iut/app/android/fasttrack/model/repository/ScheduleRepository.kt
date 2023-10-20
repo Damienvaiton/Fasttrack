@@ -14,7 +14,9 @@ object ScheduleRepository {
         emit(ApiManager.apiService.getCurrentSeasonFlow())
     }
 
-    suspend fun getCurrentSeason2(): Response<Schedule> = ApiManager.apiService.getCurrentSeasonFlow()
+    suspend fun getNextRace(): Flow<Response<Schedule>>  = flow {
+        emit(ApiManager.apiService.getNextRace())
+    }
 
 
 }

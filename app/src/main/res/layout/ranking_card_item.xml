@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardRankingQatar"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    app:cardElevation="0dp"
+    android:backgroundTint="@color/clear"
+    app:cardUseCompatPadding="false">
+
+    <ImageView
+        android:id="@+id/divRankingPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/fondpiloteredbull" />
+
+    <ImageView
+        android:id="@+id/imgdriver"
+        android:layout_width="63dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/verstappen" />
+
+    <TextView
+        android:id="@+id/numeroDriver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="31dp"
+        android:fontFamily="@font/leckerli_one"
+        android:text="1"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp" />
+
+
+
+    <TextView
+        android:id="@+id/nameGpSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="M.Verstappen"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp" />
+
+
+    <TextView
+        android:id="@+id/nameConstructorRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="149dp"
+        android:layout_marginTop="53dp"
+        android:fontFamily="@font/lilita_one"
+        android:text="RedBull"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/nbPointPiloteRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="275dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/leckerli_one"
+        android:text="250 pts"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+
+</androidx.cardview.widget.CardView>
