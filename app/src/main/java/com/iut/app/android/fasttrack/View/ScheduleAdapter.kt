@@ -7,8 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.schedule.Location
+import com.iut.app.android.fasttrack.model.schedule.Schedule
 
-class ScheduleAdapter (private val mContacts: List<Location>) : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
+class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Your holder should contain and initialize a member variable
@@ -28,7 +29,7 @@ class ScheduleAdapter (private val mContacts: List<Location>) : RecyclerView.Ada
     // Involves populating data into the item through holder
     override fun onBindViewHolder(viewHolder: ScheduleAdapter.ViewHolder, position: Int) {
         // Get the data model based on position
-        val contact: Location = mContacts.get(position)
+        val contact: Location = calendar.MRData.RaceTable.Races[position].Circuit.Location
         // Set item views based on your views and data model
         val textView = viewHolder.nameTextView
         textView.setText(contact.country)
@@ -36,6 +37,6 @@ class ScheduleAdapter (private val mContacts: List<Location>) : RecyclerView.Ada
 
     // Returns the total count of items in the list
     override fun getItemCount(): Int {
-        return mContacts.size
+        return calendar.MRData.RaceTable.Races.size
     }
 }
