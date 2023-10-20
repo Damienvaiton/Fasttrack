@@ -4,8 +4,9 @@
     android:id="@+id/cardScheduleQatar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/clear"
-    app:cardUseCompatPadding="true">
+    app:cardElevation="0dp"
+    android:backgroundTint="@color/clear"
+    app:cardUseCompatPadding="false">
 
     <ImageView
         android:id="@+id/divSchedulePrincipal"
