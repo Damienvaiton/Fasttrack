@@ -67,12 +67,17 @@ class MainActivity : AppCompatActivity() {
             ScheduleRepository.getCurrentSeason().collect {
                 Log.d("MainActivity", "Current season : ${it.body()}")
             }
+            ScheduleRepository.getNextRace().collect{
+                Log.d("MainActivity", "Next Race : ${it.body()}")
+            }
             DriverRankingRepository.getCurrentDriverRanking().collect {
                 Log.d("MainActivity", "Current driver ranking : ${it.body()}")
             }
             ConstructorRankingRepository.getCurrentConstructorRanking().collect {
                 Log.d("MainActivity", "Current constructor ranking : ${it.body()}")
             }
+
+
         }
     }
 }

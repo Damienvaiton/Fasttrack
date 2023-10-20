@@ -34,7 +34,7 @@ data class Fan (
 
 @Entity
 data class Team (
-   @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "name") val name: String?,
     @ColumnInfo(name = "Driver2Id") val Driver1Id: Int?,
     @ColumnInfo(name = "Driver1Id") val Driver2Id: Int?,
