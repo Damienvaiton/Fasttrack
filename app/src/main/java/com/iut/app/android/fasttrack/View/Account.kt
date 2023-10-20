@@ -22,6 +22,8 @@ class Account : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    var connected: Boolean? = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,7 +37,13 @@ class Account : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false)
+        if(connected == false){
+            return inflater.inflate(R.layout.connexion_page, container, false)
+
+        }
+        else{
+            return inflater.inflate(R.layout.fragment_account, container, false)
+        }
     }
 
     companion object {
