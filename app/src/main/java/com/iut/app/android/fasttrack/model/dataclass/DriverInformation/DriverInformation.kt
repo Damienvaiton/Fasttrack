@@ -1,5 +1,7 @@
 package com.iut.app.android.fasttrack.model.dataclass.DriverInformation
 
+import com.google.gson.annotations.SerializedName
+
 data class DriverInformation(
-    val MRData: MRData
+      @SerializedName("MRData") val mRData: MRData
 )

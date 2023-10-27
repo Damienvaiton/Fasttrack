@@ -1,7 +1,9 @@
 package com.iut.app.android.fasttrack.model.dataclass.schedule
 
+import com.google.gson.annotations.SerializedName
+
 data class MRData(
-    val RaceTable: RaceTable,
+  @SerializedName("RaceTable")  val raceTable: RaceTable,
     val limit: String,
     val offset: String,
     val series: String,

@@ -1,7 +1,9 @@
 package com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking
 
+import com.google.gson.annotations.SerializedName
+
 data class MRData(
-    val StandingsTable: StandingsTable,
+  @SerializedName("StandingsTable")  val standingsTable: StandingsTable,
     val limit: String,
     val offset: String,
     val series: String,
