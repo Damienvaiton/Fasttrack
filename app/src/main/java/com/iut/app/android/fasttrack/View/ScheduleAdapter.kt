@@ -38,7 +38,9 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
         //Get the color from the color.xml and set the color of the card
         val resources: Resources = viewHolder.itemView.context.resources
         val resourceId: Int = resources.getIdentifier(idCircuit, "color", viewHolder.itemView.context.packageName)
-        viewHolder.cardView.setCardBackgroundColor(resources.getColor(resourceId))
+        viewHolder.cardView.setCardBackgroundColor(resourceId)
+
+
 
 
 

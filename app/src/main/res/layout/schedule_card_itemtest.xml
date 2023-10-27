@@ -55,7 +55,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/nameGpSchedule2"
+            android:id="@+id/nameGpSchedule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="145dp"
@@ -64,6 +64,12 @@
             android:text="FastTrack"
             android:textColor="#FFFFFF"
             android:textSize="24sp" />
+
+
+
+
+
+
 
     </androidx.cardview.widget.CardView>
 

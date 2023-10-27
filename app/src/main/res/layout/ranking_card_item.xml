@@ -38,7 +38,7 @@
 
 
     <TextView
-        android:id="@+id/nameGpSchedule"
+        android:id="@+id/nameDriver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="129dp"
@@ -50,7 +50,7 @@
 
 
     <TextView
-        android:id="@+id/nameConstructorRanking"
+        android:id="@+id/nameConstructorDriver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="149dp"
@@ -64,7 +64,7 @@
         android:id="@+id/nbPointPiloteRanking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="275dp"
+        android:layout_marginStart="260dp"
         android:layout_marginTop="35dp"
         android:fontFamily="@font/leckerli_one"
         android:text="250 pts"
