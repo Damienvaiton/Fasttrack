@@ -1,29 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bahrain">#DA1C1C</color>
-    <color name="jeddah">#005430</color>
-    <color name="albert_park">#012169</color>
-    <color name="baku">#00B5E2</color>
-    <color name="miami">#3C3B6E</color>
-    <color name="americas">#3C3B6E</color>
-    <color name="vegas">#3C3B6E</color>
-    <color name="monza">#009246</color>
-    <color name="monaco">#CE1126</color>
-    <color name="catalunya">#FFC400</color>
-    <color name="villeneuve">#D52B1E</color>
+    <color name="barhein">#C50C0C</color>
+    <color name="saudi_arabia">#005430</color>
+    <color name="australia">#012169</color>
+    <color name="Azerbaijan">#00B5E2</color>
+    <color name="USA">#282774</color>
+    <color name="Italy">#02CA16</color>
+    <color name="Monaco">#CE1126</color>
+    <color name="Spain">#FFB800</color>
+    <color name="Canada">#D52B1E</color>
     <color name="France">#002654</color>
-    <color name="red_bull_ring">#C8102E</color>
-    <color name="silverstone">#012169</color>
-    <color name="hungaroring">#477050</color>
-    <color name="spa">#FDDA25</color>
-    <color name="zandvoort">#21468B</color>
-    <color name="marina_bay">#ED2939</color>
-    <color name="suzuka">#BC002D</color>
-    <color name="losail">#681639</color>
-    <color name="rodriguez">#006545</color>
-    <color name="interlagos">#009638</color>
-    <color name="yas_marina">#000000</color>
+    <color name="Austria">#C8102E</color>
+    <color name="UK">#012169</color>
+    <color name="Hungary">#276033</color>
+    <color name="Belgium">#FDDA25</color>
+    <color name="Netherlands">#FC6500</color>
+    <color name="Singapore">#ED2939</color>
+    <color name="Japan">#BC002D</color>
+    <color name="Quatar">#681639</color>
+    <color name="Mexico">#006545</color>
+    <color name="Brazil">#009638</color>
+    <color name="Abu_Dhabi">#000000</color>
 
-
-
+    <color name="barhein2">#CA3D3D</color>
+    <color name="saudi_arabia2">#017F49</color>
+    <color name="australia2">#02329F</color>
+    <color name="Azerbaijan2">#5EBA38</color>
+    <color name="USA2">#3938A7</color>
+    <color name="Italy2">#5BDE68</color>
+    <color name="Monaco2">#E22036</color>
+    <color name="Spain2">#FFCC48</color>
+    <color name="Canada2">#EA2F21</color>
+    <color name="France2">#153E6F</color>
+    <color name="Austria2">#E42242</color>
+    <color name="UK2">#01319E</color>
+    <color name="Hungary2">#357D45</color>
+    <color name="Belgium2">#DDBF26</color>
+    <color name="Netherlands2">#FF8838</color>
+    <color name="Singapore2">#EB5965</color>
+    <color name="Japan2">#DF0035</color>
+    <color name="Quatar2">#932051</color>
+    <color name="Mexico2">#008E61</color>
+    <color name="Brazil2">#01B946</color>
+    <color name="Abu_Dhabi2">#2B2B2B</color>
 </resources>
