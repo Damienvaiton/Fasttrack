@@ -34,27 +34,27 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         // Get the data model based on position
 
 
-        val PrenomDriver = ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings[position].Driver.givenName.get(0)
-        val NomDriver = ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings[position].Driver.familyName
+        val prenomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.givenName
+        val nomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.familyName
 
-        val NomTeam = ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings[position].Constructors[0].name
-        val points = ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings[position].points
+        val nomTeam = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].constructors[0].name
+        val points =  ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].points
 
         // Set item views based on your views and data model
-        val NomDriverTextView = viewHolder.nameDriver
+        val nomDriverTextView = viewHolder.nameDriver
         val positionClassementTextView = viewHolder.positionRanking
-        val NomTeamTextView = viewHolder.nameTeam
+        val nomTeamTextView = viewHolder.nameTeam
         val pointsTextView = viewHolder.points
 
         //
-        NomDriverTextView.setText(PrenomDriver + ". " + NomDriver)
-        NomTeamTextView.setText(NomTeam)
+        nomDriverTextView.setText(prenomDriver + ". " + nomDriver)
+        nomTeamTextView.setText(nomTeam)
         pointsTextView.setText(points+ " pts")
         positionClassementTextView.setText(position.plus(1).toString())
     }
 
     // Returns the total count of items in the list
     override fun getItemCount(): Int {
-        return ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings.size
+        return ranking.mRData.standingsTable.standingsLists[0].driverStandings.size
     }
 }
