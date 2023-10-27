@@ -1,7 +1,7 @@
 package com.iut.app.android.fasttrack.model.repository
 
 import com.iut.app.android.fasttrack.model.manager.ApiManager
-import com.iut.app.android.fasttrack.model.schedule.Schedule
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.model.service.ApiService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect

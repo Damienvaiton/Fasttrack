@@ -1,14 +1,18 @@
 package com.iut.app.android.fasttrack.View
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.schedule.Location
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Location
+import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +29,7 @@ class Schedule : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    lateinit var contacts: ArrayList<Location>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,14 +51,40 @@ class Schedule : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val rvContacts = view.findViewById(R.id.rvSchedule) as RecyclerView
 
-        contacts = Location.createContactsList(20)
+        val scheduleViewModel by activityViewModels<ScheduleViewModel>()
 
-        val adapter = ScheduleAdapter(contacts)
 
-        rvContacts.adapter = adapter
 
-        rvContacts.layoutManager = LinearLayoutManager(this.context)
+        scheduleViewModel.fetchCurrentSeason()
 
+        scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) {response ->
+
+            val calendar = response?.body()
+            calendar?.let {
+                val adapter = ScheduleAdapter(it)
+
+                rvContacts.adapter = adapter
+
+                rvContacts.layoutManager = LinearLayoutManager(this.context)
+            }
+
+
+        }
+
+
+        
+
+
+
+    }
+
+    fun getCorrectFormatDate(date: String): ArrayList<String>{
+        val dateList = date.split("-")
+        val year = dateList[0]
+        val month = dateList[1]
+        val day = dateList[2]
+        val correctDate = arrayListOf<String>(day, month, year)
+        return correctDate
     }
 
     companion object {

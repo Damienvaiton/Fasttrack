@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.schedule.Location
-import com.iut.app.android.fasttrack.model.schedule.Sprint
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Location
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
+import com.iut.app.android.fasttrack.viewModel.RankingViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,13 +50,23 @@ class Ranking : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val rvContacts = view.findViewById(R.id.rvRanking) as RecyclerView
 
-        contacts = Sprint.createContactsList(20)
+        val rankingViewModel by activityViewModels<RankingViewModel>()
 
-        val adapter = RankingAdapter(contacts)
+        rankingViewModel.fetchDriverRanking()
 
-        rvContacts.adapter = adapter
 
-        rvContacts.layoutManager = LinearLayoutManager(this.context)
+        rankingViewModel.driverLiveDataRanking.observe(viewLifecycleOwner) {response ->
+
+            val Ranking = response
+
+            val adapter = RankingAdapter(Ranking)
+
+            rvContacts.adapter = adapter
+
+            rvContacts.layoutManager = LinearLayoutManager(this.context)
+        }
+
+
 
     }
 

@@ -49,6 +49,6 @@
         android:fontFamily="@font/leckerli_one"
         android:text="FastTrack"
         android:textColor="#FFFFFF"
-        android:textSize="32sp" />
+        android:textSize="24sp" />
 
 </androidx.cardview.widget.CardView>
