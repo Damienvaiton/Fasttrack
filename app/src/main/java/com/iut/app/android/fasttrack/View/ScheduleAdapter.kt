@@ -34,11 +34,13 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
     override fun onBindViewHolder(viewHolder: ScheduleAdapter.ViewHolder, position: Int) {
         // Get the data model based on position
         val idCircuit = calendar.MRData.RaceTable.Races[position].Circuit.circuitId
+        Log.e("idCircuit", idCircuit)
 
         //Get the color from the color.xml and set the color of the card
         val resources: Resources = viewHolder.itemView.context.resources
         val resourceId: Int = resources.getIdentifier(idCircuit, "color", viewHolder.itemView.context.packageName)
-        viewHolder.cardView.setCardBackgroundColor(resourceId)
+        Log.e("color", resourceId.toString())
+        viewHolder.cardView.setCardBackgroundColor(resources.getColor(resourceId, null))
 
 
 

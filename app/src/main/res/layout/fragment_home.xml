@@ -41,7 +41,7 @@
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="180dp"
         android:src="@drawable/rectrouge"
-        app:tint="@color/Japan"/>
+        app:tint="@color/suzuka"/>
 
     <ImageView
         android:id="@+id/divNextGpInfos"
