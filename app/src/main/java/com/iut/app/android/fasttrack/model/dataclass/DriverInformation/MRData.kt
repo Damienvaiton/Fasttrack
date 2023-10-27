@@ -1,7 +1,7 @@
-package com.iut.app.android.fasttrack.model.schedule
+package com.iut.app.android.fasttrack.model.dataclass.DriverInformation
 
 data class MRData(
-    val RaceTable: RaceTable,
+    val DriverTable: DriverTable,
     val limit: String,
     val offset: String,
     val series: String,

@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.model.Rankings.DriverRanking
+package com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking
 
 data class Driver(
     val code: String,
@@ -7,6 +7,6 @@ data class Driver(
     val familyName: String,
     val givenName: String,
     val nationality: String,
-    val permanentNumber: String,
+    val permanentNumber: String?,
     val url: String
 )

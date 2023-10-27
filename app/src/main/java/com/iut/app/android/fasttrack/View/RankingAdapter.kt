@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.schedule.Sprint
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
 
 class RankingAdapter(private val mContacts: List<Sprint>) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
 

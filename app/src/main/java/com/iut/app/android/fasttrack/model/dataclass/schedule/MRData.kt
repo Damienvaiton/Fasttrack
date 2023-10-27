@@ -1,7 +1,7 @@
-package com.iut.app.android.fasttrack.model.Rankings.ConstructorRanking
+package com.iut.app.android.fasttrack.model.dataclass.schedule
 
 data class MRData(
-    val StandingsTable: StandingsTable,
+    val RaceTable: RaceTable,
     val limit: String,
     val offset: String,
     val series: String,

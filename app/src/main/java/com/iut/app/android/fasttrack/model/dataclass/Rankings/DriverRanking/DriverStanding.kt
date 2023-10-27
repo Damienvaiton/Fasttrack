@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.model.Rankings.DriverRanking
+package com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking
 
 data class DriverStanding(
     val Constructors: List<Constructor>,

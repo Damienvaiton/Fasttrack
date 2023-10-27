@@ -1,8 +1,8 @@
 package com.iut.app.android.fasttrack.model.service
 
-import com.iut.app.android.fasttrack.model.Rankings.ConstructorRanking.ConstructorRanking
-import com.iut.app.android.fasttrack.model.Rankings.DriverRanking.DriverRanking
-import com.iut.app.android.fasttrack.model.schedule.Schedule
+import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.ConstructorRanking
+import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.DriverRanking
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import retrofit2.Response
 import retrofit2.http.*
 

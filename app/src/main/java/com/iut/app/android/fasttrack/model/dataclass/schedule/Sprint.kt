@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.model.schedule
+package com.iut.app.android.fasttrack.model.dataclass.schedule
 
 data class Sprint(
     val date: String,

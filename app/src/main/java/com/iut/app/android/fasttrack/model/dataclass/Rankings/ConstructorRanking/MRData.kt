@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.model.Rankings.DriverRanking
+package com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking
 
 data class MRData(
     val StandingsTable: StandingsTable,

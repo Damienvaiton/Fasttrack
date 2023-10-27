@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.schedule.Location
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Location
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
 
 // TODO: Rename parameter arguments, choose names that match
@@ -72,7 +72,19 @@ class Schedule : Fragment() {
         }
 
 
+        
 
+
+
+    }
+
+    fun getCorrectFormatDate(date: String): ArrayList<String>{
+        val dateList = date.split("-")
+        val year = dateList[0]
+        val month = dateList[1]
+        val day = dateList[2]
+        val correctDate = arrayListOf<String>(day, month, year)
+        return correctDate
     }
 
     companion object {

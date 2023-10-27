@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.model.Rankings.ConstructorRanking
+package com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking
 
 data class ConstructorStanding(
     val Constructor: Constructor,

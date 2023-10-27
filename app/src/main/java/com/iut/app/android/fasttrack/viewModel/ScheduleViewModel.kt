@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.iut.app.android.fasttrack.model.repository.ScheduleRepository
-import com.iut.app.android.fasttrack.model.schedule.Schedule
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import retrofit2.Response
