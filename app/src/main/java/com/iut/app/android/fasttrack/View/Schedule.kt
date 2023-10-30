@@ -59,6 +59,7 @@ class Schedule : Fragment() {
 
         scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) {response ->
 
+
             val calendar = response?.body()
             calendar?.let {
                 val adapter = ScheduleAdapter(it)

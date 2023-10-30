@@ -29,19 +29,16 @@ class ScheduleViewModel : ViewModel() {
         }
     }
 
-    fun getCurrentSeason(): LiveData<Response<Schedule>>{
-        var livedata = MutableLiveData<Response<Schedule>>()
-
+    fun getnextRace(){
         viewModelScope.launch {
-            val data = ScheduleRepository.getCurrentSeason()
-            data.catch { e ->
-                Log.e("ScheduleViewModel", "getCurrentSeason: ${e.message}")
-            }.collect {
-                livedata.postValue(it)
-            }
-
+            ScheduleRepository.getNextRace()
+                .catch {
+                    Log.e("ScheduleViewModel", "fetchCurrentSeason: ${it.message}")
+                }
+                .collect {
+                    _currentSeasonLiveData.postValue(it)
+                }
         }
-
-        return livedata
     }
+
 }

@@ -34,7 +34,7 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         // Get the data model based on position
 
 
-        val prenomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.givenName
+        val prenomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.givenName.get(0)
         val nomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.familyName
 
         val nomTeam = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].constructors[0].name
