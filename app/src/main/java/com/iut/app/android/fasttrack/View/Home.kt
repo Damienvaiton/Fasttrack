@@ -9,7 +9,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import com.google.gson.JsonObject
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.model.dataclass.schedule.RaceTable
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
+import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
 import java.text.DateFormatSymbols
 import kotlin.math.log
@@ -58,6 +62,7 @@ class Home : Fragment() {
 
 
         val scheduleViewModel by activityViewModels<ScheduleViewModel>()
+        val homeViewModel by activityViewModels<HomeViewModel>()
 
 
         scheduleViewModel.getnextRace()
@@ -70,12 +75,15 @@ class Home : Fragment() {
             if (nextRace != null) {
                 val idCircuit = nextRace.mRData.raceTable.races[0].circuit.circuitId
                 val resources = view.context.resources
-                val resourceId = resources.getIdentifier(idCircuit, "color", view.context.packageName)
-                val resourceID2 = resources.getIdentifier(idCircuit+"2", "color", view.context.packageName)
+                val resourceId =
+                    resources.getIdentifier(idCircuit, "color", view.context.packageName)
+                val resourceID2 =
+                    resources.getIdentifier(idCircuit + "2", "color", view.context.packageName)
                 card.setColorFilter(resources.getColor(resourceId, null))
                 Log.e("color", idCircuit)
                 card2.setColorFilter(resources.getColor(resourceID2, null))
 
+                val Schedule = homeViewModel.getScheduleofTheRace(nextRace.mRData.raceTable)
             }
 
 
@@ -83,10 +91,10 @@ class Home : Fragment() {
                 countryGp.setText(nextRace.mRData.raceTable.races[0].circuit.location.country)
             }
             if (nextRace != null) {
-                nameGp.setText(nextRace.mRData.raceTable.races[0].raceName)
+                nameGp.setText(homeViewModel.correctNameGP(nextRace.mRData.raceTable.races[0].raceName))
             }
             if (nextRace != null) {
-                val correctDate = writeDate(nextRace.mRData.raceTable.races[0].firstPractice.date,nextRace.mRData.raceTable.races[0].date)
+                val correctDate = homeViewModel.writeDate(nextRace.mRData.raceTable.races[0].firstPractice.date,nextRace.mRData.raceTable.races[0].date)
                 dateGp.setText(correctDate)
             }
 
@@ -94,13 +102,9 @@ class Home : Fragment() {
 
     }
 
-    fun writeDate(dateFirst: String,dateRace:String): String {
-        val month = dateFirst.substring(5,7)
-        val daystart = dateFirst.substring(8,10)
-        val dayend = dateRace.substring(8,10)
-        val monthName: String = DateFormatSymbols().months[month.toInt()-1].subSequence(0,3).toString().uppercase()
-        return daystart+ "-"+ dayend + " " + monthName;
-    }
+
+
+
 
 
     companion object {
