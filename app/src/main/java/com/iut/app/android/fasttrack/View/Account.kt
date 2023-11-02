@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.room.Database
+import androidx.room.Room
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.model.room.MyDatabase
+import com.iut.app.android.fasttrack.model.room.users.FanDAO
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +26,14 @@ class Account : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+
+    //Database
+    var myDatabase : MyDatabase? = null
+    var fanDAO : FanDAO? = null
+
+
+
 
     var connected: Boolean? = false
 
@@ -44,6 +57,25 @@ class Account : Fragment() {
         else{
             return inflater.inflate(R.layout.fragment_account, container, false)
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        val signupbtn = view.findViewById<Button>(R.id.signupbtn)
+
+        signupbtn.setOnClickListener {
+            val fragment = Signup()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+
+
+
     }
 
     companion object {

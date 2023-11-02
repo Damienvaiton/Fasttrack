@@ -1,0 +1,19 @@
+package com.iut.app.android.fasttrack.model.room
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import com.iut.app.android.fasttrack.model.room.users.Fan
+import com.iut.app.android.fasttrack.model.room.users.FanDAO
+import com.iut.app.android.fasttrack.model.room.users.User
+
+@Database(entities = [Fan::class, User::class], version = 1)
+abstract class MyDatabase : RoomDatabase() {
+    abstract fun getDao(): FanDAO
+
+    companion object {
+        // Singleton prevents multiple instances of database opening at the
+        // same time.
+        @Volatile
+        private var INSTANCE: MyDatabase? = null
+    }
+}
