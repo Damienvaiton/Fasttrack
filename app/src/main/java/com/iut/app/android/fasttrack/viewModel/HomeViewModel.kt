@@ -31,9 +31,9 @@ class HomeViewModel : ViewModel() {
         return daystart+ "-"+ dayend + " " + monthName;
     }
 
-    fun getScheduleofTheRace(nextRace : RaceTable?):ArrayList<Seance>{
+    fun getScheduleofTheRace(nextRace : RaceTable?, position : Int): ArrayList<Seance>{
         if (nextRace != null){
-            val race = nextRace.races[0]
+            val race = nextRace.races[position]
             // verifions que le champ Sprint existe dans le json nextRace
             val FP1 = createSeance("FP1", race.firstPractice.date,race.firstPractice.time)
             val FP2 = createSeance("FP2", race.secondPractice.date, race.secondPractice.time)

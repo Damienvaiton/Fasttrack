@@ -45,14 +45,14 @@
 
         <TextView
             android:id="@+id/DateGPSchedule"
-            android:layout_width="wrap_content"
+            android:layout_width="86dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
+            android:layout_marginStart="250dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/leckerli_one"
             android:text="Date"
             android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/nameGpSchedule"

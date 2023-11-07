@@ -83,7 +83,7 @@ class Home : Fragment() {
                 Log.e("color", idCircuit)
                 card2.setColorFilter(resources.getColor(resourceID2, null))
 
-                val Schedule = homeViewModel.getScheduleofTheRace(nextRace.mRData.raceTable)
+                val Schedule = homeViewModel.getScheduleofTheRace(nextRace.mRData.raceTable,0)
             }
 
 
