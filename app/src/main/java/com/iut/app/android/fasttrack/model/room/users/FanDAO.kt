@@ -14,8 +14,11 @@ interface FanDAO {
     @Query("SELECT EXISTS(SELECT * FROM fanTable WHERE mail = :mail)")
     fun isFan(mail: String): Boolean
 
-    @Query("SELECT * FROM fanTable WHERE mail = :mail AND password = :password")
+    @Query("SELECT EXISTS(SELECT * FROM fanTable WHERE mail = :mail AND password = :password)")
     fun login(mail: String, password: String): Boolean
+
+    @Query("SELECT * FROM fanTable WHERE mail = :mail")
+    fun getFanByMail(mail: String): Fan
 
 
 }

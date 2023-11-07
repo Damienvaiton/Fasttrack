@@ -1,13 +1,12 @@
-package com.iut.app.android.fasttrack.View
-
+package com.iut.app.android.fasttrack.View.Fragements.Profil
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.room.Room
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.room.MyDatabase
@@ -69,7 +68,13 @@ class Signup : Fragment() {
             }
             else{
             if (usernameTV.text.toString() != "" && passwordTV.text.toString() != "") {
-                val fan = Fan(0,"Test","prenomtest" , usernameTV.text.toString(), passwordTV.text.toString())
+                val fan = Fan(
+                    0,
+                    "Test",
+                    "prenomtest",
+                    usernameTV.text.toString(),
+                    passwordTV.text.toString()
+                )
                 fanDAO!!.insertFan(fan)
                 connected = true
             }
@@ -78,7 +83,7 @@ class Signup : Fragment() {
             }
 
 
-            val fragment = Account()
+            val fragment = Login()
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_layout, fragment)
             transaction.addToBackStack(null)
