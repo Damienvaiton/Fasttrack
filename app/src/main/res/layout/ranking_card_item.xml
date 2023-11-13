@@ -3,37 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardRankingQatar"
     android:layout_width="match_parent"
-    android:layout_height="90dp"
+    android:layout_height="160dp"
     app:cardElevation="0dp"
     android:backgroundTint="@color/clear"
     app:cardUseCompatPadding="false">
 
     <ImageView
         android:id="@+id/divRankingPrincipal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_width="379dp"
+        android:layout_height="match_parent"
         android:layout_marginHorizontal="15dp"
         android:layout_marginBottom="15dp"
-        android:src="@drawable/fondpiloteredbull" />
+        android:src="@drawable/fondpilote" />
+
+    <ImageView
+        android:id="@+id/imgteam"
+        android:layout_width="123dp"
+        android:layout_height="68dp"
+        android:layout_marginLeft="185dp"
+        android:layout_marginTop="23dp"
+        android:alpha="0.6"
+        android:src="@drawable/red_bull" />
 
     <ImageView
         android:id="@+id/imgdriver"
-        android:layout_width="63dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="23dp"
-        android:src="@drawable/verstappen" />
+        android:layout_width="230dp"
+        android:layout_height="147dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="210dp"
+        android:layout_marginBottom="21dp"
+        android:src="@drawable/verstappen2" />
 
     <TextView
         android:id="@+id/numeroDriver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
-        android:layout_marginTop="31dp"
-        android:fontFamily="@font/leckerli_one"
-        android:text="1"
+        android:layout_marginTop="81dp"
+        android:fontFamily="@font/major_mono_display"
+        android:text="01"
         android:textColor="#FFFFFF"
-        android:textSize="28sp" />
+        android:textSize="36sp" />
 
 
 
@@ -41,10 +51,10 @@
         android:id="@+id/nameDriver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="129dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/monomaniac"
-        android:text="M.Verstappen"
+        android:text="Verstappen"
         android:textColor="#FFFFFF"
         android:textSize="28sp" />
 
@@ -53,22 +63,22 @@
         android:id="@+id/nameConstructorDriver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="149dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="43dp"
         android:fontFamily="@font/lilita_one"
         android:text="RedBull"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/redbull"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/nbPointPiloteRanking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="103dp"
         android:fontFamily="@font/leckerli_one"
         android:text="250 pts"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/redbull"
         android:textSize="20sp" />
 
 
