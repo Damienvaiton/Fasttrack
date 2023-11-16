@@ -1,5 +1,6 @@
 package com.iut.app.android.fasttrack.View.Fragements.Profil
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -73,6 +74,14 @@ class Signup : Fragment() {
 
                 if (fanDAO!!.isFan(usernameTV.text.toString())) {
                     connected = false
+                   /* val builder = AlertDialog.Builder(requireContext())
+                    builder.setTitle("Erreur")
+                    builder.setMessage("Ce nom d'utilisateur existe déjà")
+                    builder.setPositiveButton("OK") { dialog, which ->
+                        dialog.dismiss()
+                    }
+                    val dialog: AlertDialog = builder.create()
+                    dialog.show()*/
                 } else {
                     if (usernameTV.text.toString() != "" && passwordTV.text.toString() != "") {
                         val fan = Fan(
