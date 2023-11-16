@@ -11,7 +11,7 @@ import com.iut.app.android.fasttrack.model.room.users.User
 
 @Database(entities = [Fan::class, User::class], version = 1)
 abstract class MyDatabase : RoomDatabase() {
-    abstract val applicationContext: Context
+
 
     abstract fun getDao(): FanDAO
 

@@ -8,12 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.room.CoroutinesRoom
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.room.MyDatabase
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,8 +84,10 @@ class Login : Fragment() {
         loginbtn.setOnClickListener {
             val usernameTV = view.findViewById<TextView>(R.id.username)
             val passwordTV = view.findViewById<TextView>(R.id.password)
+
             myDatabase = MyDatabase.getDatabase()
             fanDAO = myDatabase!!.getDao()
+
             Log.e("Connected", fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString()).toString())
 
             if(fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())){

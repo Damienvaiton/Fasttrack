@@ -12,6 +12,9 @@ import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.room.MyDatabase
 import com.iut.app.android.fasttrack.model.room.users.Fan
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 private const val ARG_PARAM1 = "param1"
@@ -26,8 +29,8 @@ class Signup : Fragment() {
 
 
     //Database
-    var myDatabase : MyDatabase? = null
-    var fanDAO : FanDAO? = null
+    var myDatabase: MyDatabase? = null
+    var fanDAO: FanDAO? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +41,7 @@ class Signup : Fragment() {
         }
 
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,8 +55,10 @@ class Signup : Fragment() {
 
 
         //Database
+
         myDatabase = MyDatabase.getDatabase()
         fanDAO = myDatabase!!.getDao()
+
 
         //Find elements
         val usernameTV = view.findViewById<TextView>(R.id.username)
@@ -62,33 +68,34 @@ class Signup : Fragment() {
 
         buttonEnregistrer.setOnClickListener {
 
-            if(fanDAO!!.isFan(usernameTV.text.toString())){
-                connected = false
-            }
-            else{
-            if (usernameTV.text.toString() != "" && passwordTV.text.toString() != "") {
-                val fan = Fan(
-                    0,
-                    "Test",
-                    "prenomtest",
-                    usernameTV.text.toString(),
-                    passwordTV.text.toString()
-                )
-                fanDAO!!.insertFan(fan)
-                connected = true
-            }
-            else{
-                connected = false
-            }
+
+            CoroutineScope(Dispatchers.IO).launch {
+
+                if (fanDAO!!.isFan(usernameTV.text.toString())) {
+                    connected = false
+                } else {
+                    if (usernameTV.text.toString() != "" && passwordTV.text.toString() != "") {
+                        val fan = Fan(
+                            0,
+                            "Test",
+                            "prenomtest",
+                            usernameTV.text.toString(),
+                            passwordTV.text.toString()
+                        )
+                        fanDAO!!.insertFan(fan)
+                        connected = true
+                    } else {
+                        connected = false
+                    }
 
 
-            val fragment = Login()
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
+                    val fragment = Login()
+                    val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.frame_layout, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                }
+            }
         }
     }
-
 }
