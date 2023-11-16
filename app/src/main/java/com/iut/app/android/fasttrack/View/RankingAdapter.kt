@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.DriverRanking
-import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
 
 class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
 
@@ -56,6 +55,7 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         val colorgold: Int = resources.getIdentifier("gold", "color", viewHolder.itemView.context.packageName)
         val colorargent: Int = resources.getIdentifier("argent", "color", viewHolder.itemView.context.packageName)
         val colorbronze: Int = resources.getIdentifier("bronze", "color", viewHolder.itemView.context.packageName)
+        val colorwhite: Int = resources.getIdentifier("white", "color", viewHolder.itemView.context.packageName)
         val resourceLogoConstructor: Int = resources.getIdentifier(constructorId, "drawable", viewHolder.itemView.context.packageName)
         val resourcePhoto: Int = resources.getIdentifier(IdDriver, "drawable", viewHolder.itemView.context.packageName)
         val positionClassementTextView = viewHolder.positionRanking
@@ -73,16 +73,23 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         pointsTextView.setText(points+ " pts")
         positionClassementTextView.setText(position.plus(1).toString())
 
-        val rank = position
-        if (rank == 0){
+
+
+        if (position == 0){
             positionClassementTextView.setTextColor(resources.getColor(colorgold, null))
         }
-        if (rank == 1){
+        else if (position == 1){
             positionClassementTextView.setTextColor(resources.getColor(colorargent, null))
         }
-        if (rank == 2){
+        else if (position == 2){
             positionClassementTextView.setTextColor(resources.getColor(colorbronze, null))
         }
+        else{
+            positionClassementTextView.setTextColor(resources.getColor(colorwhite, null))
+        }
+
+
+
 
         PhotoDriver.setImageDrawable(resources.getDrawable(resourcePhoto, null))
         PhotoTeam.setImageDrawable(resources.getDrawable(resourceLogoConstructor, null))
