@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.View
+package com.iut.app.android.fasttrack.View.Fragements.Rankings
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.DriverRanking
-import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
 
 class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
 
@@ -20,7 +20,7 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         val points = itemView.findViewById<TextView>(R.id.nbPointPiloteRanking)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RankingAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         // Inflate the custom layout
@@ -30,10 +30,13 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
     }
 
     // Involves populating data into the item through holder
-    override fun onBindViewHolder(viewHolder: RankingAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         // Get the data model based on position
 
+        viewHolder.itemView.setOnClickListener {
+            CacheDataSource.setDriver(ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver)
 
+        }
         val prenomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.givenName.get(0)
         val nomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.familyName
 

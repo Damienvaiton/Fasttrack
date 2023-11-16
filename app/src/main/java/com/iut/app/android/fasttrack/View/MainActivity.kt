@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.View.Fragements.Profil.Login
 import com.iut.app.android.fasttrack.View.Fragements.Profil.Account
+import com.iut.app.android.fasttrack.View.Fragements.Rankings.Ranking
 import com.iut.app.android.fasttrack.databinding.ActivityMainBinding
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.repository.ConstructorRankingRepository

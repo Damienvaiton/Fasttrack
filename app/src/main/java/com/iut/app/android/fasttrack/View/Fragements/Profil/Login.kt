@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.room.MyDatabase
@@ -79,8 +80,7 @@ class Login : Fragment() {
         loginbtn.setOnClickListener {
             val usernameTV = view.findViewById<TextView>(R.id.username)
             val passwordTV = view.findViewById<TextView>(R.id.password)
-            myDatabase = Room.databaseBuilder(requireContext(), MyDatabase::class.java, "fanTable")
-                .allowMainThreadQueries().build()
+            myDatabase = MyDatabase.getDatabase()
             fanDAO = myDatabase!!.getDao()
             Log.e("Connected", fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString()).toString())
 

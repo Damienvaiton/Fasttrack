@@ -51,8 +51,7 @@ class Signup : Fragment() {
 
 
         //Database
-        myDatabase = Room.databaseBuilder(requireContext(), MyDatabase::class.java, "fanTable")
-            .allowMainThreadQueries().build()
+        myDatabase = MyDatabase.getDatabase()
         fanDAO = myDatabase!!.getDao()
 
         //Find elements
