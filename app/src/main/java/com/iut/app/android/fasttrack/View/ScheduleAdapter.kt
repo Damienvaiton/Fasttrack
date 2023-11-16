@@ -40,6 +40,8 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
     override fun onBindViewHolder(viewHolder: ScheduleAdapter.ViewHolder, position: Int) {
         // Get the data model based on position
         val race = calendar.mRData.raceTable.races[position]
+        viewHolder.itemView.setOnClickListener {
+        }
         val idCircuit = race.circuit.circuitId
         Log.e("idCircuit", idCircuit)
 
@@ -70,6 +72,8 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
         countryTextView.setText(contact.country)
         dateTextView.setText(date)
     }
+
+
 
     // Returns the total count of items in the list
     override fun getItemCount(): Int {
