@@ -17,7 +17,7 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         // Your holder should contain and initialize a member variable
         // for any view that will be set as you render a row
         val nameDriver = itemView.findViewById<TextView>(R.id.nameDriver)
-        val positionRanking = itemView.findViewById<TextView>(R.id.numeroDriver)
+        val positionRanking = itemView.findViewById<TextView>(R.id.rankingDriver)
         val nameTeam = itemView.findViewById<TextView>(R.id.nameConstructorDriver)
         val points = itemView.findViewById<TextView>(R.id.nbPointPiloteRanking)
         val background = itemView.findViewById<ImageView>(R.id.divRankingPrincipal2)
@@ -53,6 +53,9 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         val NomDriverTextView = viewHolder.nameDriver
         val resources: Resources = viewHolder.itemView.context.resources
         val resourceId: Int = resources.getIdentifier(constructorId, "color", viewHolder.itemView.context.packageName)
+        val colorgold: Int = resources.getIdentifier("gold", "color", viewHolder.itemView.context.packageName)
+        val colorargent: Int = resources.getIdentifier("argent", "color", viewHolder.itemView.context.packageName)
+        val colorbronze: Int = resources.getIdentifier("bronze", "color", viewHolder.itemView.context.packageName)
         val resourceLogoConstructor: Int = resources.getIdentifier(constructorId, "drawable", viewHolder.itemView.context.packageName)
         val resourcePhoto: Int = resources.getIdentifier(IdDriver, "drawable", viewHolder.itemView.context.packageName)
         val positionClassementTextView = viewHolder.positionRanking
@@ -69,6 +72,17 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         NomTeamTextView.setText(NomTeam)
         pointsTextView.setText(points+ " pts")
         positionClassementTextView.setText(position.plus(1).toString())
+
+        val rank = position
+        if (rank == 0){
+            positionClassementTextView.setTextColor(resources.getColor(colorgold, null))
+        }
+        if (rank == 1){
+            positionClassementTextView.setTextColor(resources.getColor(colorargent, null))
+        }
+        if (rank == 2){
+            positionClassementTextView.setTextColor(resources.getColor(colorbronze, null))
+        }
 
         PhotoDriver.setImageDrawable(resources.getDrawable(resourcePhoto, null))
         PhotoTeam.setImageDrawable(resources.getDrawable(resourceLogoConstructor, null))

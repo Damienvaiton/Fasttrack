@@ -10,4 +10,8 @@
     <color name="alphatauri">#373366</color>
     <color name="aston_martin">#007349</color>
     <color name="williams">#00A3E0</color>
+
+    <color name="gold">#FFD645</color>
+    <color name="argent">#999999</color>
+    <color name="bronze">#A96F00</color>
 </resources>
