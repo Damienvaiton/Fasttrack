@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="redbull">#0D285B</color>
+    <color name="red_bull">#1648AC</color>
     <color name="ferrari">#E30000</color>
     <color name="mercedes">#00BAAF</color>
     <color name="mclaren">#FF4D00</color>
     <color name="alpine">#00A3FF</color>
     <color name="haas">#AA0007</color>
-    <color name="alpha_romeo">#9D2235</color>
-    <color name="alpha_tauri">#011220</color>
+    <color name="alfa">#9D2235</color>
+    <color name="alphatauri">#373366</color>
     <color name="aston_martin">#007349</color>
     <color name="williams">#00A3E0</color>
+
+    <color name="gold">#FFD645</color>
+    <color name="argent">#999999</color>
+    <color name="bronze">#A96F00</color>
 </resources>
