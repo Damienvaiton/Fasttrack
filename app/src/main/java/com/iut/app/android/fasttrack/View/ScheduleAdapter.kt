@@ -33,25 +33,27 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
     // Involves populating data into the item through holder
     override fun onBindViewHolder(viewHolder: ScheduleAdapter.ViewHolder, position: Int) {
         // Get the data model based on position
-        val idCircuit = calendar.MRData.RaceTable.Races[position].Circuit.circuitId
+        val idCircuit = calendar.mRData.raceTable.races[position].circuit.circuitId
+        Log.e("idCircuit", idCircuit)
 
         //Get the color from the color.xml and set the color of the card
         val resources: Resources = viewHolder.itemView.context.resources
         val resourceId: Int = resources.getIdentifier(idCircuit, "color", viewHolder.itemView.context.packageName)
-        viewHolder.cardView.setCardBackgroundColor(resourceId)
+        Log.e("color", resourceId.toString())
+        viewHolder.cardView.setCardBackgroundColor(resources.getColor(resourceId, null))
 
 
 
 
 
-        val contact: Location = calendar.MRData.RaceTable.Races[position].Circuit.Location
+        val contact: Location = calendar.mRData.raceTable.races[position].circuit.location
         // Set item views based on your views and data model
-        val CountryTextView = viewHolder.nameGPTextView
-        CountryTextView.setText(contact.country)
+        val countryTextView = viewHolder.nameGPTextView
+        countryTextView.setText(contact.country)
     }
 
     // Returns the total count of items in the list
     override fun getItemCount(): Int {
-        return calendar.MRData.RaceTable.Races.size
+        return calendar.mRData.raceTable.races.size
     }
 }

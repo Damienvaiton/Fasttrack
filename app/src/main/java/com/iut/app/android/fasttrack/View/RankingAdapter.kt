@@ -59,7 +59,7 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         val resourceLogoConstructor: Int = resources.getIdentifier(constructorId, "drawable", viewHolder.itemView.context.packageName)
         val resourcePhoto: Int = resources.getIdentifier(IdDriver, "drawable", viewHolder.itemView.context.packageName)
         val positionClassementTextView = viewHolder.positionRanking
-        val NomTeamTextView = viewHolder.nameTeam
+        val nomTeamTextView = viewHolder.nameTeam
         val pointsTextView = viewHolder.points
         val backgroundPilote = viewHolder.background
         val ConstructorName = viewHolder.constructorName
@@ -68,8 +68,8 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         val PhotoTeam = viewHolder.phototeam
 
         //
-        NomDriverTextView.setText(PrenomDriver + ". " + NomDriver)
-        NomTeamTextView.setText(NomTeam)
+        nomDriverTextView.setText(prenomDriver + ". " + nomDriver)
+        nomTeamTextView.setText(nomTeam)
         pointsTextView.setText(points+ " pts")
         positionClassementTextView.setText(position.plus(1).toString())
 
@@ -103,6 +103,6 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
 
     // Returns the total count of items in the list
     override fun getItemCount(): Int {
-        return ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings.size
+        return ranking.mRData.standingsTable.standingsLists[0].driverStandings.size
     }
 }

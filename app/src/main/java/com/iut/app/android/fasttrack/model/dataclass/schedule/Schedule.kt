@@ -1,5 +1,7 @@
 package com.iut.app.android.fasttrack.model.dataclass.schedule
 
+import com.google.gson.annotations.SerializedName
+
 data class Schedule(
-    val MRData: MRData
+  @SerializedName("MRData")  val mRData: MRData
 )
