@@ -1,19 +1,20 @@
 package com.iut.app.android.fasttrack.View
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.View.Fragements.Profil.Login
+import com.iut.app.android.fasttrack.View.Fragements.Profil.Account
+import com.iut.app.android.fasttrack.View.Fragements.Rankings.Ranking
+import com.iut.app.android.fasttrack.View.Fragements.Schedule.Schedule
 import com.iut.app.android.fasttrack.databinding.ActivityMainBinding
-import com.iut.app.android.fasttrack.model.manager.ApiManager
+import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.repository.ConstructorRankingRepository
 import com.iut.app.android.fasttrack.model.repository.DriverRankingRepository
 import com.iut.app.android.fasttrack.model.repository.ScheduleRepository
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.calendar -> replaceFragment(Schedule())
                 R.id.stat -> replaceFragment(Ranking())
                 R.id.shop -> replaceFragment(Shop())
-                R.id.account -> replaceFragment(Account())
+                R.id.account -> connectedChooseFragement()
 
                 else ->{
 
@@ -61,6 +62,15 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()
     }
+
+    private fun connectedChooseFragement(){
+        if(CacheDataSource.connected == true){
+            replaceFragment(Account())
+        }else{
+            replaceFragment(Login())
+        }
+    }
+
 
     private fun executeCall() {
         MainScope().launch {

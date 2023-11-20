@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondnoir"
-    tools:context=".View.Account">
+    tools:context=".View.Fragements.Profil.Login">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
@@ -52,25 +52,25 @@
 
     <TextView
         android:id="@+id/firstNameAccount"
-        android:layout_width="wrap_content"
+        android:layout_width="137dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="230dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="165dp"
         android:fontFamily="@font/monomaniac"
         android:text="Ewen"
         android:textColor="#FFFFFF"
-        android:textSize="33sp" />
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/lastNameAccount"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="215dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="200dp"
         android:fontFamily="@font/monomaniac"
         android:text="VAITON"
         android:textColor="#FFFFFF"
-        android:textSize="33sp" />
+        android:textSize="28sp" />
 
     <ImageView
         android:id="@+id/divNumberDriverAccount"
@@ -83,9 +83,9 @@
     <TextView
         android:id="@+id/numberDriverAccount"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginStart="233dp"
-        android:layout_marginTop="245dp"
+        android:layout_marginTop="265dp"
         android:fontFamily="@font/monomaniac"
         android:text="25"
         android:textColor="#FFFFFF"
@@ -104,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="430dp"
         android:fontFamily="@font/leckerli_one"
         android:text="My Team"
         android:textColor="#FFFFFF"

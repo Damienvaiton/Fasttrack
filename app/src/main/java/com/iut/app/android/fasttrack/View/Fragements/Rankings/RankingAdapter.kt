@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.DriverRanking
 
 class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
@@ -36,10 +37,13 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
     }
 
     // Involves populating data into the item through holder
-    override fun onBindViewHolder(viewHolder: RankingAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         // Get the data model based on position
 
+        viewHolder.itemView.setOnClickListener {
+            CacheDataSource.setDriver(ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver)
 
+        }
         val prenomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.givenName.get(0)
         val nomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.familyName
         val IdDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.driverId
