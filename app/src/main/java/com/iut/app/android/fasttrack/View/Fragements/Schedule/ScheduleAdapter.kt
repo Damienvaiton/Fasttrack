@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.View
+package com.iut.app.android.fasttrack.View.Fragements.Schedule
 
 import android.content.res.Resources
 import android.util.Log
@@ -27,7 +27,7 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
         val winnerImg = itemView.findViewById<ImageView>(R.id.divScheduleGagnant)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         // Inflate the custom layout
@@ -37,7 +37,7 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
     }
 
     // Involves populating data into the item through holder
-    override fun onBindViewHolder(viewHolder: ScheduleAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         // Get the data model based on position
         val race = calendar.mRData.raceTable.races[position]
         viewHolder.itemView.setOnClickListener {

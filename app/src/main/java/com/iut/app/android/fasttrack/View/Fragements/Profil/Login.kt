@@ -82,30 +82,35 @@ class Login : Fragment() {
         }
 
         loginbtn.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
             val usernameTV = view.findViewById<TextView>(R.id.username)
             val passwordTV = view.findViewById<TextView>(R.id.password)
 
             myDatabase = MyDatabase.getDatabase()
             fanDAO = myDatabase!!.getDao()
 
-            Log.e("Connected", fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString()).toString())
+            Log.e(
+                "Connected",
+                fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString()).toString()
+            )
 
-            if(fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())){
-                Log.e("Connected", "Connected Good")
-                CacheDataSource.setConnected(true)
-                Log.e("Connected status", CacheDataSource.connected.toString())
-                if(CacheDataSource.setFanConnected(fanDAO!!.getFanByMail(usernameTV.text.toString()))) {
-                    val fragment = Account()
-                    val transaction = requireActivity().supportFragmentManager.beginTransaction()
-                    transaction.replace(R.id.frame_layout, fragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
+                if (fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())) {
+                    Log.e("Connected", "Connected Good")
+                    CacheDataSource.setConnected(true)
+                    Log.e("Connected status", CacheDataSource.connected.toString())
+                    if (CacheDataSource.setFanConnected(fanDAO!!.getFanByMail(usernameTV.text.toString()))) {
+                        val fragment = Account()
+                        val transaction =
+                            requireActivity().supportFragmentManager.beginTransaction()
+                        transaction.replace(R.id.frame_layout, fragment)
+                        transaction.addToBackStack(null)
+                        transaction.commit()
+                    }
+                } else {
+                    Log.e("Connected", "Connected Bad")
                 }
-            }
-            else{
-                Log.e("Connected", "Connected Bad")
-            }
 
+            }
         }
 
 
