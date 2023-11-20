@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.View.Fragements.Rankings
+package com.iut.app.android.fasttrack.View
 
 import android.content.res.Resources
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.DriverRanking
 
 class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
@@ -27,7 +26,7 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         val phototeam = itemView.findViewById<ImageView>(R.id.imgteam)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RankingAdapter.ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         // Inflate the custom layout
