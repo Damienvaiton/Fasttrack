@@ -46,16 +46,14 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         }
         val prenomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.givenName.get(0)
         val nomDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.familyName
-        val PrenomDriver = ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings[position].Driver.givenName.get(0)
-        val NomDriver = ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings[position].Driver.familyName
-        val IdDriver = ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings[position].Driver.driverId
+        val IdDriver = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.driverId
 
-        val NomTeam = ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings[position].Constructors[0].name
-        val points = ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings[position].points
-        val constructorId = ranking.MRData.StandingsTable.StandingsLists[0].DriverStandings[position].Constructors[0].constructorId
+        val nomTeam = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].constructors[0].name
+        val points = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].points
+        val constructorId = ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].constructors[0].constructorId
 
         // Set item views based on your views and data model
-        val NomDriverTextView = viewHolder.nameDriver
+        val nomDriverTextView = viewHolder.nameDriver
         val resources: Resources = viewHolder.itemView.context.resources
         val resourceId: Int = resources.getIdentifier(constructorId, "color", viewHolder.itemView.context.packageName)
         val colorgold: Int = resources.getIdentifier("gold", "color", viewHolder.itemView.context.packageName)
