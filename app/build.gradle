@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.android.extensions'
     id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.android.extensions'
 }
 
 android {
@@ -64,6 +65,9 @@ dependencies {
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+    // Splashscreen
+    implementation "androidx.core:core-splashscreen:1.0.1"
 
     // Room
     implementation("androidx.room:room-runtime:$room_version")
