@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.View.RankingAdapter
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
 import com.iut.app.android.fasttrack.viewModel.RankingViewModel
 
