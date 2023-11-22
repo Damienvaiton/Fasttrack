@@ -140,7 +140,7 @@
         android:layout_height="55dp"
         android:layout_marginHorizontal="290dp"
         android:layout_marginTop="440dp"
-        android:src="@drawable/perez" />
+        android:src="@drawable/perezzz" />
 
     <TextView
         android:id="@+id/textSecondActu"
@@ -170,7 +170,7 @@
         android:layout_height="55dp"
         android:layout_marginHorizontal="290dp"
         android:layout_marginTop="530dp"
-        android:src="@drawable/piastri" />
+        android:src="@drawable/piastriii" />
 
     <TextView
         android:id="@+id/textThirdActu"
@@ -200,5 +200,5 @@
         android:layout_height="55dp"
         android:layout_marginHorizontal="290dp"
         android:layout_marginTop="620dp"
-        android:src="@drawable/alonso" />
+        android:src="@drawable/alonsoo" />
 </FrameLayout>
