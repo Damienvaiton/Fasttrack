@@ -56,15 +56,20 @@ class Schedule : Fragment() {
         scheduleViewModel.fetchRaceResults()
 
         scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) {response ->
-
-
             val calendar = response?.body()
-            calendar?.let {
-                val adapter = ScheduleAdapter(it)
+            scheduleViewModel.ResultsLiveData.observe(viewLifecycleOwner) {response2 ->
 
-                rvContacts.adapter = adapter
+                val calendarResult = response2?.body()
+                calendar?.let {
+                    calend ->
+                    calendarResult?.let {
+                        val adapter = ScheduleAdapter(calend,it)
 
-                rvContacts.layoutManager = LinearLayoutManager(this.context)
+                        rvContacts.adapter = adapter
+
+                        rvContacts.layoutManager = LinearLayoutManager(this.context)
+                    }
+                }
             }
 
 

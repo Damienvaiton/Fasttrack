@@ -29,10 +29,10 @@
         android:src="@drawable/divschedulegagnant"
         app:layout_constraintBottom_toBottomOf="@+id/divSchedulePrincipal"
         app:layout_constraintEnd_toEndOf="@+id/divSchedulePrincipal"
-        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divSchedulePrincipal"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.525" />
 
     <ImageView
         android:id="@+id/divScheduleLarge"
@@ -79,7 +79,7 @@
         android:layout_marginStart="16dp"
         android:fontFamily="@font/monomaniac"
         android:maxWidth="200px"
-        android:text="Verstappen"
+        android:text="À venir"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/divScheduleGagnant"
@@ -118,5 +118,15 @@
         app:layout_constraintStart_toEndOf="@+id/divScheduleLarge"
         app:layout_constraintTop_toBottomOf="@+id/nameGp"
         app:layout_constraintVertical_bias="0.218" />
+
+    <ImageView
+        android:id="@+id/scheduleTrophy"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:src="@drawable/emojitrophe"
+        app:layout_constraintBottom_toBottomOf="@+id/nameWinner"
+        app:layout_constraintEnd_toStartOf="@+id/nameWinner"
+        app:layout_constraintStart_toStartOf="@+id/divScheduleGagnant"
+        app:layout_constraintTop_toTopOf="@+id/nameWinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

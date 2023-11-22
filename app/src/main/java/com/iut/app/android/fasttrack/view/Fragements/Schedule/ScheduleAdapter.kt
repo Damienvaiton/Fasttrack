@@ -7,16 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.dataclass.schedule.Location
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
-import java.util.Locale
 
-class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
+class ScheduleAdapter (private val calendar: Schedule, private val calendarResults: ResultsStart) : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Your holder should contain and initialize a member variable
@@ -26,12 +23,11 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
         val cardView3 = itemView.findViewById<ImageView>(R.id.divScheduleLarge)
 
         val NameCircuit = itemView.findViewById<TextView>(R.id.nameGp)
+        val NameWinner = itemView.findViewById<TextView>(R.id.nameWinner)
         // for any view that will be set as you render a row
         val nameGPTextView = itemView.findViewById<TextView>(R.id.nameGpSchedule)
 
         val dateGPTextView = itemView.findViewById<TextView>(R.id.dateGp)
-
-        //val winnerImg = itemView.findViewById<ImageView>(R.id.divScheduleGagnant)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -47,6 +43,15 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         // Get the data model based on position
         val race = calendar.mRData.raceTable.races[position]
+        val circuitwinner = viewHolder.NameWinner
+        val sizeResult = calendarResults.mRData.raceTable.races.size
+        if(position < sizeResult){
+            val raceResult = calendarResults.mRData.raceTable.races[position]
+            val winnerName = raceResult.results[0].Driver.familyName
+            circuitwinner.setText(winnerName)
+        } else{
+            circuitwinner.setText("A venir")
+        }
         viewHolder.itemView.setOnClickListener {
         }
         val idCircuit = race.circuit.circuitId
@@ -75,7 +80,6 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
 
 
 
-        val contact: Location = race.circuit.location
         val realNameGp = race.raceName.replace("Grand Prix", "")
 
         val nameCircuit = race.circuit.circuitId.replace("_", " ")
@@ -83,9 +87,11 @@ class ScheduleAdapter (private val calendar: Schedule) : RecyclerView.Adapter<Sc
         // Set item views based on your views and data model
         val countryTextView = viewHolder.nameGPTextView
         val circuitName = viewHolder.NameCircuit
+
         countryTextView.setText(realNameGp)
         dateTextView.setText(date)
         circuitName.setText(nameCircuit3)
+
     }
 
 

@@ -29,7 +29,7 @@ interface ApiService {
     @GET("/drivers/{id}.json")
     suspend fun getDriverById(@Path ("id") driverId : String): Response<DriverInformation>
 
-    @GET("current/results.json")
+    @GET("current/results.json?limit=900&offset=0")
     suspend fun getCurrentRaceResults(): Response<ResultsStart>
 
 
