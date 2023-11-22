@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.View.Fragements.Profil
+package com.iut.app.android.fasttrack.view.Fragements.Profil
 
 import android.os.Bundle
 import android.view.LayoutInflater

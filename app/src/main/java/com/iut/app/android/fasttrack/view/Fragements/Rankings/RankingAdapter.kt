@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.View
+package com.iut.app.android.fasttrack.view
 
 import android.content.res.Resources
 import android.view.LayoutInflater

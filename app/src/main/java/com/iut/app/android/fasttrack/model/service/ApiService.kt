@@ -3,6 +3,7 @@ package com.iut.app.android.fasttrack.model.service
 import com.iut.app.android.fasttrack.model.dataclass.DriverInformation.DriverInformation
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.ConstructorRanking
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.DriverRanking
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import retrofit2.Response
 import retrofit2.http.*
@@ -27,6 +28,9 @@ interface ApiService {
 
     @GET("/drivers/{id}.json")
     suspend fun getDriverById(@Path ("id") driverId : String): Response<DriverInformation>
+
+    @GET("current/results.json")
+    suspend fun getCurrentRaceResults(): Response<ResultsStart>
 
 
 

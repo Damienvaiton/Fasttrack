@@ -1,6 +1,5 @@
-package com.iut.app.android.fasttrack.View.Fragements.Profil
+package com.iut.app.android.fasttrack.view.Fragements.Profil
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.room.Room
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.room.MyDatabase
 import com.iut.app.android.fasttrack.model.room.users.Fan

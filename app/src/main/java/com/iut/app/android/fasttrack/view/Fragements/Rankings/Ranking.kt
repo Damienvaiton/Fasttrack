@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.View.Fragements.Rankings
+package com.iut.app.android.fasttrack.view.Fragements.Rankings
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,13 +9,24 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.view.RankingAdapter
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
 import com.iut.app.android.fasttrack.viewModel.RankingViewModel
 
+/**
+ * A simple [Fragment] subclass.
+ * Use the [Ranking.newInstance] factory method to
+ * create an instance of this fragment.
+ */
 
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-class DriverInformation : Fragment() {
+
+
+class Ranking : Fragment() {
+    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
@@ -39,6 +50,25 @@ class DriverInformation : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val rvContacts = view.findViewById(R.id.rvRanking) as RecyclerView
+
+        val rankingViewModel by activityViewModels<RankingViewModel>()
+
+        rankingViewModel.fetchDriverRanking()
+
+
+        rankingViewModel.driverLiveDataRanking.observe(viewLifecycleOwner) {response ->
+
+            val Ranking = response
+
+            val adapter = RankingAdapter(Ranking)
+
+            rvContacts.adapter = adapter
+
+            rvContacts.layoutManager = LinearLayoutManager(this.context)
+        }
+
+
 
     }
 

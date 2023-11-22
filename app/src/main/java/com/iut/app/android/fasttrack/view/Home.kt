@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.View
+package com.iut.app.android.fasttrack.view
 
 import android.os.Bundle
 import android.util.Log
@@ -9,14 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import com.google.gson.JsonObject
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.dataclass.schedule.RaceTable
-import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
-import java.text.DateFormatSymbols
-import kotlin.math.log
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

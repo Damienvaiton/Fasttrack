@@ -4,7 +4,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="@drawable/fondnoir"
-tools:context=".View.Fragements.Profil.Login">
+tools:context=".view.Fragements.Profil.Login">
 
 <!-- TODO: Update blank fragment layout -->
     <ImageView
