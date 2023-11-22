@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.View.Fragements.Schedule
+package com.iut.app.android.fasttrack.view.Fragements.Schedule
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

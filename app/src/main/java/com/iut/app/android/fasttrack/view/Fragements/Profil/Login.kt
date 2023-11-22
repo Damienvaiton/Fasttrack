@@ -1,4 +1,4 @@
-package com.iut.app.android.fasttrack.View.Fragements.Profil
+package com.iut.app.android.fasttrack.view.Fragements.Profil
 
 import android.os.Bundle
 import android.util.Log
@@ -8,9 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.room.CoroutinesRoom
-import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.room.MyDatabase
