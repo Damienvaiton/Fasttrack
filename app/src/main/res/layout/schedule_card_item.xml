@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardSchedule"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="120dp"
     app:cardElevation="0dp"
     android:backgroundTint="@color/clear"
     app:cardUseCompatPadding="false">
@@ -15,35 +15,36 @@
         android:layout_height="100dp"
         android:layout_marginHorizontal="5dp"
         android:src="@drawable/rectqatarschedule"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/divScheduleGagnant"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:src="@drawable/rectgagnantqatarschedule"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/divschedulegagnant"
+        app:layout_constraintBottom_toBottomOf="@+id/divSchedulePrincipal"
         app:layout_constraintEnd_toEndOf="@+id/divSchedulePrincipal"
-        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="@+id/divSchedulePrincipal"
+        app:layout_constraintVertical_bias="0.6" />
 
     <ImageView
         android:id="@+id/divScheduleLarge"
         android:layout_width="116dp"
         android:layout_height="75dp"
         android:src="@drawable/scheduleqatarrectlarge"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/divSchedulePrincipal"
         app:layout_constraintEnd_toEndOf="@+id/divSchedulePrincipal"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="@+id/divSchedulePrincipal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="@+id/divSchedulePrincipal"
+        app:layout_constraintVertical_bias="0.36" />
 
     <ImageView
         android:id="@+id/scheduleTrack"
@@ -53,24 +54,69 @@
         app:layout_constraintBottom_toBottomOf="@+id/divScheduleLarge"
         app:layout_constraintEnd_toEndOf="@+id/divScheduleLarge"
         app:layout_constraintStart_toStartOf="@+id/divScheduleLarge"
-        app:layout_constraintTop_toTopOf="@+id/divScheduleLarge"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="@+id/divScheduleLarge"/>
 
     <TextView
         android:id="@+id/nameGpSchedule"
-        android:layout_width="300px"
+        android:layout_width="650px"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/leckerli_one"
-        android:maxWidth="300px"
+        android:fontFamily="@font/major_mono_display"
+        android:maxWidth="650px"
         android:text="FastTrack"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divSchedulePrincipal"
-        app:layout_constraintVertical_bias="0.134"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.125" />
+
+    <TextView
+        android:id="@+id/nameWinner"
+        android:layout_width="190px"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/monomaniac"
+        android:maxWidth="200px"
+        android:text="Verstappen"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divScheduleGagnant"
+        app:layout_constraintEnd_toEndOf="@+id/divScheduleGagnant"
+        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintStart_toStartOf="@+id/divScheduleGagnant"
+        app:layout_constraintTop_toTopOf="@+id/divScheduleGagnant"
+        app:layout_constraintVertical_bias="0.837" />
+
+    <TextView
+        android:id="@+id/nameGp"
+        android:layout_width="290px"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lilita_one"
+        android:maxWidth="290px"
+        android:text="Marina Bay"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/divScheduleGagnant"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toEndOf="@+id/divScheduleLarge"
+        app:layout_constraintTop_toBottomOf="@+id/nameGpSchedule" />
+
+    <TextView
+        android:id="@+id/dateGp"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lilita_one"
+        android:maxWidth="200px"
+        android:text="01 - 03 SEP"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/divScheduleGagnant"
+        app:layout_constraintHorizontal_bias="0.351"
+        app:layout_constraintStart_toEndOf="@+id/divScheduleLarge"
+        app:layout_constraintTop_toBottomOf="@+id/nameGp"
+        app:layout_constraintVertical_bias="0.218" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
