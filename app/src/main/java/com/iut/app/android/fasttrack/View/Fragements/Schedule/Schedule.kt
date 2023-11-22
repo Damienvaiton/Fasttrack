@@ -53,6 +53,7 @@ class Schedule : Fragment() {
 
 
         scheduleViewModel.fetchCurrentSeason()
+        scheduleViewModel.fetchRaceResults()
 
         scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) {response ->
 

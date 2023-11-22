@@ -1,5 +1,6 @@
 package com.iut.app.android.fasttrack.model.repository
 
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
 import com.iut.app.android.fasttrack.model.manager.ApiManager
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.model.service.ApiService
@@ -16,6 +17,10 @@ object ScheduleRepository {
 
     suspend fun getNextRace(): Flow<Response<Schedule>>  = flow {
         emit(ApiManager.apiService.getNextRace())
+    }
+
+    suspend fun getRaceResults(): Flow<Response<ResultsStart>>  = flow {
+        emit(ApiManager.apiService.getCurrentRaceResults())
     }
 
 
