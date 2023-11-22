@@ -1,10 +1,17 @@
 # FastTrack🏎️
 
-
-
 ## Getting started
 
+Fastrack est une application dédiée aux passionnés de Formule 1, offrant une expérience immersive pour suivre les courses, les équipes et les pilotes.
 Max Max Super Max 🏎️
+
+#Fonctionnalités
+
+- [ ] Affichage des courses à venir
+- [ ] Affichage des courses passées
+- [ ] Affichage des équipes
+- [ ] Affichage des pilotes
+- [ ] Affichage des classements
 
 ## Add your files
 

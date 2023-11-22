@@ -11,7 +11,7 @@ import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.DriverRanking
 
-class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
+class DriverRankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<DriverRankingAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Your holder should contain and initialize a member variable
@@ -27,11 +27,11 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         val phototeam = itemView.findViewById<ImageView>(R.id.imgteam)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RankingAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DriverRankingAdapter.ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         // Inflate the custom layout
-        val contactView = inflater.inflate(R.layout.ranking_card_item, parent, false)
+        val contactView = inflater.inflate(R.layout.driver_ranking_card_item, parent, false)
         // Return a new holder instance
         return ViewHolder(contactView)
     }
@@ -78,19 +78,19 @@ class RankingAdapter(private val ranking: DriverRanking) : RecyclerView.Adapter<
         positionClassementTextView.setText(position.plus(1).toString())
 
 
-
         if (position == 0){
             positionClassementTextView.setTextColor(resources.getColor(colorgold, null))
         }
         else if (position == 1){
             positionClassementTextView.setTextColor(resources.getColor(colorargent, null))
         }
-        else if (position == 2){
+        else if (position == 2) {
             positionClassementTextView.setTextColor(resources.getColor(colorbronze, null))
         }
         else{
-            positionClassementTextView.setTextColor(resources.getColor(colorwhite, null))
+            positionClassementTextView.setTextColor(resources.getColor(resourceId, null))
         }
+
 
 
 

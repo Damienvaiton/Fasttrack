@@ -30,7 +30,7 @@ class DriverInformation : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ranking, container, false)
+        return inflater.inflate(R.layout.fragment_ranking_driv, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

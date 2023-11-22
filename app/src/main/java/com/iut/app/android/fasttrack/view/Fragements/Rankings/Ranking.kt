@@ -1,17 +1,20 @@
 package com.iut.app.android.fasttrack.view.Fragements.Rankings
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.view.RankingAdapter
+import com.iut.app.android.fasttrack.view.DriverRankingAdapter
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
 import com.iut.app.android.fasttrack.viewModel.RankingViewModel
+import java.sql.Driver
 
 /**
  * A simple [Fragment] subclass.
@@ -31,6 +34,7 @@ class Ranking : Fragment() {
     private var param2: String? = null
 
     lateinit var contacts: ArrayList<Sprint>
+    var IsConstructor = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,28 +49,55 @@ class Ranking : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ranking, container, false)
+        return inflater.inflate(R.layout.fragment_ranking_driv, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val rvContacts = view.findViewById(R.id.rvRanking) as RecyclerView
+        val driverSelector = view.findViewById(R.id.submitDriver) as Button
+        val constructorSelector = view.findViewById(R.id.submitTeam) as Button
 
         val rankingViewModel by activityViewModels<RankingViewModel>()
 
         rankingViewModel.fetchDriverRanking()
+        rankingViewModel.fetchConstructorRanking()
 
-
-        rankingViewModel.driverLiveDataRanking.observe(viewLifecycleOwner) {response ->
-
-            val Ranking = response
-
-            val adapter = RankingAdapter(Ranking)
-
-            rvContacts.adapter = adapter
-
-            rvContacts.layoutManager = LinearLayoutManager(this.context)
+        driverSelector.setOnClickListener {
+            rankingViewModel.fetchConstructorRanking()
+            IsConstructor = false
         }
+
+        constructorSelector.setOnClickListener {
+            rankingViewModel.fetchDriverRanking()
+            IsConstructor = true
+        }
+
+
+            rankingViewModel.driverLiveDataRanking.observe(viewLifecycleOwner) { response ->
+
+                val Ranking = response
+
+                val adapter = DriverRankingAdapter(Ranking)
+
+                rvContacts.adapter = adapter
+
+                rvContacts.layoutManager = LinearLayoutManager(this.context)
+            }
+
+
+
+            rankingViewModel.constructorLiveDataRanking.observe(viewLifecycleOwner) { response ->
+
+                val Ranking = response
+                Log.e("Ranking", Ranking.toString())
+                val adapter = ConstructorRankingAdapter(Ranking)
+
+                rvContacts.adapter = adapter
+
+                rvContacts.layoutManager = LinearLayoutManager(this.context)
+            }
+
 
 
 

@@ -43,18 +43,18 @@
         android:id="@+id/submitTeam"
         android:layout_width="90dp"
         android:layout_height="57dp"
-        android:layout_marginTop="150dp"
         android:layout_marginLeft="90dp"
-        android:drawableTop="@drawable/ic_baseline_person_24_white"
+        android:layout_marginTop="150dp"
         android:backgroundTint="#313030"
-        android:textColor="@color/white"
-        android:textSize="22sp"/>
+        android:drawableTop="@drawable/ic_baseline_person_24_white"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="22sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRanking"
         android:layout_width="match_parent"
         android:layout_height="495dp"
         android:layout_marginTop="230dp"
-        tools:listitem="@layout/ranking_card_item"/>
+        tools:listitem="@layout/driver_ranking_card_item"/>
 
 </FrameLayout>
