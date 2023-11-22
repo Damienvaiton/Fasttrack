@@ -16,7 +16,7 @@ class ConstructorRankingAdapter(private val constructorRanking: ConstructorRanki
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
-        val contactView = inflater.inflate(R.layout.driver_ranking_card_item, parent, false)
+        val contactView = inflater.inflate(R.layout.constructor_ranking_card_item, parent, false)
         return ViewHolder(contactView)
     }
 
