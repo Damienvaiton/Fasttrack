@@ -36,8 +36,6 @@ class ConstructorRankingAdapter(private val constructorRanking: ConstructorRanki
         val points = constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].points
         val constructorId = constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].constructor.constructorId
 
-
-
         val resources: Resources = holder.itemView.context.resources
         val colorgold: Int = resources.getIdentifier("gold", "color", holder.itemView.context.packageName)
         val colorargent: Int = resources.getIdentifier("argent", "color", holder.itemView.context.packageName)
@@ -70,13 +68,6 @@ class ConstructorRankingAdapter(private val constructorRanking: ConstructorRanki
         else{
             positionTv.setTextColor(resources.getColor(resourceId, null))
         }
-
-
-
-
-
-
-
     }
 
     override fun getItemCount(): Int {
