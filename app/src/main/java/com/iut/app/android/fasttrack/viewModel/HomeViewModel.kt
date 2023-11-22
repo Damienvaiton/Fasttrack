@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.google.gson.JsonObject
 import com.iut.app.android.fasttrack.model.dataclass.schedule.RaceTable
 import java.text.DateFormatSymbols
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeViewModel : ViewModel() {
 
@@ -45,6 +47,7 @@ class HomeViewModel : ViewModel() {
             }
             else {
                 val sprint = createSeance("Sprint Race", race.sprint.date, race.sprint.time)
+                return arrayListOf<Seance>(FP1,Quali,FP2,sprint,realrace)
             }
 
 
@@ -56,6 +59,34 @@ class HomeViewModel : ViewModel() {
 
     fun correctNameGP(nameGP : String): String {
         return nameGP.replace("Grand Prix", "GP")
+    }
+
+
+    fun writeDayOfTheWeekOfADate (date : String): String {
+        val format = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val date = format.parse(date)
+
+        val calendar = Calendar.getInstance()
+        calendar.time = date ?: Date()
+
+        val jourDeLaSemaine = when (calendar.get(Calendar.DAY_OF_WEEK)) {
+            Calendar.MONDAY -> "Lundi"
+            Calendar.TUESDAY -> "Mardi"
+            Calendar.WEDNESDAY -> "Mercredi"
+            Calendar.THURSDAY -> "Jeudi"
+            Calendar.FRIDAY -> "Vendredi"
+            Calendar.SATURDAY -> "Samedi"
+            Calendar.SUNDAY -> "Dimanche"
+            else -> ""
+        }
+        return jourDeLaSemaine.substring(0,3) + "\n" + calendar.get(Calendar.DAY_OF_MONTH)
+    }
+
+
+
+
+    fun writeTimeSeance (time : String): String {
+        return time.substring(0,2) + "h" + time.substring(3,5)
     }
 
 }
