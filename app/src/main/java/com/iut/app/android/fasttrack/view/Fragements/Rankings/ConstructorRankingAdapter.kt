@@ -8,10 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.Constructor
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.ConstructorRanking
+import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.ConstructorStanding
+import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.MRData
+import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.StandingsLists
+import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.StandingsTable
 import org.w3c.dom.Text
 
-class ConstructorRankingAdapter(private val constructorRanking: ConstructorRanking) : RecyclerView.Adapter<ConstructorRankingAdapter.ViewHolder>() {
+class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanking) : RecyclerView.Adapter<ConstructorRankingAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -72,6 +77,27 @@ class ConstructorRankingAdapter(private val constructorRanking: ConstructorRanki
 
     override fun getItemCount(): Int {
         return constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings.size
+    }
+
+
+    fun updateData(newDriverStandings: ConstructorRanking) {
+        this.constructorRanking = newDriverStandings
+        notifyDataSetChanged()
+    }
+
+
+    companion object {
+        fun createEmpty(): ConstructorRanking {
+            // Créez ici une instance de DriverRanking avec une liste vide de DriverStanding
+            var constructor = Constructor("red_bull","Red Bull", "Austrian", "")
+            var constructorStandings = ConstructorStanding(constructor, "1", "1", "1", "1")
+            var listconstructorStandings = listOf(constructorStandings)
+            var standingsList = StandingsLists(listconstructorStandings, "1", "1")
+            var liststandingsList = listOf(standingsList)
+            var standingsTable = StandingsTable(liststandingsList, "1")
+            var mrData = MRData(standingsTable, "1", "1", "1", "1", "1", "1")
+            return ConstructorRanking(mrData)
+        }
     }
 
 }

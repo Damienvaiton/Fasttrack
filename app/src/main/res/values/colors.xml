@@ -10,4 +10,7 @@
     <color name="red">#FFF00000</color>
     <color name="back">#3B3B3B</color>
     <color name="clear">#00000000</color>
+    <color name="selectedColor">#FFFFFFFF</color>
+    <color name="unselectedColor">#00000000</color>
+    <color name="lowblack">#2B2A2A</color>
 </resources>
