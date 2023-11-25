@@ -94,7 +94,7 @@ class DriverRankingAdapter(private var ranking: DriverRanking) : RecyclerView.Ad
             positionClassementTextView.setTextColor(resources.getColor(colorbronze, null))
         }
         else{
-            positionClassementTextView.setTextColor(resources.getColor(resourceId, null))
+            positionClassementTextView.setTextColor(resources.getColor(colorwhite, null))
         }
 
 

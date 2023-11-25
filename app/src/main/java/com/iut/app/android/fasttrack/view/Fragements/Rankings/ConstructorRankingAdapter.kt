@@ -24,6 +24,7 @@ class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanki
         val positionRanking = itemView.findViewById<TextView>(R.id.rankingDriver)
         val points = itemView.findViewById<TextView>(R.id.nbPointPiloteRanking)
         val imgConstructor = itemView.findViewById<ImageView>(R.id.imgteam)
+        val imgCar = itemView.findViewById<ImageView>(R.id.imgcar)
         val background = itemView.findViewById<ImageView>(R.id.divRankingPrincipal2)
 
     }
@@ -47,18 +48,21 @@ class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanki
         val colorbronze: Int = resources.getIdentifier("bronze", "color", holder.itemView.context.packageName)
         val resourceId: Int = resources.getIdentifier(constructorId, "color", holder.itemView.context.packageName)
         val resourceLogoConstructor: Int = resources.getIdentifier(constructorId, "drawable", holder.itemView.context.packageName)
+        val resourceCarConstructor: Int = resources.getIdentifier(constructorId + "1", "drawable", holder.itemView.context.packageName)
 
         val positionTv = holder.positionRanking
         val name = holder.nameConstructor
         val point = holder.points
-        val imgConstructor = holder.imgConstructor
+        val ImgConstructor = holder.imgConstructor
+        val ImgCar = holder.imgCar
 
         positionTv.setText(positionRanking.toString())
         name.text = nameConstructor
         point.text = points + " pts"
-        imgConstructor.setImageResource(resourceLogoConstructor)
+        ImgConstructor.setImageResource(resourceLogoConstructor)
+        ImgCar.setImageResource(resourceCarConstructor)
         holder.background.setColorFilter(resources.getColor(resourceId, null))
-        holder.nameConstructor.setTextColor(resources.getColor(resourceId, null))
+        holder.nameConstructor.setTextColor(resources.getColor(R.color.white, null))
         holder.points.setTextColor(resources.getColor(resourceId, null))
 
         if (position == 0){
@@ -70,8 +74,8 @@ class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanki
         else if (position == 2) {
             positionTv.setTextColor(resources.getColor(colorbronze, null))
         }
-        else{
-            positionTv.setTextColor(resources.getColor(resourceId, null))
+        else {
+            positionTv.setTextColor(resources.getColor(R.color.white, null))
         }
     }
 
