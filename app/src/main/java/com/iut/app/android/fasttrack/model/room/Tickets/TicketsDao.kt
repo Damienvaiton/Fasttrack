@@ -8,9 +8,4 @@ import androidx.room.Query
 interface TicketsDao {
 
 
-
-
-
-
-
 }
