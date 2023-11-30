@@ -1,7 +1,10 @@
 package com.iut.app.android.fasttrack.model.room.Tickets
 
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.Relation
+import com.iut.app.android.fasttrack.model.room.users.Fan
 import java.util.jar.Attributes.Name
 
 
@@ -14,22 +17,27 @@ data class Circuit (
         var CircuitLongitude : Double,
 )
 
-class Race (
+data class Race (
     var circuit : Circuit,
     var date : String
 )
 
-
-
-
-
-
 @Entity(tableName = "ticketTable")
-class Tickets(
+data class Tickets(
     @PrimaryKey(autoGenerate = true)
     var ticketsId : Int,
     var price : Int,
+    var userId : Int,
     var raceId : Race,
     var nameGrandStand : String,
     var nameBlock : String
+)
+
+data class FanWithTickets(
+    @Embedded val user: Fan,
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "userId"
+    )
+    val tickets: List<Tickets>
 )

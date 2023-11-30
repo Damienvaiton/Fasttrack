@@ -56,7 +56,7 @@ class Signup : Fragment() {
         //Database
 
         myDatabase = MyDatabase.getDatabase()
-        fanDAO = myDatabase!!.getDao()
+        fanDAO = myDatabase!!.getFanDao()
 
 
         //Find elements

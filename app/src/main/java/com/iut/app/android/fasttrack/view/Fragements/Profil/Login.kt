@@ -11,6 +11,10 @@ import android.widget.TextView
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.room.MyDatabase
+import com.iut.app.android.fasttrack.model.room.Tickets.Circuit
+import com.iut.app.android.fasttrack.model.room.Tickets.Race
+import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
+import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -35,6 +39,7 @@ class Login : Fragment() {
     //Database
     var myDatabase : MyDatabase? = null
     var fanDAO : FanDAO? = null
+    var ticketDAO : TicketsDao? = null
 
 
 
@@ -84,7 +89,8 @@ class Login : Fragment() {
             val passwordTV = view.findViewById<TextView>(R.id.password)
 
             myDatabase = MyDatabase.getDatabase()
-            fanDAO = myDatabase!!.getDao()
+            fanDAO = myDatabase!!.getFanDao()
+            ticketDAO = myDatabase!!.getTicketsDao()
 
             Log.e(
                 "Connected",
@@ -105,6 +111,13 @@ class Login : Fragment() {
                     }
                 } else {
                     Log.e("Connected", "Connected Bad")
+                    var circuit = Circuit(0, "Circuit Paul Ricard", "Castellet", "France", 43.2506, 5.79167)
+                    var Race = Race(circuit, "test")
+                    var tickettest = Tickets(0, 12,1, Race, "Tribune Pierre Gasly", "Bloc D")
+                    ticketDAO!!.insertTickets(tickettest)
+                    ticketDAO!!.insertTickets(tickettest)
+
+
                 }
 
             }
