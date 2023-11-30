@@ -4,12 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
 import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
 import com.iut.app.android.fasttrack.model.room.users.Fan
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
 
 
-@Database(entities = [Fan::class], version = 1)
+@Database(entities = [Fan::class, Tickets::class], version = 1)
 abstract class MyDatabase : RoomDatabase() {
 
 
