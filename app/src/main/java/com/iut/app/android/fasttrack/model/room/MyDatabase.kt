@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
 import com.iut.app.android.fasttrack.model.room.users.Fan
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
-import com.iut.app.android.fasttrack.model.room.users.User
 
-@Database(entities = [Fan::class, User::class], version = 1)
+
+@Database(entities = [Fan::class], version = 1)
 abstract class MyDatabase : RoomDatabase() {
 
 
