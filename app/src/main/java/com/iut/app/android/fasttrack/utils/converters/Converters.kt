@@ -20,8 +20,6 @@ class Converters {
     @TypeConverter
     fun toCircuit(value: String): Circuit {
         val parts = value.split(",")
-        Log.e("Converters value ", value)
-        Log.e("Converters", parts.toString())
         return Circuit(
             CircuitId = parts[0].toInt(),
             CircuitName = parts[1],
@@ -42,8 +40,12 @@ class Converters {
     @TypeConverter
     fun toRace(value: String): Race {
         val parts = value.split(",")
-        val circuit = toCircuit(parts[0])
-        val date = parts[1]
+        var datpass = ""
+        for (i in 0 until parts.size-1){
+            datpass += parts[i] + ","
+        }
+        val circuit = toCircuit(datpass)
+        val date = parts[6]
         return Race(circuit, date)
     }
 
