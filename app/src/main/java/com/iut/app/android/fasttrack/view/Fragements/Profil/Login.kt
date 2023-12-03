@@ -1,5 +1,6 @@
 package com.iut.app.android.fasttrack.view.Fragements.Profil
 
+import android.app.AlertDialog
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.util.Log
@@ -17,9 +18,13 @@ import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
 import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
+import com.iut.app.android.fasttrack.viewModel.UserViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Error
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,13 +43,9 @@ class Login : Fragment() {
 
 
     //Database
-    var myDatabase : MyDatabase? = null
-    var fanDAO : FanDAO? = null
-    var ticketDAO : TicketsDao? = null
-
-
-
-
+    var myDatabase: MyDatabase? = null
+    var fanDAO: FanDAO? = null
+    var ticketDAO: TicketsDao? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +72,6 @@ class Login : Fragment() {
         Log.e("OnViewCreated", "Passage dans account")
 
 
-
         val signupbtn = view.findViewById<Button>(R.id.signupbtn)
 
         val loginbtn = view.findViewById<Button>(R.id.submit)
@@ -86,17 +86,18 @@ class Login : Fragment() {
 
         loginbtn.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-            val usernameTV = view.findViewById<TextView>(R.id.username)
-            val passwordTV = view.findViewById<TextView>(R.id.password)
+                val usernameTV = view.findViewById<TextView>(R.id.username)
+                val passwordTV = view.findViewById<TextView>(R.id.password)
 
-            myDatabase = MyDatabase.getDatabase()
-            fanDAO = myDatabase!!.getFanDao()
-            ticketDAO = myDatabase!!.getTicketsDao()
+                myDatabase = MyDatabase.getDatabase()
+                fanDAO = myDatabase!!.getFanDao()
+                ticketDAO = myDatabase!!.getTicketsDao()
 
-            Log.e(
-                "Connected",
-                fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString()).toString()
-            )
+                Log.e(
+                    "Connected",
+                    fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())
+                        .toString()
+                )
 
                 if (fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())) {
                     Log.e("Connected", "Connected Good")
@@ -111,27 +112,26 @@ class Login : Fragment() {
                         transaction.commit()
                     }
                 } else {
-                    Log.e("Connected", "Connected Bad")
-                    var circuit = Circuit(0, "Circuit Paul Ricard", "Castellet", "France", 43.2506, 5.79167)
-                    var Race = Race(circuit, "test")
-                    var tickettest = Tickets(0, 12,1, Race, "Tribune Pierre Gasly", "Bloc D")
-                    ticketDAO!!.insertTickets(tickettest)
-                    ticketDAO!!.insertTickets(tickettest)
-                    if(ticketDAO!!.getTicketsByFanId() == null){
-                        Log.e("Liste ticket" , "Vide")
+
+                    if (usernameTV.text.toString() == "" || passwordTV.text.toString() == "") {
+                        withContext(Dispatchers.Main) {
+                            UserViewModel().ErrorDialog("void", requireContext())
+                        }
+                    } else {
+                        withContext(Dispatchers.Main) {
+                            UserViewModel().ErrorDialog("password", requireContext())
+                        }
                     }
-                    else {
-                        Log.e("Liste ticket" , ticketDAO!!.getTicketsByFanId().toString())
-                    }
+
+
                 }
 
             }
         }
 
 
-
-
     }
+
 
     companion object {
         /**

@@ -14,11 +14,13 @@ import retrofit2.Response
 
 class ScheduleViewModel : ViewModel() {
 
-    private var _currentSeasonLiveData : MutableLiveData<Response<Schedule>?> = MutableLiveData<Response<Schedule>?>()
-    private var _currentResultsLiveData : MutableLiveData<Response<ResultsStart>?> = MutableLiveData<Response<ResultsStart>?>()
+    private var _currentSeasonLiveData: MutableLiveData<Response<Schedule>?> =
+        MutableLiveData<Response<Schedule>?>()
+    private var _currentResultsLiveData: MutableLiveData<Response<ResultsStart>?> =
+        MutableLiveData<Response<ResultsStart>?>()
 
-    val ScheduleLiveData : LiveData<Response<Schedule>?> = _currentSeasonLiveData
-    val ResultsLiveData : LiveData<Response<ResultsStart>?> = _currentResultsLiveData
+    val ScheduleLiveData: LiveData<Response<Schedule>?> = _currentSeasonLiveData
+    val ResultsLiveData: LiveData<Response<ResultsStart>?> = _currentResultsLiveData
 
     fun fetchCurrentSeason() {
         viewModelScope.launch {
@@ -32,7 +34,7 @@ class ScheduleViewModel : ViewModel() {
         }
     }
 
-    fun getnextRace(){
+    fun getnextRace() {
         viewModelScope.launch {
             ScheduleRepository.getNextRace()
                 .catch {
@@ -44,7 +46,7 @@ class ScheduleViewModel : ViewModel() {
         }
     }
 
-    fun fetchRaceResults(){
+    fun fetchRaceResults() {
         viewModelScope.launch {
             ScheduleRepository.getRaceResults()
                 .catch {
@@ -55,7 +57,6 @@ class ScheduleViewModel : ViewModel() {
                 }
         }
     }
-
 
 
 }
