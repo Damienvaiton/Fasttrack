@@ -17,7 +17,8 @@ class RankingViewModel : ViewModel() {
     private var _constructorRankingLiveData = MutableLiveData<ConstructorRanking>()
 
     val driverLiveDataRanking: MutableLiveData<DriverRanking> = _driverRankingLiveData
-    val constructorLiveDataRanking: MutableLiveData<ConstructorRanking> = _constructorRankingLiveData
+    val constructorLiveDataRanking: MutableLiveData<ConstructorRanking> =
+        _constructorRankingLiveData
 
     fun fetchDriverRanking() {
         viewModelScope.launch {
@@ -34,7 +35,7 @@ class RankingViewModel : ViewModel() {
 
     fun fetchConstructorRanking() {
         viewModelScope.launch {
-           ConstructorRankingRepository.getCurrentConstructorRanking()
+            ConstructorRankingRepository.getCurrentConstructorRanking()
                 .catch {
                     Log.e("RankingViewModel", "fetchConstructorRanking: ${it.message}")
 
@@ -44,8 +45,6 @@ class RankingViewModel : ViewModel() {
                 }
         }
     }
-
-
 
 
 }

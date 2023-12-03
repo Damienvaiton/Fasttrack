@@ -31,7 +31,7 @@ class Converters {
     }
 
     @TypeConverter
-    fun fromRace(values:Race):String{
+    fun fromRace(values: Race): String {
         val circuit = fromCircuit(values.circuit)
         val date = values.date
         return "$circuit,$date"
@@ -41,7 +41,7 @@ class Converters {
     fun toRace(value: String): Race {
         val parts = value.split(",")
         var datpass = ""
-        for (i in 0 until parts.size-1){
+        for (i in 0 until parts.size - 1) {
             datpass += parts[i] + ","
         }
         val circuit = toCircuit(datpass)

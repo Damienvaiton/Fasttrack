@@ -15,12 +15,9 @@ interface TicketsDao {
     @Query("SELECT * FROM ticketTable WHERE ticketsId = :id")
     fun getTicketsById(id: Int): Tickets
 
-    //J'ai pas réussi à faire la requête pour récupérer les tickets d'un fan
     @Transaction
     @Query("SELECT * FROM fanTable")
     fun getTicketsByFanId(): List<FanWithTickets>
-
-
 
 
 }

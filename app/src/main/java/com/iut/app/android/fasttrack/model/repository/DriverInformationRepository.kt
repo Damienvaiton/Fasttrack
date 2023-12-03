@@ -8,7 +8,7 @@ import retrofit2.Response
 
 object DriverInformationRepository {
 
-    suspend fun getCurrentDriverInformation(id: String): Flow<Response<DriverInformation>> = flow{
+    suspend fun getCurrentDriverInformation(id: String): Flow<Response<DriverInformation>> = flow {
         emit(ApiManager.apiService.getDriverById(id))
     }
 }

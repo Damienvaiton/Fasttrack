@@ -19,8 +19,8 @@ class Account : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    var myDatabase : MyDatabase? = null
-    var fanDAO : FanDAO? = null
+    var myDatabase: MyDatabase? = null
+    var fanDAO: FanDAO? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

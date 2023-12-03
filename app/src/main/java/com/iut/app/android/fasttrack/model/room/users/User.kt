@@ -5,11 +5,11 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "fanTable")
-class Fan  (
+class Fan(
     @PrimaryKey(autoGenerate = true)
     var id: Int,
-    var name : String,
-    var firstName : String,
-    var mail : String,
-    var password : String
+    var name: String,
+    var firstName: String,
+    var mail: String,
+    var password: String
 )

@@ -5,8 +5,8 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 
 class UserViewModel : ViewModel() {
-    fun ErrorDialog(reason : String, context : Context){
-        when(reason){
+    fun ErrorDialog(reason: String, context: Context) {
+        when (reason) {
             "mail" -> {
                 AlertDialog.Builder(context)
                     .setTitle("Erreur d'adresse mail")
@@ -14,6 +14,7 @@ class UserViewModel : ViewModel() {
                     .setPositiveButton("OK", null)
                     .show()
             }
+
             "password" -> {
                 AlertDialog.Builder(context)
                     .setTitle("Erreur de mot de passe")
@@ -21,6 +22,7 @@ class UserViewModel : ViewModel() {
                     .setPositiveButton("OK", null)
                     .show()
             }
+
             "void" -> {
                 AlertDialog.Builder(context)
                     .setTitle("Erreur de saisie")

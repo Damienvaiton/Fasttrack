@@ -71,7 +71,6 @@ class Home : Fragment() {
         val dateSchedule3 = view.findViewById<TextView>(R.id.date3nextgp)
 
 
-
         val scheduleViewModel by activityViewModels<ScheduleViewModel>()
         val homeViewModel by activityViewModels<HomeViewModel>()
 
@@ -82,7 +81,7 @@ class Home : Fragment() {
 
         //aller chercher un attribut dans le retour d api scheduleViewModel.getnextRace() et l'afficher dans le textview countryGp
 
-        scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner){response ->
+        scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) { response ->
             val nextRace = response?.body()
 
 
@@ -99,7 +98,7 @@ class Home : Fragment() {
                     Log.e("color", idCircuit)
                     card2.setColorFilter(resources.getColor(resourceID2, null))
 
-                    ScheduleY =  homeViewModel.getScheduleofTheRace(nextRace.mRData.raceTable,0)
+                    ScheduleY = homeViewModel.getScheduleofTheRace(nextRace.mRData.raceTable, 0)
 
                     countryGp.setText(nextRace.mRData.raceTable.races[0].circuit.location.country)
 
@@ -128,8 +127,7 @@ class Home : Fragment() {
                     timeSchedule3.setText(homeViewModel.writeTimeSeance(ScheduleY[4].hour))
 
 
-                }
-                else {
+                } else {
                     Log.e("Error API Home", "No data in the parameter nextRace")
                     countryGp.setText("Inconnu")
                     nameGp.setText("Inconnu")
@@ -156,10 +154,6 @@ class Home : Fragment() {
         }
 
     }
-
-
-
-
 
 
     companion object {
