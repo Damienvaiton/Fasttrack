@@ -16,6 +16,7 @@ import com.iut.app.android.fasttrack.model.room.Tickets.Race
 import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
 import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
+import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -116,8 +117,12 @@ class Login : Fragment() {
                     var tickettest = Tickets(0, 12,1, Race, "Tribune Pierre Gasly", "Bloc D")
                     ticketDAO!!.insertTickets(tickettest)
                     ticketDAO!!.insertTickets(tickettest)
-
-
+                    if(ticketDAO!!.getTicketsByFanId() == null){
+                        Log.e("Liste ticket" , "Vide")
+                    }
+                    else {
+                        Log.e("Liste ticket" , ticketDAO!!.getTicketsByFanId().toString())
+                    }
                 }
 
             }

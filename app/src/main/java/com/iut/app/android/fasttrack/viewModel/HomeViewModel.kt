@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.google.gson.JsonObject
 import com.iut.app.android.fasttrack.model.dataclass.schedule.RaceTable
+import com.iut.app.android.fasttrack.model.room.FanWithTickets
+import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
 import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
@@ -88,5 +90,14 @@ class HomeViewModel : ViewModel() {
     fun writeTimeSeance (time : String): String {
         return time.substring(0,2) + "h" + time.substring(3,5)
     }
+
+    fun WriteTicketsOfAFan (list : FanWithTickets) : String{
+        var res = ""
+        for (ticket in list.tickets){
+            res += ticket.nameGrandStand + " " + ticket.nameBlock + "\n"
+        }
+        return res
+    }
+
 
 }

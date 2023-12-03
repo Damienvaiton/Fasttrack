@@ -33,11 +33,3 @@ data class Tickets(
     var nameBlock : String
 )
 
-data class FanWithTickets(
-    @Embedded val user: Fan,
-    @Relation(
-        parentColumn = "id",
-        entityColumn = "userId"
-    )
-    val tickets: List<Tickets>
-)

@@ -1,5 +1,6 @@
 package com.iut.app.android.fasttrack.utils.converters
 
+import android.util.Log
 import androidx.room.TypeConverter
 import com.iut.app.android.fasttrack.model.room.Tickets.Circuit
 import com.iut.app.android.fasttrack.model.room.Tickets.Race
@@ -19,6 +20,8 @@ class Converters {
     @TypeConverter
     fun toCircuit(value: String): Circuit {
         val parts = value.split(",")
+        Log.e("Converters value ", value)
+        Log.e("Converters", parts.toString())
         return Circuit(
             CircuitId = parts[0].toInt(),
             CircuitName = parts[1],
