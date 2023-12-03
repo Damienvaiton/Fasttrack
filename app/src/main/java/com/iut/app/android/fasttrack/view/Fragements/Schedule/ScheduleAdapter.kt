@@ -1,7 +1,6 @@
 package com.iut.app.android.fasttrack.view.Fragements.Schedule
 
 import android.content.res.Resources
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,7 @@ import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
+import timber.log.Timber
 
 class ScheduleAdapter(private val calendar: Schedule, private val calendarResults: ResultsStart) :
     RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
@@ -57,7 +57,7 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         viewHolder.itemView.setOnClickListener {
         }
         val idCircuit = race.circuit.circuitId
-        Log.e("idCircuit", idCircuit)
+        Timber.tag("idCircuit").e(idCircuit)
 
         //Get the color from the color.xml and set the color of the card
         val resources: Resources = viewHolder.itemView.context.resources
@@ -68,7 +68,7 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
             "color",
             viewHolder.itemView.context.packageName
         )
-        Log.e("color", resourceId.toString())
+        Timber.tag("color").e(resourceId.toString())
         viewHolder.cardView.setColorFilter(resources.getColor(resourceId, null))
         viewHolder.cardView2.setColorFilter(resources.getColor(resourceID2, null))
         viewHolder.cardView3.setColorFilter(resources.getColor(resourceID2, null))
@@ -82,7 +82,7 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
 
         val dateTextView = viewHolder.dateGPTextView
 
-        var date = homeVM.writeDate(race.firstPractice.date, race.date)
+        val date = homeVM.writeDate(race.firstPractice.date, race.date)
 
 
         val realNameGp = race.raceName.replace("Grand Prix", "")

@@ -1,6 +1,5 @@
 package com.iut.app.android.fasttrack.viewModel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,6 +10,7 @@ import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import timber.log.Timber
 
 class ScheduleViewModel : ViewModel() {
 
@@ -26,7 +26,7 @@ class ScheduleViewModel : ViewModel() {
         viewModelScope.launch {
             ScheduleRepository.getCurrentSeason()
                 .catch {
-                    Log.e("ScheduleViewModel", "fetchCurrentSeason: ${it.message}")
+                    Timber.tag("ScheduleViewModel").e("fetchCurrentSeason: %s", it.message)
                 }
                 .collect {
                     _currentSeasonLiveData.postValue(it)
@@ -38,7 +38,7 @@ class ScheduleViewModel : ViewModel() {
         viewModelScope.launch {
             ScheduleRepository.getNextRace()
                 .catch {
-                    Log.e("ScheduleViewModel", "fetchCurrentSeason: ${it.message}")
+                    Timber.tag("ScheduleViewModel").e("fetchCurrentSeason: %s", it.message)
                 }
                 .collect {
                     _currentSeasonLiveData.postValue(it)
@@ -50,7 +50,7 @@ class ScheduleViewModel : ViewModel() {
         viewModelScope.launch {
             ScheduleRepository.getRaceResults(30)
                 .catch {
-                    Log.e("ScheduleViewModel", "fetchCurrentSeason: ${it.message}")
+                    Timber.tag("ScheduleViewModel").e("fetchCurrentSeason: %s", it.message)
                 }
                 .collect {
                     _currentResultsLiveData.postValue(it)

@@ -15,12 +15,13 @@ object CacheDataSource {
         return connected
     }
 
-    fun setConnected(bool: Boolean): Unit{
+    fun setConnected(bool: Boolean){
         connected = bool
     }
 
     fun setFanConnected(fan: Fan): Boolean{
         FanConnected = fan
+
         return true
     }
 
@@ -32,7 +33,7 @@ object CacheDataSource {
         return transitDriver
     }
 
-    fun setDriver (driver: Driver): Unit{
+    fun setDriver (driver: Driver){
         transitDriver = driver
     }
 
