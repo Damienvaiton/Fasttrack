@@ -3,6 +3,8 @@ package com.iut.app.android.fasttrack.model.dataclass
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.Driver
 
 import com.iut.app.android.fasttrack.model.room.users.Fan
+import com.iut.app.android.fasttrack.viewModel.UserViewModel
+import timber.log.Timber
 
 object CacheDataSource {
 
@@ -21,7 +23,6 @@ object CacheDataSource {
 
     fun setFanConnected(fan: Fan): Boolean{
         FanConnected = fan
-
         return true
     }
 

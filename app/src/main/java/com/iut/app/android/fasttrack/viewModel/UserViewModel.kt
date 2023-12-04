@@ -3,6 +3,7 @@ package com.iut.app.android.fasttrack.viewModel
 import android.app.AlertDialog
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.iut.app.android.fasttrack.model.room.users.Fan
 
 class UserViewModel : ViewModel() {
     fun ErrorDialog(reason: String, context: Context) {
@@ -33,4 +34,17 @@ class UserViewModel : ViewModel() {
         }
 
     }
+
+    fun writeFan(fan: Fan) : String {
+        var res = ""
+        res += "id : ${fan.id}\n"
+        res += "nom : ${fan.name}\n"
+        res += "prenom : ${fan.firstName}\n"
+        res += "mail : ${fan.mail}\n"
+        res += "password : ${fan.password}\n"
+
+        return res
+    }
+
+
 }

@@ -33,8 +33,8 @@ interface ApiService {
     //mettre en place un systeme de pagination avec limit = 30
     @GET("current/results.json")
     suspend fun getCurrentRaceResults(
-        @Query("limit") limit: Int,
-        @Query("offset") offset: Int
+        @Query("offset") offset: Int,
+        @Query("limit") limit: Int
     ): Response<ResultsStart>
 
 

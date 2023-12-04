@@ -48,7 +48,7 @@ class ScheduleViewModel : ViewModel() {
 
     fun fetchRaceResults() {
         viewModelScope.launch {
-            ScheduleRepository.getRaceResults(30)
+            ScheduleRepository.getRaceResults(24)
                 .catch {
                     Timber.tag("ScheduleViewModel").e("fetchCurrentSeason: %s", it.message)
                 }
