@@ -72,6 +72,12 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
         maps.onResume()
         maps.getMapAsync(this)
 
+        //Click Listener
+        fond.setOnClickListener {
+            //retour au fragment précédent
+            activity?.onBackPressed()
+        }
+
 
 
     }
@@ -99,9 +105,17 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
                 .position(latLng)
                 .title(circuit.circuitName)
         )
-        mMap.moveCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLng(latLng)
+        mMap.uiSettings.isZoomGesturesEnabled = false
+        mMap.uiSettings.isScrollGesturesEnabled = false
+
+
+        mMap.moveCamera(
+            com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(
+                latLng,
+                5f
+            )
+
         )
-        mMap.animateCamera(com.google.android.gms.maps.CameraUpdateFactory.zoomTo(3f))
 
     }
 
