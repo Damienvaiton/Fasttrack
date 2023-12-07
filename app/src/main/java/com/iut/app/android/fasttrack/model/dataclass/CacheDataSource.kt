@@ -31,6 +31,10 @@ object CacheDataSource {
         return true
     }
 
+    fun getCircuit() : Circuit?{
+        return transitRace
+    }
+
     fun setFanConnected(fan: Fan): Boolean {
         FanConnected = fan
         return true

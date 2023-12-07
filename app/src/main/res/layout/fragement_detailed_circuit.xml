@@ -1,6 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fondnoir">
+
+
+    <ImageView
+        android:id="@+id/fondGp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/table_layout_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/scheduleTrack"
+        android:layout_width="250dp"
+        android:layout_height="180dp"
+        android:src="@drawable/qatartrack"
+        app:layout_constraintEnd_toEndOf="@+id/fondGp"
+        app:layout_constraintStart_toStartOf="@+id/fondGp"
+        app:layout_constraintTop_toTopOf="@id/fondGp"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="45dp"
+
+        />
+
+    <TextView
+        android:id="@+id/CoundtryGp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/major_mono_display"
+        android:text="Qatar"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/scheduleTrack"
+        app:layout_constraintStart_toStartOf="@+id/scheduleTrack"
+        app:layout_constraintTop_toBottomOf="@+id/scheduleTrack" />
+
+    <TextView
+        android:id="@+id/nameCircuitGp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="8 Mars 2020"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/scheduleTrack"
+        app:layout_constraintStart_toStartOf="@+id/scheduleTrack"
+        app:layout_constraintTop_toBottomOf="@+id/CoundtryGp"  />
+
+    <TextView
+        android:id="@+id/LatitudeGp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="20:00"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/scheduleTrack"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="@+id/scheduleTrack"
+        app:layout_constraintTop_toBottomOf="@+id/nameCircuitGp" />
+
+    <TextView
+        android:id="@+id/LongitudeGp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/monomaniac"
+        android:text="Heure"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/scheduleTrack"
+        app:layout_constraintStart_toStartOf="@+id/scheduleTrack"
+        app:layout_constraintTop_toBottomOf="@+id/LatitudeGp" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView2"
+        android:layout_width="219dp"
+        android:layout_height="134dp"
+        android:layout_marginBottom="76dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fondGp"
+        app:layout_constraintEnd_toEndOf="@+id/fondGp"
+        app:layout_constraintStart_toStartOf="@+id/fondGp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

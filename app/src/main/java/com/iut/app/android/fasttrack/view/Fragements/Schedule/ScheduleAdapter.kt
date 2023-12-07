@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
@@ -106,10 +107,15 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         //Set click listener on the card
         viewHolder.itemView.setOnClickListener {
             CacheDataSource.setCircuit(race.circuit)
+            //Start a fragment with the detailed circuit
+            val fragment = DetailedCircuit()
+            val transaction = (viewHolder.itemView.context as AppCompatActivity).supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
 
     }
-
 
     // Returns the total count of items in the list
     override fun getItemCount(): Int {

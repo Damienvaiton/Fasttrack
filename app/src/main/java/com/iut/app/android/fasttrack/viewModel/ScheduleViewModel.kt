@@ -61,5 +61,9 @@ class ScheduleViewModel : ViewModel() {
         }
     }
 
+    fun getFragmentTransaction() {
+
+    }
+
 
 }
