@@ -12,8 +12,10 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.MarkerOptions
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
+import timber.log.Timber
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -66,10 +68,10 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
 
 
         //Map
-        val mapFragment = childFragmentManager.findFragmentById(R.id.mapView2) as? SupportMapFragment
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(this)
-        }
+        maps.onCreate(savedInstanceState)
+        maps.onResume()
+        maps.getMapAsync(this)
+
 
 
     }
@@ -86,14 +88,21 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(p0: GoogleMap) {
+        Timber.e("onMapReady")
         mMap = p0
         val circuit = CacheDataSource.getCircuit()
         val lat = circuit?.location?.lat?.toDouble()
         val long = circuit?.location?.long?.toDouble()
         val latLng = com.google.android.gms.maps.model.LatLng(lat!!, long!!)
-        mMap.addMarker(com.google.android.gms.maps.model.MarkerOptions().position(latLng))
-        mMap.moveCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLng(latLng))
-        mMap.animateCamera(com.google.android.gms.maps.CameraUpdateFactory.zoomTo(15f))
+        mMap.addMarker(
+            MarkerOptions()
+                .position(latLng)
+                .title(circuit.circuitName)
+        )
+        mMap.moveCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLng(latLng)
+        )
+        mMap.animateCamera(com.google.android.gms.maps.CameraUpdateFactory.zoomTo(3f))
+
     }
 
 }
