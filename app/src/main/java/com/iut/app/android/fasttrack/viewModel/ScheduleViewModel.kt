@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Circuit
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Race
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
 import com.iut.app.android.fasttrack.model.repository.ScheduleRepository
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule

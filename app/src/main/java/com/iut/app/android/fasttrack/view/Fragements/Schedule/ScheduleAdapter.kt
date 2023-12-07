@@ -8,9 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
+import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
 import timber.log.Timber
 
 class ScheduleAdapter(private val calendar: Schedule, private val calendarResults: ResultsStart) :
@@ -30,6 +32,8 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         val nameGPTextView = itemView.findViewById<TextView>(R.id.nameGpSchedule)
 
         val dateGPTextView = itemView.findViewById<TextView>(R.id.dateGp)
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -98,6 +102,11 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         countryTextView.setText(realNameGp)
         dateTextView.setText(date)
         circuitName.setText(nameCircuit3)
+
+        //Set click listener on the card
+        viewHolder.itemView.setOnClickListener {
+            CacheDataSource.setCircuit(race.circuit)
+        }
 
     }
 
