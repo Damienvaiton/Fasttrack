@@ -22,16 +22,14 @@ object ScheduleRepository {
     suspend fun getRaceResults(nb_page: Int): Flow<Response<ResultsStart>> = flow {
 
         var offset = 0
-        var limit = 30
-        var remainingItems = nb_page
+        var limit = 80
+        val remainingItems = nb_page * 20
 
 
-        while (remainingItems > 0) {
+        while (limit <= remainingItems) {
+            limit += 80
             emit(ApiManager.apiService.getCurrentRaceResults(offset, limit))
-            offset += limit
-            remainingItems--
         }
-    }
 
 
-}
+}   }

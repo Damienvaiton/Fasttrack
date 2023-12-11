@@ -53,8 +53,10 @@
         android:src="@drawable/monza"
         app:layout_constraintBottom_toBottomOf="@+id/divScheduleLarge"
         app:layout_constraintEnd_toEndOf="@+id/divScheduleLarge"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/divScheduleLarge"
-        app:layout_constraintTop_toTopOf="@+id/divScheduleLarge"/>
+        app:layout_constraintTop_toTopOf="@+id/divScheduleLarge"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/nameGpSchedule"

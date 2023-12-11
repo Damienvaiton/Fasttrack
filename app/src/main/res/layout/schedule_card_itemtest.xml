@@ -41,7 +41,7 @@
             android:layout_height="70dp"
             android:layout_marginLeft="23dp"
             android:layout_marginTop="13dp"
-            android:src="@drawable/qatartrack" />
+            android:src="@drawable/losail" />
 
         <TextView
             android:id="@+id/DateGPSchedule"
