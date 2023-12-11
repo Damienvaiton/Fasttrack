@@ -199,7 +199,7 @@
         android:layout_height="81dp"
         android:layout_marginHorizontal="35dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/suzukatwo"
+        android:src="@drawable/suzuka"
         app:layout_constraintBottom_toBottomOf="@+id/divSmallNextGp"
         app:layout_constraintEnd_toEndOf="@+id/divSmallNextGp"
         app:layout_constraintHorizontal_bias="0.111"

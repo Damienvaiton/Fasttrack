@@ -32,38 +32,51 @@
 
     <ImageView
         android:id="@+id/imgteam"
-        android:layout_width="149dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:alpha="0.6"
+        android:layout_width="99dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="40dp"
+        android:alpha="0.4"
         android:src="@drawable/red_bull"
-        app:layout_constraintStart_toEndOf="@+id/nameConstructorDriver"
-        app:layout_constraintTop_toTopOf="@+id/divRankingPrincipal" />
+        app:layout_constraintBottom_toBottomOf="@+id/imgcar"
+        app:layout_constraintEnd_toEndOf="@+id/imgcar"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/imgcar" />
+
+    <ImageView
+        android:id="@+id/imgcar"
+        android:layout_width="249dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/red_bull1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/divRankingPrincipal2"
+        app:layout_constraintTop_toTopOf="@+id/divRankingPrincipal"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/rankingDriver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="12dp"
         android:fontFamily="@font/major_mono_display"
         android:text="01"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         app:layout_constraintStart_toStartOf="@+id/divRankingPrincipal"
-        app:layout_constraintTop_toBottomOf="@+id/nameConstructorDriver" />
+        app:layout_constraintTop_toBottomOf="@+id/nbPointPiloteRanking" />
 
     <TextView
         android:id="@+id/nameConstructorDriver"
-        android:layout_width="136dp"
+        android:layout_width="236dp"
         android:layout_height="37dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/lilita_one"
-        android:text="RedBull"
-        android:textColor="@color/red_bull"
-        android:textSize="24sp"
+        android:text="Red Bull"
+        android:textColor="@color/white"
+        android:textSize="34sp"
         app:layout_constraintStart_toStartOf="@id/divRankingPrincipal"
         app:layout_constraintTop_toTopOf="@+id/divRankingPrincipal" />
 
@@ -71,13 +84,13 @@
         android:id="@+id/nbPointPiloteRanking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/leckerli_one"
         android:text="250 pts"
         android:textColor="@color/red_bull"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/rankingDriver"
+        app:layout_constraintStart_toStartOf="@+id/divRankingPrincipal2"
         app:layout_constraintTop_toBottomOf="@+id/nameConstructorDriver" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
