@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     val scope = CoroutineScope(Dispatchers.IO + CoroutineName("MainScope"))
 
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setOnItemSelectedListener {
 
-            when(it.itemId){
+            when (it.itemId) {
 
                 R.id.home -> replaceFragment(Home())
                 R.id.calendar -> replaceFragment(Schedule())
@@ -41,9 +41,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.shop -> replaceFragment(Shop())
                 R.id.account -> connectedChooseFragement()
 
-                else ->{
-
-
+                else -> {
 
 
                 }
@@ -55,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(fragment : Fragment) {
+    private fun replaceFragment(fragment: Fragment) {
 
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
@@ -63,10 +61,10 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    private fun connectedChooseFragement(){
-        if(CacheDataSource.connected == true){
+    private fun connectedChooseFragement() {
+        if (CacheDataSource.connected == true) {
             replaceFragment(Account())
-        }else{
+        } else {
             replaceFragment(Login())
         }
     }
@@ -77,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             ScheduleRepository.getCurrentSeason().collect {
                 Log.d("MainActivity", "Current season : ${it.body()}")
             }
-            ScheduleRepository.getNextRace().collect{
+            ScheduleRepository.getNextRace().collect {
                 Log.d("MainActivity", "Next Race : ${it.body()}")
             }
             DriverRankingRepository.getCurrentDriverRanking().collect {

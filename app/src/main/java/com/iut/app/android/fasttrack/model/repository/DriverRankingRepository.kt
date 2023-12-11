@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
 object DriverRankingRepository {
-    suspend fun getCurrentDriverRanking(): Flow<Response<DriverRanking>>  = flow {
+    suspend fun getCurrentDriverRanking(): Flow<Response<DriverRanking>> = flow {
         emit(ApiManager.apiService.getCurrentDriverRanking())
     }
 }

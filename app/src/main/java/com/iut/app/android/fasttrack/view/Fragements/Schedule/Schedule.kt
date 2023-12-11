@@ -27,7 +27,6 @@ class Schedule : Fragment() {
     private var param2: String? = null
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -55,15 +54,14 @@ class Schedule : Fragment() {
         scheduleViewModel.fetchCurrentSeason()
         scheduleViewModel.fetchRaceResults()
 
-        scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) {response ->
+        scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) { response ->
             val calendar = response?.body()
-            scheduleViewModel.ResultsLiveData.observe(viewLifecycleOwner) {response2 ->
+            scheduleViewModel.ResultsLiveData.observe(viewLifecycleOwner) { response2 ->
 
                 val calendarResult = response2?.body()
-                calendar?.let {
-                    calend ->
+                calendar?.let { calend ->
                     calendarResult?.let {
-                        val adapter = ScheduleAdapter(calend,it)
+                        val adapter = ScheduleAdapter(calend, it)
 
                         rvContacts.adapter = adapter
 
@@ -76,13 +74,9 @@ class Schedule : Fragment() {
         }
 
 
-        
-
-
-
     }
 
-    fun getCorrectFormatDate(date: String): ArrayList<String>{
+    fun getCorrectFormatDate(date: String): ArrayList<String> {
         val dateList = date.split("-")
         val year = dateList[0]
         val month = dateList[1]

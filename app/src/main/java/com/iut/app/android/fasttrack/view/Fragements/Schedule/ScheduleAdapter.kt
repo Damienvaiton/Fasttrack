@@ -13,7 +13,8 @@ import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 
-class ScheduleAdapter (private val calendar: Schedule, private val calendarResults: ResultsStart) : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
+class ScheduleAdapter(private val calendar: Schedule, private val calendarResults: ResultsStart) :
+    RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Your holder should contain and initialize a member variable
@@ -24,6 +25,7 @@ class ScheduleAdapter (private val calendar: Schedule, private val calendarResul
 
         val NameCircuit = itemView.findViewById<TextView>(R.id.nameGp)
         val NameWinner = itemView.findViewById<TextView>(R.id.nameWinner)
+
         // for any view that will be set as you render a row
         val nameGPTextView = itemView.findViewById<TextView>(R.id.nameGpSchedule)
 
@@ -45,11 +47,11 @@ class ScheduleAdapter (private val calendar: Schedule, private val calendarResul
         val race = calendar.mRData.raceTable.races[position]
         val circuitwinner = viewHolder.NameWinner
         val sizeResult = calendarResults.mRData.raceTable.races.size
-        if(position < sizeResult){
+        if (position < sizeResult) {
             val raceResult = calendarResults.mRData.raceTable.races[position]
             val winnerName = raceResult.results[0].Driver.familyName
             circuitwinner.setText(winnerName)
-        } else{
+        } else {
             circuitwinner.setText("A venir")
         }
         viewHolder.itemView.setOnClickListener {
@@ -59,8 +61,13 @@ class ScheduleAdapter (private val calendar: Schedule, private val calendarResul
 
         //Get the color from the color.xml and set the color of the card
         val resources: Resources = viewHolder.itemView.context.resources
-        val resourceId: Int = resources.getIdentifier(idCircuit, "color", viewHolder.itemView.context.packageName)
-        val resourceID2 = resources.getIdentifier(idCircuit + "2", "color", viewHolder.itemView.context.packageName)
+        val resourceId: Int =
+            resources.getIdentifier(idCircuit, "color", viewHolder.itemView.context.packageName)
+        val resourceID2 = resources.getIdentifier(
+            idCircuit + "2",
+            "color",
+            viewHolder.itemView.context.packageName
+        )
         Log.e("color", resourceId.toString())
         viewHolder.cardView.setColorFilter(resources.getColor(resourceId, null))
         viewHolder.cardView2.setColorFilter(resources.getColor(resourceID2, null))
@@ -71,19 +78,19 @@ class ScheduleAdapter (private val calendar: Schedule, private val calendarResul
         //winnerImg.setColorFilter(resources.getColor(resourceID2, null))
 
 
-
         val homeVM = HomeViewModel()
 
         val dateTextView = viewHolder.dateGPTextView
 
-       var date = homeVM.writeDate(race.firstPractice.date, race.date)
-
+        var date = homeVM.writeDate(race.firstPractice.date, race.date)
 
 
         val realNameGp = race.raceName.replace("Grand Prix", "")
 
         val nameCircuit = race.circuit.circuitId.replace("_", " ")
-        val nameCircuit3 = nameCircuit.replaceFirstChar { if (it.isLowerCase()) it.uppercaseChar().toString() else it.toString() }
+        val nameCircuit3 = nameCircuit.replaceFirstChar {
+            if (it.isLowerCase()) it.uppercaseChar().toString() else it.toString()
+        }
         // Set item views based on your views and data model
         val countryTextView = viewHolder.nameGPTextView
         val circuitName = viewHolder.NameCircuit
@@ -93,7 +100,6 @@ class ScheduleAdapter (private val calendar: Schedule, private val calendarResul
         circuitName.setText(nameCircuit3)
 
     }
-
 
 
     // Returns the total count of items in the list

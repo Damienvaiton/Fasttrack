@@ -4,16 +4,21 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
 import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
 import com.iut.app.android.fasttrack.model.room.users.Fan
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
-import com.iut.app.android.fasttrack.model.room.users.User
+import com.iut.app.android.fasttrack.utils.converters.Converters
 
-@Database(entities = [Fan::class, User::class], version = 1)
+
+@Database(entities = [Fan::class, Tickets::class], version = 1)
+@TypeConverters(Converters::class)
 abstract class MyDatabase : RoomDatabase() {
 
 
-    abstract fun getDao(): FanDAO
+    abstract fun getFanDao(): FanDAO
+    abstract fun getTicketsDao(): TicketsDao
 
 
     companion object {
