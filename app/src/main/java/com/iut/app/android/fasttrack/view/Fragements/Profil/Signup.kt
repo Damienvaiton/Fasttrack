@@ -11,9 +11,11 @@ import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.room.MyDatabase
 import com.iut.app.android.fasttrack.model.room.users.Fan
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
+import com.iut.app.android.fasttrack.viewModel.UserViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 private const val ARG_PARAM1 = "param1"
@@ -56,7 +58,7 @@ class Signup : Fragment() {
         //Database
 
         myDatabase = MyDatabase.getDatabase()
-        fanDAO = myDatabase!!.getDao()
+        fanDAO = myDatabase!!.getFanDao()
 
 
         //Find elements
@@ -72,14 +74,9 @@ class Signup : Fragment() {
 
                 if (fanDAO!!.isFan(usernameTV.text.toString())) {
                     connected = false
-                   /* val builder = AlertDialog.Builder(requireContext())
-                    builder.setTitle("Erreur")
-                    builder.setMessage("Ce nom d'utilisateur existe déjà")
-                    builder.setPositiveButton("OK") { dialog, which ->
-                        dialog.dismiss()
+                    withContext(Dispatchers.Main) {
+                        UserViewModel().ErrorDialog("mail", requireContext())
                     }
-                    val dialog: AlertDialog = builder.create()
-                    dialog.show()*/
                 } else {
                     if (usernameTV.text.toString() != "" && passwordTV.text.toString() != "") {
                         val fan = Fan(

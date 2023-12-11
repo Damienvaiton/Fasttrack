@@ -16,7 +16,8 @@ import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.StandingsTable
 import org.w3c.dom.Text
 
-class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanking) : RecyclerView.Adapter<ConstructorRankingAdapter.ViewHolder>() {
+class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanking) :
+    RecyclerView.Adapter<ConstructorRankingAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -36,17 +37,26 @@ class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanki
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    val nameConstructor = constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].constructor.name
-        val positionRanking = constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].position
-        val points = constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].points
-        val constructorId = constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].constructor.constructorId
+        val nameConstructor =
+            constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].constructor.name
+        val positionRanking =
+            constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].position
+        val points =
+            constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].points
+        val constructorId =
+            constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].constructor.constructorId
 
         val resources: Resources = holder.itemView.context.resources
-        val colorgold: Int = resources.getIdentifier("gold", "color", holder.itemView.context.packageName)
-        val colorargent: Int = resources.getIdentifier("argent", "color", holder.itemView.context.packageName)
-        val colorbronze: Int = resources.getIdentifier("bronze", "color", holder.itemView.context.packageName)
-        val resourceId: Int = resources.getIdentifier(constructorId, "color", holder.itemView.context.packageName)
-        val resourceLogoConstructor: Int = resources.getIdentifier(constructorId, "drawable", holder.itemView.context.packageName)
+        val colorgold: Int =
+            resources.getIdentifier("gold", "color", holder.itemView.context.packageName)
+        val colorargent: Int =
+            resources.getIdentifier("argent", "color", holder.itemView.context.packageName)
+        val colorbronze: Int =
+            resources.getIdentifier("bronze", "color", holder.itemView.context.packageName)
+        val resourceId: Int =
+            resources.getIdentifier(constructorId, "color", holder.itemView.context.packageName)
+        val resourceLogoConstructor: Int =
+            resources.getIdentifier(constructorId, "drawable", holder.itemView.context.packageName)
 
         val positionTv = holder.positionRanking
         val name = holder.nameConstructor
@@ -61,16 +71,13 @@ class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanki
         holder.nameConstructor.setTextColor(resources.getColor(resourceId, null))
         holder.points.setTextColor(resources.getColor(resourceId, null))
 
-        if (position == 0){
+        if (position == 0) {
             positionTv.setTextColor(resources.getColor(colorgold, null))
-        }
-        else if (position == 1){
+        } else if (position == 1) {
             positionTv.setTextColor(resources.getColor(colorargent, null))
-        }
-        else if (position == 2) {
+        } else if (position == 2) {
             positionTv.setTextColor(resources.getColor(colorbronze, null))
-        }
-        else{
+        } else {
             positionTv.setTextColor(resources.getColor(resourceId, null))
         }
     }
@@ -89,7 +96,7 @@ class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanki
     companion object {
         fun createEmpty(): ConstructorRanking {
             // Créez ici une instance de DriverRanking avec une liste vide de DriverStanding
-            var constructor = Constructor("red_bull","Red Bull", "Austrian", "")
+            var constructor = Constructor("red_bull", "Red Bull", "Austrian", "")
             var constructorStandings = ConstructorStanding(constructor, "1", "1", "1", "1")
             var listconstructorStandings = listOf(constructorStandings)
             var standingsList = StandingsLists(listconstructorStandings, "1", "1")

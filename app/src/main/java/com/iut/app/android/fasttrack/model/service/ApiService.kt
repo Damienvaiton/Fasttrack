@@ -17,7 +17,7 @@ interface ApiService {
     suspend fun getNextRace(): Response<Schedule>
 
     @GET("current/{id}.json")
-    suspend fun getCurrantRaceByNumber(@Path ("id") raceId : Int): Response<Schedule>
+    suspend fun getCurrantRaceByNumber(@Path("id") raceId: Int): Response<Schedule>
 
 
     @GET("current/driverStandings.json")
@@ -27,14 +27,15 @@ interface ApiService {
     suspend fun getCurrentConstructorRanking(): Response<ConstructorRanking>
 
     @GET("/drivers/{id}.json")
-    suspend fun getDriverById(@Path ("id") driverId : String): Response<DriverInformation>
-
-    @GET("current/results.json?limit=900&offset=0")
-    suspend fun getCurrentRaceResults(): Response<ResultsStart>
+    suspend fun getDriverById(@Path("id") driverId: String): Response<DriverInformation>
 
 
-
-
+    //mettre en place un systeme de pagination avec limit = 30
+    @GET("current/results.json")
+    suspend fun getCurrentRaceResults(
+        @Query("limit") limit: Int,
+        @Query("offset") offset: Int
+    ): Response<ResultsStart>
 
 
 }

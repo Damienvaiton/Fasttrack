@@ -11,16 +11,26 @@ import retrofit2.Response
 
 object ScheduleRepository {
 
-    suspend fun getCurrentSeason(): Flow<Response<Schedule>>  = flow {
+    suspend fun getCurrentSeason(): Flow<Response<Schedule>> = flow {
         emit(ApiManager.apiService.getCurrentSeasonFlow())
     }
 
-    suspend fun getNextRace(): Flow<Response<Schedule>>  = flow {
+    suspend fun getNextRace(): Flow<Response<Schedule>> = flow {
         emit(ApiManager.apiService.getNextRace())
     }
 
-    suspend fun getRaceResults(): Flow<Response<ResultsStart>>  = flow {
-        emit(ApiManager.apiService.getCurrentRaceResults())
+    suspend fun getRaceResults(nb_page: Int): Flow<Response<ResultsStart>> = flow {
+
+        var offset = 0
+        var limit = 30
+        var remainingItems = nb_page
+
+
+        while (remainingItems > 0) {
+            emit(ApiManager.apiService.getCurrentRaceResults(offset, limit))
+            offset += limit
+            remainingItems--
+        }
     }
 
 

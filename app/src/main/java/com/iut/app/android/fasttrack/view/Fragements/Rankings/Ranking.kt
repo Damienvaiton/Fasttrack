@@ -81,6 +81,7 @@ class Ranking : Fragment() {
                             rvContacts.adapter = driverAdapter
                         }
                     }
+
                     1 -> { // Onglet "Teams"
                         rankingViewModel.fetchConstructorRanking()
                         rankingViewModel.constructorLiveDataRanking.observe(viewLifecycleOwner) { response ->
@@ -91,8 +92,11 @@ class Ranking : Fragment() {
                 }
             }
 
-            override fun onTabUnselected(tab: TabLayout.Tab?) { /* ... */ }
-            override fun onTabReselected(tab: TabLayout.Tab?) { /* ... */ }
+            override fun onTabUnselected(tab: TabLayout.Tab?) { /* ... */
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) { /* ... */
+            }
         })
 
         // Initialisation par défaut
