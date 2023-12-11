@@ -2,6 +2,7 @@ package com.iut.app.android.fasttrack.view.Fragements.Schedule
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -63,8 +64,8 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
         fond.setColorFilter(resources.getColor(resourceId,null))
         circuitNameTv.text = circuit?.circuitName
         nameContryTv.text = circuit?.location?.country
-        circuitLatitudeTv.text = circuit?.location?.lat
-        circuitLongitudeTv.text = circuit?.location?.long
+        circuitLatitudeTv.text = "Latitude : " + circuit?.location?.lat
+        circuitLongitudeTv.text = "Longitude : " + circuit?.location?.long
 
 
         //Map
@@ -74,7 +75,6 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
 
         //Click Listener
         fond.setOnClickListener {
-            //retour au fragment précédent
             activity?.onBackPressed()
         }
 
@@ -105,8 +105,6 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
                 .position(latLng)
                 .title(circuit.circuitName)
         )
-        mMap.uiSettings.isZoomGesturesEnabled = false
-        mMap.uiSettings.isScrollGesturesEnabled = false
 
 
         mMap.moveCamera(
@@ -116,6 +114,15 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
             )
 
         )
+
+        mMap.setOnMapLongClickListener {
+            mMap.moveCamera(
+                com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(
+                    latLng,
+                    5f
+                )
+            )
+        }
 
     }
 
