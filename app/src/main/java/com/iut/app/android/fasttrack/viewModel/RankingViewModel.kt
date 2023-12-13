@@ -1,6 +1,5 @@
 package com.iut.app.android.fasttrack.viewModel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,6 +9,7 @@ import com.iut.app.android.fasttrack.model.repository.ConstructorRankingReposito
 import com.iut.app.android.fasttrack.model.repository.DriverRankingRepository
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class RankingViewModel : ViewModel() {
 
@@ -24,7 +24,7 @@ class RankingViewModel : ViewModel() {
         viewModelScope.launch {
             DriverRankingRepository.getCurrentDriverRanking()
                 .catch {
-                    Log.e("RankingViewModel", "fetchDriverRanking: ${it.message}")
+                    Timber.tag("RankingViewModel").e("fetchDriverRanking: %s", it.message)
 
                 }
                 .collect {
@@ -37,7 +37,7 @@ class RankingViewModel : ViewModel() {
         viewModelScope.launch {
             ConstructorRankingRepository.getCurrentConstructorRanking()
                 .catch {
-                    Log.e("RankingViewModel", "fetchConstructorRanking: ${it.message}")
+                    Timber.tag("RankingViewModel").e("fetchConstructorRanking: %s", it.message)
 
                 }
                 .collect {
