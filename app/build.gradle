@@ -4,6 +4,9 @@ plugins {
     id 'org.jetbrains.kotlin.android.extensions'
     id 'kotlin-kapt'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+
 }
 
 android {
@@ -79,9 +82,14 @@ dependencies {
     //Maps
 
     implementation 'com.google.maps.android:android-maps-utils:2.2.5'
-    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
 
+    //Firebase (Base)
+    implementation platform('com.google.firebase:firebase-bom:32.7.0')
+    implementation 'com.google.firebase:firebase-analytics'
 
+    //Crashlytics
+    implementation("com.google.firebase:firebase-crashlytics")
 
 
     testImplementation 'junit:junit:4.13.2'

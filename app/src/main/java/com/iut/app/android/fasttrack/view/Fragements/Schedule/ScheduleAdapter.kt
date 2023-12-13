@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.maps.MapView
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
@@ -30,7 +31,7 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         val NameWinner = itemView.findViewById<TextView>(R.id.nameWinner)
 
         // for any view that will be set as you render a row
-        val nameGPTextView = itemView.findViewById<TextView>(R.id.nameGpSchedule)
+        val nameGPTextView = itemView.findViewById<MapView>(R.id.nameGpSchedule)
 
         val dateGPTextView = itemView.findViewById<TextView>(R.id.dateGp)
 
@@ -100,7 +101,7 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         val countryTextView = viewHolder.nameGPTextView
         val circuitName = viewHolder.NameCircuit
 
-        countryTextView.setText(realNameGp)
+       // countryTextView.setText(realNameGp)
         dateTextView.setText(date)
         circuitName.setText(nameCircuit3)
 
