@@ -16,7 +16,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.MarkerOptions
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
-import timber.log.Timber
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -49,6 +48,7 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState)
 
         val fond = view.findViewById<ImageView>(R.id.fondGp)
+        val fond2 = view.findViewById<ImageView>(R.id.scheduleBack2)
         val circuitTrackIv = view.findViewById<ImageView>(R.id.scheduleTrack)
         val nameContryTv = view.findViewById<TextView>(R.id.CoundtryGp)
         val circuitNameTv = view.findViewById<TextView>(R.id.nameCircuitGp)
@@ -61,8 +61,12 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
 
         val Resources: Resources = resources
         val resourceId: Int = Resources.getIdentifier(circuit?.circuitId, "color", context?.packageName)
+        val resourceId2: Int = Resources.getIdentifier(circuit?.circuitId + "2", "color", context?.packageName)
+        val resourceIdTrack: Int = Resources.getIdentifier(circuit?.circuitId, "drawable", context?.packageName)
         fond.setColorFilter(resources.getColor(resourceId,null))
+        fond2.setColorFilter(resources.getColor(resourceId2,null))
         circuitNameTv.text = circuit?.circuitName
+        circuitTrackIv.setImageDrawable(resources.getDrawable(resourceIdTrack,null))
         nameContryTv.text = circuit?.location?.country
         circuitLatitudeTv.text = "Latitude : " + circuit?.location?.lat
         circuitLongitudeTv.text = "Longitude : " + circuit?.location?.long
@@ -94,7 +98,6 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(p0: GoogleMap) {
-        Timber.e("onMapReady")
         mMap = p0
         val circuit = CacheDataSource.getCircuit()
         val lat = circuit?.location?.lat?.toDouble()

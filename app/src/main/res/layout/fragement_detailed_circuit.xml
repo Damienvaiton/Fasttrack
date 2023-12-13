@@ -17,6 +17,7 @@
         android:layout_marginBottom="24dp"
         android:scaleType="fitXY"
         android:src="@drawable/table_layout_bg"
+        android:alpha="0.7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -25,28 +26,39 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
+        android:id="@+id/scheduleBack2"
+        android:layout_width="312dp"
+        android:alpha="0.8"
+        android:layout_height="194dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/scheduleqatarrectlarge"
+        app:layout_constraintEnd_toEndOf="@+id/fondGp"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/fondGp"
+        app:layout_constraintTop_toTopOf="@id/fondGp" />
+
+    <ImageView
         android:id="@+id/scheduleTrack"
         android:layout_width="250dp"
         android:layout_height="180dp"
-        android:src="@drawable/qatartrack"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/losail"
         app:layout_constraintEnd_toEndOf="@+id/fondGp"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/fondGp"
-        app:layout_constraintTop_toTopOf="@id/fondGp"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="45dp"
-
-        />
+        app:layout_constraintTop_toTopOf="@id/fondGp" />
 
     <TextView
         android:id="@+id/CoundtryGp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/major_mono_display"
         android:text="Qatar"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/scheduleTrack"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/scheduleTrack"
         app:layout_constraintTop_toBottomOf="@+id/scheduleTrack" />
 
@@ -54,14 +66,14 @@
         android:id="@+id/nameCircuitGp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/monomaniac"
         android:text="8 Mars 2020"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/scheduleTrack"
         app:layout_constraintStart_toStartOf="@+id/scheduleTrack"
-        app:layout_constraintTop_toBottomOf="@+id/CoundtryGp"  />
+        app:layout_constraintTop_toBottomOf="@+id/CoundtryGp" />
 
     <TextView
         android:id="@+id/LatitudeGp"
@@ -71,9 +83,9 @@
         android:fontFamily="@font/monomaniac"
         android:text="20:00"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="@+id/scheduleTrack"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/scheduleTrack"
         app:layout_constraintTop_toBottomOf="@+id/nameCircuitGp" />
 
@@ -81,11 +93,11 @@
         android:id="@+id/LongitudeGp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/monomaniac"
         android:text="Heure"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="@+id/scheduleTrack"
         app:layout_constraintStart_toStartOf="@+id/scheduleTrack"
         app:layout_constraintTop_toBottomOf="@+id/LatitudeGp" />
@@ -94,8 +106,9 @@
         android:id="@+id/mapView2"
         android:layout_width="322dp"
         android:layout_height="199dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="@+id/fondGp"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/fondGp"
         app:layout_constraintTop_toBottomOf="@+id/LongitudeGp" />
 

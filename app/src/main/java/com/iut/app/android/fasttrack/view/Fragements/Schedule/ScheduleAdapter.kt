@@ -15,7 +15,6 @@ import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
-import timber.log.Timber
 
 class ScheduleAdapter(private val calendar: Schedule, private val calendarResults: ResultsStart) :
     RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
@@ -66,7 +65,6 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         viewHolder.itemView.setOnClickListener {
         }
         val idCircuit = race.circuit.circuitId
-        Timber.tag("idCircuit").e(idCircuit)
 
         //Get the color from the color.xml and set the color of the card
         val resources: Resources = viewHolder.itemView.context.resources
@@ -79,7 +77,6 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         )
         val resourcePhoto: Int =
             resources.getIdentifier(idCircuit, "drawable", viewHolder.itemView.context.packageName)
-        Log.e("photo track : ", resourcePhoto.toString())
         viewHolder.cardView.setColorFilter(resources.getColor(resourceId, null))
         viewHolder.cardView2.setColorFilter(resources.getColor(resourceID2, null))
         viewHolder.cardView3.setColorFilter(resources.getColor(resourceID2, null))
