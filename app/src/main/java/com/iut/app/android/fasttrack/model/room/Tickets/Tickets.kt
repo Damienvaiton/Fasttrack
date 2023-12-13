@@ -30,6 +30,7 @@ data class Tickets(
     var userId: Int,
     var raceId: Race,
     var nameGrandStand: String,
-    var nameBlock: String
+    var nameBlock: String,
+    var numberBase: Int
 )
 
