@@ -31,7 +31,7 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         val NameWinner = itemView.findViewById<TextView>(R.id.nameWinner)
 
         // for any view that will be set as you render a row
-        val nameGPTextView = itemView.findViewById<MapView>(R.id.nameGpSchedule)
+        val nameGPTextView = itemView.findViewById<TextView>(R.id.nameGpSchedule)
 
         val dateGPTextView = itemView.findViewById<TextView>(R.id.dateGp)
 
@@ -101,7 +101,7 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         val countryTextView = viewHolder.nameGPTextView
         val circuitName = viewHolder.NameCircuit
 
-       // countryTextView.setText(realNameGp)
+        countryTextView.setText(realNameGp)
         dateTextView.setText(date)
         circuitName.setText(nameCircuit3)
 
