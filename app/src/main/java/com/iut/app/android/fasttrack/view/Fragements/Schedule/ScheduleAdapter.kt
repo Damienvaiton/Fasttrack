@@ -23,6 +23,8 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         // Your holder should contain and initialize a member variable
         val cardView = itemView.findViewById<ImageView>(R.id.divSchedulePrincipal)
 
+        val logoCircuit = itemView.findViewById<ImageView>(R.id.scheduleTrack)
+
         val cardView2 = itemView.findViewById<ImageView>(R.id.divScheduleGagnant)
         val cardView3 = itemView.findViewById<ImageView>(R.id.divScheduleLarge)
 
@@ -51,6 +53,7 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         // Get the data model based on position
         val race = calendar.mRData.raceTable.races[position]
         val circuitwinner = viewHolder.NameWinner
+        val circuitPicture = viewHolder.logoCircuit
         val sizeResult = calendarResults.mRData.raceTable.races.size
         if (position < sizeResult) {
             val raceResult = calendarResults.mRData.raceTable.races[position]
@@ -73,7 +76,9 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
             "color",
             viewHolder.itemView.context.packageName
         )
-        Timber.tag("color").e(resourceId.toString())
+        val resourcePhoto: Int =
+            resources.getIdentifier(idCircuit, "drawable", viewHolder.itemView.context.packageName)
+        Log.e("photo track : ", resourcePhoto.toString())
         viewHolder.cardView.setColorFilter(resources.getColor(resourceId, null))
         viewHolder.cardView2.setColorFilter(resources.getColor(resourceID2, null))
         viewHolder.cardView3.setColorFilter(resources.getColor(resourceID2, null))
@@ -88,6 +93,8 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         val dateTextView = viewHolder.dateGPTextView
 
         val date = homeVM.writeDate(race.firstPractice.date, race.date)
+
+        circuitPicture.setImageDrawable(resources.getDrawable(resourcePhoto, null))
 
 
         val realNameGp = race.raceName.replace("Grand Prix", "")

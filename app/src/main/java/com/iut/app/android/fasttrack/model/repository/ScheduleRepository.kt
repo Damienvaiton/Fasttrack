@@ -34,7 +34,4 @@ object ScheduleRepository {
         }
 
 
-    }
-}
-
-
+}   }
