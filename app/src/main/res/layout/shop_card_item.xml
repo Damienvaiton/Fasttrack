@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardSchedule"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    app:cardElevation="0dp"
+    android:backgroundTint="@color/clear"
+    app:cardUseCompatPadding="false">
+
+    <ImageView
+        android:id="@+id/divSchedulePrincipal"
+        android:layout_width="458dp"
+        android:layout_height="109dp"
+        android:layout_marginHorizontal="5dp"
+        android:src="@drawable/grand_rect_blanc_shop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/divScheduleFoncee"
+        android:layout_width="221dp"
+        android:layout_height="94dp"
+        android:src="@drawable/demi_fonce_shop"
+        app:layout_constraintBottom_toBottomOf="@+id/divSchedulePrincipal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.255"
+        app:layout_constraintStart_toStartOf="@+id/divSchedulePrincipal"
+        app:layout_constraintTop_toTopOf="@+id/divSchedulePrincipal" />
+
+    <ImageView
+        android:id="@+id/divScheduleClaire"
+        android:layout_width="304dp"
+        android:layout_height="95dp"
+        android:src="@drawable/demi_clair_shop"
+        app:layout_constraintBottom_toBottomOf="@+id/divSchedulePrincipal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.962"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divSchedulePrincipal"
+        app:layout_constraintVertical_bias="0.526" />
+
+    <TextView
+        android:id="@+id/nameGpShop"
+        android:layout_width="650px"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/major_mono_display"
+        android:maxWidth="650px"
+        android:text="FastTrack"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divScheduleFoncee"
+        app:layout_constraintStart_toStartOf="@+id/divScheduleFoncee"
+        app:layout_constraintTop_toTopOf="@+id/divScheduleFoncee"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/nameGp"
+        android:layout_width="290px"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lilita_one"
+        android:maxWidth="290px"
+        android:text="Marina Bay"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/divScheduleFoncee"
+        app:layout_constraintHorizontal_bias="0.324"
+        app:layout_constraintStart_toStartOf="@+id/divScheduleFoncee"
+        app:layout_constraintTop_toBottomOf="@+id/nameGpShop" />
+
+    <TextView
+        android:id="@+id/dateGp"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lilita_one"
+        android:maxWidth="200px"
+        android:text="01 - 03 SEP"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divScheduleFoncee"
+        app:layout_constraintEnd_toEndOf="@+id/nameGp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nameGp"
+        app:layout_constraintTop_toBottomOf="@+id/nameGp"
+        app:layout_constraintVertical_bias="0.026" />
+
+    <ImageView
+        android:id="@+id/scheduleTrack"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="3dp"
+        android:src="@drawable/monza"
+        app:layout_constraintBottom_toBottomOf="@+id/divScheduleClaire"
+        app:layout_constraintEnd_toEndOf="@+id/divScheduleClaire"
+        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintStart_toStartOf="@+id/divScheduleClaire"
+        app:layout_constraintTop_toTopOf="@+id/divScheduleClaire"
+        app:layout_constraintVertical_bias="0.6" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
