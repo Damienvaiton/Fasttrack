@@ -62,6 +62,8 @@ class Signup : Fragment() {
 
 
         //Find elements
+        val firstname = view.findViewById<TextView>(R.id.firstname)
+        val lastname = view.findViewById<TextView>(R.id.lastname)
         val usernameTV = view.findViewById<TextView>(R.id.username)
         val passwordTV = view.findViewById<TextView>(R.id.password)
         val buttonEnregistrer = view.findViewById<Button>(R.id.submit)
@@ -78,13 +80,16 @@ class Signup : Fragment() {
                         UserViewModel().ErrorDialog("mail", requireContext())
                     }
                 } else {
-                    if (usernameTV.text.toString() != "" && passwordTV.text.toString() != "") {
+                    if (usernameTV.text.toString() != "" && passwordTV.text.toString() != "" && firstname.text.toString() != "" && lastname.text.toString() != "") {
                         val fan = Fan(
                             0,
-                            "Test",
-                            "prenomtest",
+                            lastname.text.toString(),
+                            firstname.text.toString(),
                             usernameTV.text.toString(),
-                            passwordTV.text.toString()
+                            passwordTV.text.toString(),
+                            null,
+                            null,
+                            44
                         )
                         fanDAO!!.insertFan(fan)
                         connected = true

@@ -11,5 +11,9 @@ class Fan(
     var name: String,
     var firstName: String,
     var mail: String,
-    var password: String
+    var password: String,
+    var favoriteTeam: String?,
+    var favoriteDriver: String?,
+    var favoritenumber: Int?
+
 )

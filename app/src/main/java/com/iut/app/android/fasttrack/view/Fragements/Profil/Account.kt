@@ -44,8 +44,10 @@ class Account : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val FirstNameTV = view.findViewById<TextView>(R.id.firstNameAccount)
         val LastNameTV = view.findViewById<TextView>(R.id.lastNameAccount)
+        val favoriteNumber = view.findViewById<TextView>(R.id.numberDriverAccount)
 
         FirstNameTV.text = CacheDataSource.FanConnected?.firstName
         LastNameTV.text = CacheDataSource.FanConnected?.name
+        favoriteNumber.text = CacheDataSource.FanConnected?.favoritenumber.toString()
     }
 }
