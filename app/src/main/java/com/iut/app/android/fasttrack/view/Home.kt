@@ -86,9 +86,12 @@ class Home : Fragment() {
 
 
 
+
+
             if (nextRace != null) {
+                val nRace = nextRace.mRData.raceTable.races[0]
                 if (nextRace.mRData.raceTable.races.size > 0) {
-                    val idCircuit = nextRace.mRData.raceTable.races[0].circuit.circuitId
+                    val idCircuit = nRace.circuit.circuitId
                     val resources = view.context.resources
                     val resourceId =
                         resources.getIdentifier(idCircuit, "color", view.context.packageName)
@@ -100,55 +103,61 @@ class Home : Fragment() {
 
                     ScheduleY = homeViewModel.getScheduleofTheRace(nextRace.mRData.raceTable, 0)
 
-                    countryGp.setText(nextRace.mRData.raceTable.races[0].circuit.location.country)
+                    countryGp.setText(nRace.circuit.location.country)
 
 
-                    nameGp.setText(homeViewModel.correctNameGP(nextRace.mRData.raceTable.races[0].raceName))
+                    nameGp.setText(homeViewModel.correctNameGP(nRace.raceName))
+
+                    if (nRace.firstPractice != null ) {
+
+                        val correctDate = homeViewModel.writeDate(
+                            nRace.firstPractice.date,
+                            nRace.date
+                        )
+                        dateGp.setText(correctDate)
+
+                        //Remplissage des dernières séances
+
+                        nomSchedule1.setText(ScheduleY[2].name)
+                        dateSchedule1.setText(homeViewModel.writeDayOfTheWeekOfADate(ScheduleY[2].date))
+                        timeSchedule1.setText(homeViewModel.writeTimeSeance(ScheduleY[2].hour))
+
+                        nomSchedule2.setText(ScheduleY[3].name)
+                        dateSchedule2.setText(homeViewModel.writeDayOfTheWeekOfADate(ScheduleY[3].date))
+                        timeSchedule2.setText(homeViewModel.writeTimeSeance(ScheduleY[3].hour))
+
+                        nomSchedule3.setText("Course")
+                        dateSchedule3.setText(homeViewModel.writeDayOfTheWeekOfADate(ScheduleY[4].date))
+                        timeSchedule3.setText(homeViewModel.writeTimeSeance(ScheduleY[4].hour))
 
 
-                    val correctDate = homeViewModel.writeDate(
-                        nextRace.mRData.raceTable.races[0].firstPractice.date,
-                        nextRace.mRData.raceTable.races[0].date
-                    )
-                    dateGp.setText(correctDate)
-
-                    //Remplissage des dernières séances
-
-                    nomSchedule1.setText(ScheduleY[2].name)
-                    dateSchedule1.setText(homeViewModel.writeDayOfTheWeekOfADate(ScheduleY[2].date))
-                    timeSchedule1.setText(homeViewModel.writeTimeSeance(ScheduleY[2].hour))
-
-                    nomSchedule2.setText(ScheduleY[3].name)
-                    dateSchedule2.setText(homeViewModel.writeDayOfTheWeekOfADate(ScheduleY[3].date))
-                    timeSchedule2.setText(homeViewModel.writeTimeSeance(ScheduleY[3].hour))
-
-                    nomSchedule3.setText("Course")
-                    dateSchedule3.setText(homeViewModel.writeDayOfTheWeekOfADate(ScheduleY[4].date))
-                    timeSchedule3.setText(homeViewModel.writeTimeSeance(ScheduleY[4].hour))
+                    }
+                else {
+                        Log.e("Error API Home", "No data in the parameter nextRace")
 
 
-                } else {
-                    Log.e("Error API Home", "No data in the parameter nextRace")
-                    countryGp.setText("Inconnu")
-                    nameGp.setText("Inconnu")
-                    dateGp.setText("Inconnu")
 
+                        nomSchedule1.setText("A definir")
+                        dateSchedule1.setText("")
+                        timeSchedule1.setText("")
 
-                    nomSchedule1.setText("A definir")
-                    dateSchedule1.setText("")
-                    timeSchedule1.setText("")
+                        nomSchedule2.setText("A definir")
+                        dateSchedule2.setText("")
+                        timeSchedule2.setText("")
 
-                    nomSchedule2.setText("A definir")
-                    dateSchedule2.setText("")
-                    timeSchedule2.setText("")
+                        nomSchedule3.setText("A definir")
+                        dateSchedule3.setText("")
+                        timeSchedule3.setText("")
 
-                    nomSchedule3.setText("A definir")
-                    dateSchedule3.setText("")
-                    timeSchedule3.setText("")
-
+                    }
                 }
 
 
+            }
+            else {
+                countryGp.setText("Inconnu")
+                nameGp.setText("Inconnu")
+                dateGp.setText("Inconnu")
             }
 
         }
