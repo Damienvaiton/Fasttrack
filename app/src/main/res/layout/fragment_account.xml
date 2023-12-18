@@ -180,4 +180,18 @@
         android:layout_marginTop="500dp"
         android:src="@drawable/alpinef1" />
 
+    <Button
+        android:id="@+id/stylishButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cliquez-moi !"
+        android:background="@drawable/stylish_button_background"
+        android:textColor="@android:color/white"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_margin="16dp"
+        android:gravity="center"/>
+
 </FrameLayout>

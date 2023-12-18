@@ -1,5 +1,6 @@
 package com.iut.app.android.fasttrack.model.repository
 
+import android.util.Log
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
 import com.iut.app.android.fasttrack.model.manager.ApiManager
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
@@ -8,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
+import timber.log.Timber
 
 object ScheduleRepository {
 

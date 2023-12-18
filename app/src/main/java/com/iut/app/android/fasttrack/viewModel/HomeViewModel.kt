@@ -1,12 +1,9 @@
 package com.iut.app.android.fasttrack.viewModel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.google.gson.JsonObject
-import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.schedule.RaceTable
 import com.iut.app.android.fasttrack.model.room.FanWithTickets
-import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
+import timber.log.Timber
 import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
@@ -34,7 +31,7 @@ class HomeViewModel : ViewModel() {
         val dayend = dateRace.substring(8, 10)
         val monthName: String =
             DateFormatSymbols().months[month.toInt() - 1].subSequence(0, 3).toString().uppercase()
-        return daystart + "-" + dayend + " " + monthName;
+        return daystart + "-" + dayend + " " + monthName
     }
 
     fun getScheduleofTheRace(nextRace: RaceTable?, position: Int): ArrayList<Seance> {
@@ -68,7 +65,7 @@ class HomeViewModel : ViewModel() {
             }
 
         }
-        Log.e("Error API getScheduleofTheRace", "No data in the parameter nextRace")
+        Timber.tag("Error API getScheduleofTheRace").e("No data in the parameter nextRace")
         return arrayListOf<Seance>()
     }
 
@@ -114,3 +111,6 @@ class HomeViewModel : ViewModel() {
 
 
 
+
+
+}

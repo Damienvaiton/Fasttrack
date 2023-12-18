@@ -1,7 +1,7 @@
 package com.iut.app.android.fasttrack.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.view.Fragements.Schedule.Schedule
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
+import timber.log.Timber
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,6 +45,7 @@ class Home : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -77,7 +78,7 @@ class Home : Fragment() {
 
         scheduleViewModel.getnextRace()
 
-        var ScheduleY = ArrayList<HomeViewModel.Seance>();
+        var ScheduleY = ArrayList<HomeViewModel.Seance>()
 
         //aller chercher un attribut dans le retour d api scheduleViewModel.getnextRace() et l'afficher dans le textview countryGp
 
@@ -98,7 +99,7 @@ class Home : Fragment() {
                     val resourceID2 =
                         resources.getIdentifier(idCircuit + "2", "color", view.context.packageName)
                     card.setColorFilter(resources.getColor(resourceId, null))
-                    Log.e("color", idCircuit)
+                    Timber.tag("color").e(idCircuit)
                     card2.setColorFilter(resources.getColor(resourceID2, null))
 
                     ScheduleY = homeViewModel.getScheduleofTheRace(nextRace.mRData.raceTable, 0)
@@ -136,6 +137,11 @@ class Home : Fragment() {
                         Log.e("Error API Home", "No data in the parameter nextRace")
 
 
+                } else {
+                    Timber.tag("Error API Home").e("No data in the parameter nextRace")
+                    countryGp.setText("Inconnu")
+                    nameGp.setText("Inconnu")
+                    dateGp.setText("Inconnu")
 
                         nomSchedule1.setText("A definir")
                         dateSchedule1.setText("")

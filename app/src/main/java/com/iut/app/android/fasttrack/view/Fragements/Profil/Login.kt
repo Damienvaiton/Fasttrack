@@ -1,9 +1,7 @@
 package com.iut.app.android.fasttrack.view.Fragements.Profil
 
-import android.app.AlertDialog
 import androidx.fragment.app.Fragment
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,19 +10,14 @@ import android.widget.TextView
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.room.MyDatabase
-import com.iut.app.android.fasttrack.model.room.Tickets.Circuit
-import com.iut.app.android.fasttrack.model.room.Tickets.Race
-import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
 import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
-import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 import com.iut.app.android.fasttrack.viewModel.UserViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.Error
+import timber.log.Timber
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,7 +62,7 @@ class Login : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        Log.e("OnViewCreated", "Passage dans account")
+        Timber.tag("OnViewCreated").e("Passage dans account")
 
 
         val signupbtn = view.findViewById<Button>(R.id.signupbtn)
@@ -93,16 +86,15 @@ class Login : Fragment() {
                 fanDAO = myDatabase!!.getFanDao()
                 ticketDAO = myDatabase!!.getTicketsDao()
 
-                Log.e(
-                    "Connected",
+                Timber.tag("Connected").e(
                     fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())
                         .toString()
                 )
 
                 if (fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())) {
-                    Log.e("Connected", "Connected Good")
+                    Timber.tag("Connected").e("Connected Good")
                     CacheDataSource.setConnected(true)
-                    Log.e("Connected status", CacheDataSource.connected.toString())
+                    Timber.tag("Connected status").e(CacheDataSource.connected.toString())
                     if (CacheDataSource.setFanConnected(fanDAO!!.getFanByMail(usernameTV.text.toString()))) {
                         val fragment = Account()
                         val transaction =
