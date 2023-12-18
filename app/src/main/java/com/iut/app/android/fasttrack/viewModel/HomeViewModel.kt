@@ -1,6 +1,7 @@
 package com.iut.app.android.fasttrack.viewModel
 
 import androidx.lifecycle.ViewModel
+import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.schedule.RaceTable
 import com.iut.app.android.fasttrack.model.room.FanWithTickets
 import timber.log.Timber
@@ -113,4 +114,4 @@ class HomeViewModel : ViewModel() {
 
 
 
-}
+
