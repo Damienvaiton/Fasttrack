@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondnoir"
-    tools:context=".view.Shop">
+    tools:context=".view.Fragements.Shop.Shop">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
@@ -25,5 +25,13 @@
         android:text="Boutique"
         android:textColor="#FFFFFF"
         android:textSize="42sp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvShop"
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:layout_marginTop="140dp"
+        tools:listitem="@layout/shop_card_item"/>
 
 </FrameLayout>

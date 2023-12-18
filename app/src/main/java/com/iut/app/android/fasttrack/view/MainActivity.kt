@@ -13,6 +13,7 @@ import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.repository.ConstructorRankingRepository
 import com.iut.app.android.fasttrack.model.repository.DriverRankingRepository
 import com.iut.app.android.fasttrack.model.repository.ScheduleRepository
+import com.iut.app.android.fasttrack.view.Fragements.Shop.Shop
 import kotlinx.coroutines.*
 import kotlinx.coroutines.launch
 import timber.log.Timber
