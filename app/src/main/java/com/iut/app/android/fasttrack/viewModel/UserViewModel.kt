@@ -3,15 +3,26 @@ package com.iut.app.android.fasttrack.viewModel
 import android.app.AlertDialog
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.iut.app.android.fasttrack.model.room.MyDatabase
+import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
 import com.iut.app.android.fasttrack.model.room.users.Fan
+import com.iut.app.android.fasttrack.model.room.users.FanDAO
+import com.iut.app.android.fasttrack.view.Fragements.Profil.Signup
 
 class UserViewModel : ViewModel() {
 
 
 
+    var myDatabase: MyDatabase? = MyDatabase.getDatabase()
+    var fanDAO: FanDAO? = myDatabase?.getFanDao()
+    var ticketDAO: TicketsDao? = myDatabase?.getTicketsDao()
 
 
 
+
+    fun Signup (lastname :String , firstname :String,){
+
+    }
 
     fun ErrorDialog(reason: String, context: Context) {
         when (reason) {

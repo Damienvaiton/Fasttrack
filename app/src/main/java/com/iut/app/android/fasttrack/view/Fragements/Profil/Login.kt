@@ -36,9 +36,7 @@ class Login : Fragment() {
 
 
     //Database
-    var myDatabase: MyDatabase? = null
-    var fanDAO: FanDAO? = null
-    var ticketDAO: TicketsDao? = null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,14 +76,11 @@ class Login : Fragment() {
         }
 
         loginbtn.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
+
                 val usernameTV = view.findViewById<TextView>(R.id.username)
                 val passwordTV = view.findViewById<TextView>(R.id.password)
 
-                myDatabase = MyDatabase.getDatabase()
-                fanDAO = myDatabase!!.getFanDao()
-                ticketDAO = myDatabase!!.getTicketsDao()
-
+            CoroutineScope(Dispatchers.IO).launch {
                 Timber.tag("Connected").d(
                     fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())
                         .toString()
