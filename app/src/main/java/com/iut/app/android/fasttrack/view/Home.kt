@@ -82,7 +82,7 @@ class Home : Fragment() {
 
         //aller chercher un attribut dans le retour d api scheduleViewModel.getnextRace() et l'afficher dans le textview countryGp
 
-        scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) { response ->
+        scheduleViewModel.NextRaceLiveData.observe(viewLifecycleOwner) { response ->
             val nextRace = response?.body()
 
 
@@ -99,12 +99,13 @@ class Home : Fragment() {
                     val resourceID2 =
                         resources.getIdentifier(idCircuit + "2", "color", view.context.packageName)
                     card.setColorFilter(resources.getColor(resourceId, null))
-                    Timber.tag("color").e(idCircuit)
+                    Timber.tag("color").d(idCircuit)
                     card2.setColorFilter(resources.getColor(resourceID2, null))
 
                     ScheduleY = homeViewModel.getScheduleofTheRace(nextRace.mRData.raceTable, 0)
 
                     countryGp.setText(nRace.circuit.location.country)
+
 
 
                     nameGp.setText(homeViewModel.correctNameGP(nRace.raceName))
@@ -115,6 +116,8 @@ class Home : Fragment() {
                             nRace.firstPractice.date,
                             nRace.date
                         )
+                        Timber.tag("Date error").d(correctDate)
+
                         dateGp.setText(correctDate)
 
                         //Remplissage des dernières séances
@@ -133,15 +136,8 @@ class Home : Fragment() {
 
 
                     }
-                else {
-                        Log.e("Error API Home", "No data in the parameter nextRace")
-
-
-                } else {
-                    Timber.tag("Error API Home").e("No data in the parameter nextRace")
-                    countryGp.setText("Inconnu")
-                    nameGp.setText("Inconnu")
-                    dateGp.setText("Inconnu")
+                    else {
+                        Timber.tag("Error API Home").e("No data in the parameter nextRace")
 
                         nomSchedule1.setText("A definir")
                         dateSchedule1.setText("")
@@ -156,6 +152,9 @@ class Home : Fragment() {
                         timeSchedule3.setText("")
 
                     }
+                }
+                else {
+
                 }
 
 

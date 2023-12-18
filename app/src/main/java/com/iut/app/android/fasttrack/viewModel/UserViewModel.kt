@@ -6,6 +6,13 @@ import androidx.lifecycle.ViewModel
 import com.iut.app.android.fasttrack.model.room.users.Fan
 
 class UserViewModel : ViewModel() {
+
+
+
+
+
+
+
     fun ErrorDialog(reason: String, context: Context) {
         when (reason) {
             "mail" -> {

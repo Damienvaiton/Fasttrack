@@ -62,7 +62,7 @@ class Login : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        Timber.tag("OnViewCreated").e("Passage dans account")
+        Timber.tag("OnViewCreated").d("Passage dans account")
 
 
         val signupbtn = view.findViewById<Button>(R.id.signupbtn)
@@ -86,15 +86,15 @@ class Login : Fragment() {
                 fanDAO = myDatabase!!.getFanDao()
                 ticketDAO = myDatabase!!.getTicketsDao()
 
-                Timber.tag("Connected").e(
+                Timber.tag("Connected").d(
                     fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())
                         .toString()
                 )
 
                 if (fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())) {
-                    Timber.tag("Connected").e("Connected Good")
+                    Timber.tag("Connected").d("Connected Good")
                     CacheDataSource.setConnected(true)
-                    Timber.tag("Connected status").e(CacheDataSource.connected.toString())
+                    Timber.tag("Connected status").d(CacheDataSource.connected.toString())
                     if (CacheDataSource.setFanConnected(fanDAO!!.getFanByMail(usernameTV.text.toString()))) {
                         val fragment = Account()
                         val transaction =

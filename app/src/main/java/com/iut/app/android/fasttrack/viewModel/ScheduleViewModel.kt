@@ -19,10 +19,13 @@ class ScheduleViewModel : ViewModel() {
 
     private var _currentSeasonLiveData: MutableLiveData<Response<Schedule>?> =
         MutableLiveData<Response<Schedule>?>()
+    private var _currentNextRaceLiveData: MutableLiveData<Response<Schedule>?> =
+        MutableLiveData<Response<Schedule>?>()
     private var _currentResultsLiveData: MutableLiveData<Response<ResultsStart>?> =
         MutableLiveData<Response<ResultsStart>?>()
 
     val ScheduleLiveData: LiveData<Response<Schedule>?> = _currentSeasonLiveData
+    val NextRaceLiveData: LiveData<Response<Schedule>?> = _currentNextRaceLiveData
     val ResultsLiveData: LiveData<Response<ResultsStart>?> = _currentResultsLiveData
 
     fun fetchCurrentSeason() {
@@ -44,7 +47,7 @@ class ScheduleViewModel : ViewModel() {
                     Timber.tag("ScheduleViewModel").e("fetchCurrentSeason: %s", it.message)
                 }
                 .collect {
-                    _currentSeasonLiveData.postValue(it)
+                    _currentNextRaceLiveData.postValue(it)
                 }
         }
     }
