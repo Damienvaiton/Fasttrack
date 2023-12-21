@@ -1,11 +1,9 @@
 package com.iut.app.android.fasttrack.viewModel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.google.gson.JsonObject
 import com.iut.app.android.fasttrack.model.dataclass.schedule.RaceTable
 import com.iut.app.android.fasttrack.model.room.FanWithTickets
-import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
+import timber.log.Timber
 import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
@@ -33,30 +31,44 @@ class HomeViewModel : ViewModel() {
         val dayend = dateRace.substring(8, 10)
         val monthName: String =
             DateFormatSymbols().months[month.toInt() - 1].subSequence(0, 3).toString().uppercase()
-        return daystart + "-" + dayend + " " + monthName;
+        return daystart + "-" + dayend + " " + monthName
     }
 
     fun getScheduleofTheRace(nextRace: RaceTable?, position: Int): ArrayList<Seance> {
         if (nextRace != null) {
             val race = nextRace.races[position]
-            // verifions que le champ Sprint existe dans le json nextRace
-            val FP1 = createSeance("FP1", race.firstPractice.date, race.firstPractice.time)
-            val FP2 = createSeance("FP2", race.secondPractice.date, race.secondPractice.time)
-            val Quali = createSeance("Qualification", race.qualifying.date, race.qualifying.time)
-            val realrace = createSeance("Race", race.date, race.time)
-            if (nextRace.races[0].sprint == null) {
-                val FP3 = createSeance("FP3", race.thirdPractice.date, race.thirdPractice.time)
+            if (race.firstPractice == null || race.date == null || race.secondPractice == null || race.time == null) {
+                val FP1 = createSeance("FP1", R.string.def.toString(), R.string.def.toString())
+                val FP2 = createSeance("FP2", R.string.def.toString(), R.string.def.toString())
+                val Quali =
+                    createSeance("Qualification", R.string.def.toString(), R.string.def.toString())
+                val realrace =
+                    createSeance("Race", R.string.def.toString(), R.string.def.toString())
+                val FP3 = createSeance("FP3", R.string.def.toString(), R.string.def.toString())
                 return arrayListOf<Seance>(FP1, FP2, FP3, Quali, realrace)
             } else {
-                val sprint = createSeance("Sprint Race", race.sprint.date, race.sprint.time)
-                return arrayListOf<Seance>(FP1, Quali, FP2, sprint, realrace)
+                // verifions que le champ Sprint existe dans le json nextRace
+                val FP1 = createSeance("FP1", race.firstPractice.date, race.firstPractice.time)
+                val FP2 = createSeance("FP2", race.secondPractice.date, race.secondPractice.time)
+                val Quali =
+                    createSeance("Qualification", race.qualifying.date, race.qualifying.time)
+                val realrace = createSeance("Race", race.date, race.time)
+                if (nextRace.races[0].sprint == null) {
+                    val FP3 = createSeance("FP3", race.thirdPractice.date, race.thirdPractice.time)
+                    return arrayListOf<Seance>(FP1, FP2, FP3, Quali, realrace)
+                } else {
+                    val sprint = createSeance("Sprint Race", race.sprint.date, race.sprint.time)
+                    return arrayListOf<Seance>(FP1, Quali, FP2, sprint, realrace)
+                }
+
+
             }
 
-
         }
-        Log.e("Error API getScheduleofTheRace", "No data in the parameter nextRace")
+        Timber.tag("Error API getScheduleofTheRace").e("No data in the parameter nextRace")
         return arrayListOf<Seance>()
     }
+
 
     fun correctNameGP(nameGP: String): String {
         return nameGP.replace("Grand Prix", "GP")
@@ -95,6 +107,10 @@ class HomeViewModel : ViewModel() {
         }
         return res
     }
+}
+
+
+
 
 
 }

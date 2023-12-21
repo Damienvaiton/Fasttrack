@@ -1,17 +1,20 @@
 package com.iut.app.android.fasttrack.view.Fragements.Schedule
 
 import android.content.res.Resources
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.maps.MapView
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
+import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
 
 class ScheduleAdapter(private val calendar: Schedule, private val calendarResults: ResultsStart) :
     RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
@@ -32,6 +35,8 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         val nameGPTextView = itemView.findViewById<TextView>(R.id.nameGpSchedule)
 
         val dateGPTextView = itemView.findViewById<TextView>(R.id.dateGp)
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -60,7 +65,6 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         viewHolder.itemView.setOnClickListener {
         }
         val idCircuit = race.circuit.circuitId
-        Log.e("idCircuit", idCircuit)
 
         //Get the color from the color.xml and set the color of the card
         val resources: Resources = viewHolder.itemView.context.resources
@@ -73,7 +77,6 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         )
         val resourcePhoto: Int =
             resources.getIdentifier(idCircuit, "drawable", viewHolder.itemView.context.packageName)
-        Log.e("photo track : ", resourcePhoto.toString())
         viewHolder.cardView.setColorFilter(resources.getColor(resourceId, null))
         viewHolder.cardView2.setColorFilter(resources.getColor(resourceID2, null))
         viewHolder.cardView3.setColorFilter(resources.getColor(resourceID2, null))
@@ -87,7 +90,7 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
 
         val dateTextView = viewHolder.dateGPTextView
 
-        var date = homeVM.writeDate(race.firstPractice.date, race.date)
+        val date = homeVM.writeDate(race.firstPractice.date, race.date)
 
         circuitPicture.setImageDrawable(resources.getDrawable(resourcePhoto, null))
 
@@ -106,8 +109,18 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         dateTextView.setText(date)
         circuitName.setText(nameCircuit3)
 
-    }
+        //Set click listener on the card
+        viewHolder.itemView.setOnClickListener {
+            CacheDataSource.setCircuit(race.circuit)
+            //Start a fragment with the detailed circuit
+            val fragment = DetailedCircuit()
+            val transaction = (viewHolder.itemView.context as AppCompatActivity).supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
+    }
 
     // Returns the total count of items in the list
     override fun getItemCount(): Int {
