@@ -26,77 +26,102 @@
         android:textColor="#FFFFFF"
         android:textSize="42sp" />
 
-    <ImageView
-        android:id="@+id/grandRectBlancConnexion"
-        android:layout_width="wrap_content"
-        android:layout_height="398dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="150dp"
-        android:src="@drawable/rectblancconnexion"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="217dp" />
-
-
-    <ImageView
-        android:id="@+id/petitRectNoirConnexion"
-        android:layout_width="250dp"
-        android:layout_height="125dp"
-        android:layout_marginHorizontal="46dp"
-        android:layout_marginTop="196dp"
-        android:src="@drawable/petitrectnoirconnexion"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="217dp" />
-
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="221dp"
+        android:layout_width="376dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="55dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="160dp"
         android:fontFamily="@font/monomaniac"
-        android:text="Bienenue sur Fastrack !"
+        android:text="Bienvenue sur FastTrack !"
         android:textColor="#FFFFFFFF"
-        android:textSize="28sp" />
+        android:textSize="37sp" />
 
     <EditText
         android:id="@+id/username"
-        android:layout_width="259dp"
-        android:layout_height="46dp"
-        android:background="@drawable/custom_edit_text"
-        android:drawableLeft="@drawable/ic_baseline_person_24_white"
-        android:hint="Username"
-        android:padding="8dp"
-        android:layout_marginTop="340dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="60dp"
-        android:paddingHorizontal="10dp"
+        android:layout_marginTop="275dp"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:hint="Enter your e-mail"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textCoLor="#707070"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="65dp"
+        android:layout_marginTop="240dp"
+        android:text="E-mail"
         android:textColor="@color/white"
-        android:textColorHint="#FFFFFF" />
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Password"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginTop="350dp"
+        android:layout_marginHorizontal="65dp"/>
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="259dp"
-        android:layout_height="46dp"
-        android:background="@drawable/custom_edit_text"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
-        android:hint="Password"
-        android:padding="8dp"
-        android:layout_marginTop="420dp"
-        android:layout_marginHorizontal="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:hint="Enter your password"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textCoLor="#707070"
+        android:textSize="18sp"
+        android:layout_marginTop="385dp"
+        android:layout_marginHorizontal="60dp"/>
+
+    <TextView
+        android:id="@+id/textFirstName"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="First Name"
         android:textColor="@color/white"
-        android:textColorHint="#FFFFFF"/>
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginTop="460dp"
+        android:layout_marginHorizontal="65dp"/>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:hint="Enter your first name"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textCoLor="#707070"
+        android:textSize="18sp"
+        android:layout_marginTop="495dp"
+        android:layout_marginHorizontal="60dp"/>
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/submitSignUp"
         android:layout_width="match_parent"
         android:layout_height="57dp"
-        android:layout_marginTop="550dp"
         android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="610dp"
         android:backgroundTint="#313030"
-        android:text="SignUp"
+        android:text="Signup"
         android:textColor="@color/white"
         android:textSize="22sp"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="498dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="498dp" />
 
 </FrameLayout>
