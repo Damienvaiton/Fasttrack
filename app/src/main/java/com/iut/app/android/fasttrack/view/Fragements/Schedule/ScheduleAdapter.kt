@@ -6,18 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.maps.MapView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
-import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Circuit
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Results.ResultsStart
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
-import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
 
 class ScheduleAdapter(private val calendar: Schedule, private val calendarResults: ResultsStart) :
     RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
+
+    private var _detailCircuitLD = MutableLiveData<Circuit>()
+    val detailCircuitLD: MutableLiveData<Circuit> = _detailCircuitLD
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Your holder should contain and initialize a member variable
@@ -111,13 +112,7 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
 
         //Set click listener on the card
         viewHolder.itemView.setOnClickListener {
-            CacheDataSource.setCircuit(race.circuit)
-            //Start a fragment with the detailed circuit
-            val fragment = DetailedCircuit()
-            val transaction = (viewHolder.itemView.context as AppCompatActivity).supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            _detailCircuitLD.postValue(race.circuit)
         }
 
     }

@@ -1,10 +1,10 @@
 package com.iut.app.android.fasttrack.view.Fragements.Schedule
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -66,6 +66,18 @@ class Schedule : Fragment() {
                         rvContacts.adapter = adapter
 
                         rvContacts.layoutManager = LinearLayoutManager(this.context)
+
+                        adapter.detailCircuitLD.observe(viewLifecycleOwner) { circuit ->
+                            scheduleViewModel.setDetailCircuit(circuit)
+                            val fragment = DetailedCircuit()
+                            val transaction = parentFragmentManager.beginTransaction()
+                            transaction.replace(R.id.frame_layout, fragment)
+                            transaction.addToBackStack(null)
+                            transaction.commit()
+
+                        }
+
+
                     }
                 }
             }
