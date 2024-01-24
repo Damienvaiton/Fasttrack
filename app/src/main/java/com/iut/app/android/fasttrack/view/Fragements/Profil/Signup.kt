@@ -22,7 +22,6 @@ class Signup : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    var connected: Boolean? = false
 
     val userVM by activityViewModels<UserViewModel>()
 

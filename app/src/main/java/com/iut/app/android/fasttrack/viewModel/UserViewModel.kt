@@ -80,7 +80,7 @@ class UserViewModel : ViewModel() {
                 fanResponse.addFanError(FanErrors.VOID)
             } else {
                 if (userRepo.isFan(mail)) {
-                    if (fanDAO!!.login(mail, password)) {
+                    if (userRepo.login(mail, password)) {
                         CacheDataSource.setConnected(true)
                         CacheDataSource.setFanConnected(userRepo.getFanByMail(mail))
                         fanResponse.setFan(userRepo.getFanByMail(mail))
