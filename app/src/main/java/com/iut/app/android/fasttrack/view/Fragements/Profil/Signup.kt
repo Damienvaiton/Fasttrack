@@ -1,5 +1,6 @@
 package com.iut.app.android.fasttrack.view.Fragements.Profil
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,15 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.room.MyDatabase
-import com.iut.app.android.fasttrack.model.room.users.Fan
-import com.iut.app.android.fasttrack.model.room.users.FanDAO
+import com.iut.app.android.fasttrack.model.enums.FanErrors
 import com.iut.app.android.fasttrack.viewModel.UserViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
 private const val ARG_PARAM1 = "param1"
@@ -28,10 +24,8 @@ class Signup : Fragment() {
 
     var connected: Boolean? = false
 
+    val userVM by activityViewModels<UserViewModel>()
 
-    //Database
-    var myDatabase: MyDatabase? = null
-    var fanDAO: FanDAO? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,12 +49,6 @@ class Signup : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        //Database
-
-        myDatabase = MyDatabase.getDatabase()
-        fanDAO = myDatabase!!.getFanDao()
-
-
         //Find elements
         val firstname = view.findViewById<TextView>(R.id.firstname)
         val lastname = view.findViewById<TextView>(R.id.lastname)
@@ -71,40 +59,57 @@ class Signup : Fragment() {
 
         buttonEnregistrer.setOnClickListener {
 
+            userVM.Signup(
+                firstname.text.toString(),
+                "Damien",
+                usernameTV.text.toString(),
+                passwordTV.text.toString(),
+                null,
+                null,
+                null
+            )
 
-            CoroutineScope(Dispatchers.IO).launch {
 
-                if (fanDAO!!.isFan(usernameTV.text.toString())) {
-                    connected = false
-                    withContext(Dispatchers.Main) {
-                        UserViewModel().ErrorDialog("mail", requireContext())
+        }
+        userVM.signupResponseLD.observe(viewLifecycleOwner) {
+            if (it.success()) {
+                val fragment = Login()
+                val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_layout, fragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
+            } else if (it.failed()) {
+                it.getFanError().forEach { error ->
+                    when (error) {
+                        FanErrors.VOID -> {
+                            AlertDialog.Builder(context)
+                                .setTitle("Erreur de saisie")
+                                .setMessage("Veuillez remplir tous les champs")
+                                .setPositiveButton("OK", null)
+                                .show()
+                        }
+
+                        FanErrors.MAIL_ALREADY_EXISTS -> {
+                            AlertDialog.Builder(context)
+                                .setTitle("Erreur d'adresse mail")
+                                .setMessage("L'adresse mail est déjà utilisée")
+                                .setPositiveButton("OK", null)
+                                .show()
+                        }
+
+                        else -> {
+                            AlertDialog.Builder(context)
+                                .setTitle("Erreur")
+                                .setMessage("Une erreur est survenue")
+                                .setPositiveButton("OK", null)
+                                .show()}
                     }
-                } else {
-                    if (usernameTV.text.toString() != "" && passwordTV.text.toString() != "" && firstname.text.toString() != "" && lastname.text.toString() != "") {
-                        val fan = Fan(
-                            0,
-                            lastname.text.toString(),
-                            firstname.text.toString(),
-                            usernameTV.text.toString(),
-                            passwordTV.text.toString(),
-                            null,
-                            null,
-                            44
-                        )
-                        fanDAO!!.insertFan(fan)
-                        connected = true
-                    } else {
-                        connected = false
-                    }
-
-
-                    val fragment = Login()
-                    val transaction = requireActivity().supportFragmentManager.beginTransaction()
-                    transaction.replace(R.id.frame_layout, fragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
                 }
             }
         }
     }
+
 }
+
+
+

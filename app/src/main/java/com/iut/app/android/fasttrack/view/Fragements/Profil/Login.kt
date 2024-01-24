@@ -1,22 +1,17 @@
 package com.iut.app.android.fasttrack.view.Fragements.Profil
 
-import androidx.fragment.app.Fragment
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
-import com.iut.app.android.fasttrack.model.room.MyDatabase
-import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
-import com.iut.app.android.fasttrack.model.room.users.FanDAO
+import com.iut.app.android.fasttrack.model.enums.FanErrors
 import com.iut.app.android.fasttrack.viewModel.UserViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,9 +29,10 @@ class Login : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    val userVM by activityViewModels<UserViewModel>()
+
 
     //Database
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +52,7 @@ class Login : Fragment() {
         return inflater.inflate(R.layout.connexion_page, container, false)
     }
 
+    @SuppressLint("BinaryOperationInTimber")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -67,6 +64,9 @@ class Login : Fragment() {
 
         val loginbtn = view.findViewById<Button>(R.id.submit)
 
+        val usernameTV = view.findViewById<TextView>(R.id.username)
+        val passwordTV = view.findViewById<TextView>(R.id.password)
+
         signupbtn.setOnClickListener {
             val fragment = Signup()
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
@@ -77,45 +77,58 @@ class Login : Fragment() {
 
         loginbtn.setOnClickListener {
 
-                val usernameTV = view.findViewById<TextView>(R.id.username)
-                val passwordTV = view.findViewById<TextView>(R.id.password)
 
-            CoroutineScope(Dispatchers.IO).launch {
-                Timber.tag("Connected").d(
-                    fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())
-                        .toString()
-                )
+            userVM.Login(usernameTV.text.toString(), passwordTV.text.toString())
 
-                if (fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())) {
-                    Timber.tag("Connected").d("Connected Good")
-                    CacheDataSource.setConnected(true)
-                    Timber.tag("Connected status").d(CacheDataSource.connected.toString())
-                    if (CacheDataSource.setFanConnected(fanDAO!!.getFanByMail(usernameTV.text.toString()))) {
-                        val fragment = Account()
-                        val transaction =
-                            requireActivity().supportFragmentManager.beginTransaction()
-                        transaction.replace(R.id.frame_layout, fragment)
-                        transaction.addToBackStack(null)
-                        transaction.commit()
-                    }
-                } else {
+            userVM.loginResponseLD.observe(viewLifecycleOwner) {
+                if (it.success()) {
+                    val fragment = Account()
+                    val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.frame_layout, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                } else if (it.failed()) {
+                    it.getFanError().forEach { error ->
+                        when (error) {
+                            FanErrors.VOID -> {
+                                android.app.AlertDialog.Builder(context)
+                                    .setTitle("Erreur")
+                                    .setMessage("Veuillez remplir tous les champs")
+                                    .setPositiveButton("OK", null)
+                                    .show()
+                            }
 
-                    if (usernameTV.text.toString() == "" || passwordTV.text.toString() == "") {
-                        withContext(Dispatchers.Main) {
-                            UserViewModel().ErrorDialog("void", requireContext())
+                            FanErrors.MAIL_NOT_FOUND -> {
+                                android.app.AlertDialog.Builder(context)
+                                    .setTitle("Erreur")
+                                    .setMessage("Auncun compte n'est associé à cette adresse mail")
+                                    .setPositiveButton("OK", null)
+                                    .show()
+                            }
+
+                            FanErrors.PASSWORD_INCORRECT -> {
+                                android.app.AlertDialog.Builder(context)
+                                    .setTitle("Erreur")
+                                    .setMessage("Mot de passe incorrect")
+                                    .setPositiveButton("OK", null)
+                                    .show()
+                            }
+
+                            else -> {
+                                android.app.AlertDialog.Builder(context)
+                                    .setTitle("Erreur")
+                                    .setMessage("Une erreur est survenue")
+                                    .setPositiveButton("OK", null)
+                                    .show()
+                            }
                         }
-                    } else {
-                        withContext(Dispatchers.Main) {
-                            UserViewModel().ErrorDialog("password", requireContext())
-                        }
                     }
-
-
                 }
 
             }
-        }
 
+
+        }
 
     }
 
