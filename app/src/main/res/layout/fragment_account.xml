@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/fondnoir"
     tools:context=".view.Fragements.Profil.Login">
 
@@ -12,85 +13,65 @@
         android:layout_width="wrap_content"
         android:layout_height="83dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/damier4" />
+        android:layout_marginTop="16dp"
+        android:src="@drawable/damier4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/titleAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="40dp"
         android:fontFamily="@font/leckerli_one"
         android:text="Compte"
         android:textColor="#FFFFFF"
-        android:textSize="42sp" />
+        android:textSize="42sp"
+        app:layout_constraintBottom_toBottomOf="@+id/damierHome"
+        app:layout_constraintEnd_toEndOf="@+id/damierHome"
+        app:layout_constraintStart_toStartOf="@+id/damierHome"
+        app:layout_constraintTop_toTopOf="@+id/damierHome"/>
 
     <ImageView
         android:id="@+id/divInfoAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="239dp"
+        android:layout_width="414dp"
+        android:layout_height="327dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="150dp"
-        android:src="@drawable/rectgris" />
-
-    <ImageView
-        android:id="@+id/divSmallInfoAccount"
-        android:layout_width="257dp"
-        android:layout_height="197dp"
-        android:layout_marginHorizontal="106dp"
-        android:layout_marginTop="170dp"
-        android:src="@drawable/rectgrisclair" />
+        android:src="@drawable/rectblackaccount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/damierHome"
+        app:layout_constraintVertical_bias="0.19999999" />
 
     <ImageView
         android:id="@+id/imageAvatarAccount"
         android:layout_width="149dp"
         android:layout_height="161dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="190dp"
-        android:src="@drawable/avatar" />
+        android:src="@drawable/avatar"
+        app:layout_constraintBottom_toBottomOf="@+id/divInfoAccount"
+        app:layout_constraintEnd_toEndOf="@+id/divInfoAccount"
+        app:layout_constraintStart_toStartOf="@+id/divInfoAccount"
+        app:layout_constraintTop_toTopOf="@+id/divInfoAccount"
+        app:layout_constraintVertical_bias="0.24000001" />
 
     <TextView
         android:id="@+id/firstNameAccount"
         android:layout_width="137dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="165dp"
-        android:fontFamily="@font/monomaniac"
+        android:fontFamily="@font/major_mono_display"
         android:text="Ewen"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="28sp" />
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divInfoAccount"
+        app:layout_constraintEnd_toEndOf="@+id/divInfoAccount"
+        app:layout_constraintStart_toStartOf="@+id/divInfoAccount"
+        app:layout_constraintTop_toBottomOf="@+id/imageAvatarAccount"
+        app:layout_constraintVertical_bias="0.26999998" />
 
-    <TextView
-        android:id="@+id/lastNameAccount"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="200dp"
-        android:fontFamily="@font/monomaniac"
-        android:text="VAITON"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp" />
-
-    <ImageView
-        android:id="@+id/divNumberDriverAccount"
-        android:layout_width="149dp"
-        android:layout_height="161dp"
-        android:layout_marginHorizontal="190dp"
-        android:layout_marginTop="225dp"
-        android:src="@drawable/rectnoir" />
-
-    <TextView
-        android:id="@+id/numberDriverAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_marginStart="233dp"
-        android:layout_marginTop="265dp"
-        android:fontFamily="@font/monomaniac"
-        android:text="25"
-        android:textColor="#FFFFFF"
-        android:textSize="60sp" />
-
+    <!--
     <ImageView
         android:id="@+id/divMyTeam"
         android:layout_width="wrap_content"
@@ -179,19 +160,24 @@
         android:layout_marginHorizontal="267dp"
         android:layout_marginTop="500dp"
         android:src="@drawable/alpinef1" />
+     -->
 
     <Button
         android:id="@+id/stylishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cliquez-moi !"
-        android:background="@drawable/stylish_button_background"
-        android:textColor="@android:color/white"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
         android:layout_margin="16dp"
-        android:gravity="center"/>
+        android:backgroundTint="@color/black"
+        android:gravity="center"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        android:text="Mes Billets"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divInfoAccount" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

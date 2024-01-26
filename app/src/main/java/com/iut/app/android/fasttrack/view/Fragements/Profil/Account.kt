@@ -43,9 +43,7 @@ class Account : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val FirstNameTV = view.findViewById<TextView>(R.id.firstNameAccount)
-        val LastNameTV = view.findViewById<TextView>(R.id.lastNameAccount)
 
         FirstNameTV.text = CacheDataSource.FanConnected?.firstName
-        LastNameTV.text = CacheDataSource.FanConnected?.name
     }
 }
