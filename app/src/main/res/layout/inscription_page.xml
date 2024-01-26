@@ -30,7 +30,7 @@
         android:id="@+id/textView2"
         android:layout_width="376dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="35dp"
+        android:layout_marginHorizontal="25dp"
         android:layout_marginTop="160dp"
         android:fontFamily="@font/monomaniac"
         android:text="Bienvenue sur FastTrack !"
