@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardTicketBuy"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:backgroundTint="@color/clear"
+    app:cardElevation="0dp"
+    app:cardUseCompatPadding="false">
+
+    <ImageView
+        android:id="@+id/divSchedulePrincipal"
+        android:layout_width="458dp"
+        android:layout_height="109dp"
+        android:layout_marginHorizontal="5dp"
+        android:src="@drawable/grand_rect_blanc_shop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/divTicketFoncee"
+        android:layout_width="114dp"
+        android:layout_height="89dp"
+        android:src="@drawable/petitrectmyticket"
+        app:layout_constraintBottom_toBottomOf="@+id/divSchedulePrincipal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="@+id/divSchedulePrincipal"
+        app:layout_constraintTop_toTopOf="@+id/divSchedulePrincipal" />
+
+    <ImageView
+        android:id="@+id/divTicketClaire"
+        android:layout_width="304dp"
+        android:layout_height="95dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/grandrectmyticket"
+        app:layout_constraintBottom_toBottomOf="@+id/divSchedulePrincipal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divSchedulePrincipal"
+        app:layout_constraintVertical_bias="0.526" />
+
+    <TextView
+        android:id="@+id/nameGpShop"
+        android:layout_width="85dp"
+        android:layout_height="17dp"
+        android:fontFamily="@font/major_mono_display"
+        android:maxWidth="650px"
+        android:text="FastTrack"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divTicketFoncee"
+        app:layout_constraintEnd_toEndOf="@+id/divTicketFoncee"
+        app:layout_constraintStart_toStartOf="@+id/divTicketFoncee"
+        app:layout_constraintTop_toTopOf="@+id/divTicketFoncee"
+        app:layout_constraintVertical_bias="0.04000002" />
+
+    <TextView
+        android:id="@+id/nameGp"
+        android:layout_width="60dp"
+        android:layout_height="11dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/lilita_one"
+        android:maxWidth="290px"
+        android:text="Marina Bay"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/divTicketFoncee"
+        app:layout_constraintHorizontal_bias="0.324"
+        app:layout_constraintStart_toStartOf="@+id/divTicketFoncee"
+        app:layout_constraintTop_toBottomOf="@+id/nameGpShop" />
+
+    <TextView
+        android:id="@+id/dateGp"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lilita_one"
+        android:maxWidth="200px"
+        android:text="01 - 03 SEP"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divTicketFoncee"
+        app:layout_constraintEnd_toEndOf="@+id/nameGp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nameGp"
+        app:layout_constraintTop_toBottomOf="@+id/nameGp"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <ImageView
+        android:id="@+id/scheduleTrack"
+        android:layout_width="63dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="3dp"
+        android:src="@drawable/qrcode"
+        app:layout_constraintBottom_toBottomOf="@+id/divTicketClaire"
+        app:layout_constraintEnd_toEndOf="@+id/divTicketClaire"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="@+id/divTicketClaire"
+        app:layout_constraintTop_toTopOf="@+id/divTicketClaire" />
+
+    <ImageView
+        android:id="@+id/rectGradeShopDetail"
+        android:layout_width="144dp"
+        android:layout_height="26dp"
+        android:src="@drawable/rectgradeshopdetail"
+        app:layout_constraintBottom_toBottomOf="@+id/divTicketClaire"
+        app:layout_constraintEnd_toEndOf="@+id/divTicketClaire"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/divTicketClaire"
+        app:layout_constraintTop_toTopOf="@+id/divTicketClaire"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <TextView
+        android:id="@+id/nameGradeShopDetail"
+        android:layout_width="118dp"
+        android:layout_height="17dp"
+        android:fontFamily="@font/monomaniac"
+        android:letterSpacing="0.35"
+        android:maxWidth="290px"
+        android:text="GOLD 3"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rectGradeShopDetail"
+        app:layout_constraintEnd_toEndOf="@+id/rectGradeShopDetail"
+        app:layout_constraintStart_toStartOf="@+id/rectGradeShopDetail"
+        app:layout_constraintTop_toTopOf="@+id/rectGradeShopDetail"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/blockbloc"
+        android:layout_width="68dp"
+        android:layout_height="29dp"
+        android:src="@drawable/rectblockshopdetail"
+        app:layout_constraintBottom_toBottomOf="@+id/divTicketClaire"
+        app:layout_constraintEnd_toEndOf="@+id/rectGradeShopDetail"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/rectGradeShopDetail"
+        app:layout_constraintTop_toBottomOf="@+id/rectGradeShopDetail"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textbloc"
+        android:layout_width="45dp"
+        android:layout_height="16dp"
+        android:fontFamily="@font/monomaniac"
+        android:maxWidth="290px"
+        android:text="Bloc E"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/blockbloc"
+        app:layout_constraintStart_toStartOf="@+id/blockbloc"
+        app:layout_constraintTop_toTopOf="@+id/blockbloc" />
+
+    <ImageView
+        android:id="@+id/blocksiege"
+        android:layout_width="68dp"
+        android:layout_height="29dp"
+        android:src="@drawable/rectblockshopdetail"
+        app:layout_constraintBottom_toBottomOf="@+id/divTicketClaire"
+        app:layout_constraintEnd_toEndOf="@+id/rectGradeShopDetail"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/rectGradeShopDetail"
+        app:layout_constraintTop_toBottomOf="@+id/rectGradeShopDetail"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textdays"
+        android:layout_width="186dp"
+        android:layout_height="20dp"
+        android:fontFamily="@font/monomaniac"
+        android:maxWidth="290px"
+        android:text="VENDREDI, SAMEDI, DIMANCHE"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divTicketClaire"
+        app:layout_constraintEnd_toStartOf="@+id/scheduleTrack"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/divTicketClaire"
+        app:layout_constraintTop_toBottomOf="@+id/blockbloc"
+        app:layout_constraintVertical_bias="0.07999998" />
+
+    <TextView
+        android:id="@+id/textsiege"
+        android:layout_width="44dp"
+        android:layout_height="20dp"
+        android:fontFamily="@font/monomaniac"
+        android:maxWidth="290px"
+        android:text="Siège 8"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/blocksiege"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="@+id/blocksiege"
+        app:layout_constraintTop_toTopOf="@+id/blocksiege" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

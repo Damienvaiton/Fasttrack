@@ -28,14 +28,15 @@ tools:context=".view.Fragements.Profil.Login">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="376dp"
+        android:layout_width="355dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="140dp"
         android:fontFamily="@font/monomaniac"
-        android:text="Content de vous revoir !"
+        android:textAlignment="center"
+        android:text="Hello !"
         android:textColor="#FFFFFFFF"
-        android:textSize="38sp" />
+        android:textSize="69sp" />
 
     <TextView
         android:id="@+id/textView3"
