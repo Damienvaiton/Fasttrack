@@ -134,10 +134,6 @@ class Home : Fragment() {
 
                     }
                 else {
-                        Log.e("Error API Home", "No data in the parameter nextRace")
-
-
-                } else {
                     Timber.tag("Error API Home").e("No data in the parameter nextRace")
                     countryGp.setText("Inconnu")
                     nameGp.setText("Inconnu")
