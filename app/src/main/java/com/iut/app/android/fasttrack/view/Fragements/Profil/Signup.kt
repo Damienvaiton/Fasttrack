@@ -64,7 +64,7 @@ class Signup : Fragment() {
         //Find elements
         val usernameTV = view.findViewById<TextView>(R.id.username)
         val passwordTV = view.findViewById<TextView>(R.id.password)
-        val buttonEnregistrer = view.findViewById<Button>(R.id.submit)
+        val buttonEnregistrer = view.findViewById<Button>(R.id.submitSignUp)
 
 
         buttonEnregistrer.setOnClickListener {
