@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "388959044871",
+    "project_id": "fasttrack-407408",
+    "storage_bucket": "fasttrack-407408.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388959044871:android:9077e08aca3f50739b71a2",
+        "android_client_info": {
+          "package_name": "com.iut.app.android.fasttrack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBS7zf5vXET9lWolRj_6BxcDonQqoeOtXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
