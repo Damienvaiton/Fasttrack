@@ -88,7 +88,7 @@ class Login : Fragment() {
                     transaction.addToBackStack(null)
                     transaction.commit()
                 } else if (it.failed()) {
-                    it.getFanError().forEach { error ->
+                    it.getFanError().last().let { error ->
                         when (error) {
                             FanErrors.VOID -> {
                                 android.app.AlertDialog.Builder(context)
@@ -122,14 +122,15 @@ class Login : Fragment() {
                                     .show()
                             }
                         }
+
                     }
+
                 }
+
 
             }
 
-
         }
-
     }
 
 
