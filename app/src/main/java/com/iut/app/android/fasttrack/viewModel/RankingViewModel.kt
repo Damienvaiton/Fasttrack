@@ -25,7 +25,6 @@ class RankingViewModel : ViewModel() {
             DriverRankingRepository.getCurrentDriverRanking()
                 .catch {
                     Timber.tag("RankingViewModel").e("fetchDriverRanking: %s", it.message)
-
                 }
                 .collect {
                     _driverRankingLiveData.postValue(it.body())

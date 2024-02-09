@@ -9,8 +9,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.view.Fragements.Schedule.ScheduleAdapter
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
+import com.iut.app.android.fasttrack.viewModel.ShopViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -46,6 +46,8 @@ class Shop : Fragment() {
         val rvContacts = view.findViewById(R.id.rvShop) as RecyclerView
 
         val scheduleViewModel by activityViewModels<ScheduleViewModel>()
+        val ShopVM by activityViewModels<ShopViewModel>()
+
 
 
 
