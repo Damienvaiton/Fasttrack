@@ -1,22 +1,17 @@
 package com.iut.app.android.fasttrack.view.Fragements.Profil
 
-import androidx.fragment.app.Fragment
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
-import com.iut.app.android.fasttrack.model.room.MyDatabase
-import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
-import com.iut.app.android.fasttrack.model.room.users.FanDAO
+import com.iut.app.android.fasttrack.model.enums.FanErrors
 import com.iut.app.android.fasttrack.viewModel.UserViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,11 +29,10 @@ class Login : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    val userVM by activityViewModels<UserViewModel>()
+
 
     //Database
-    var myDatabase: MyDatabase? = null
-    var fanDAO: FanDAO? = null
-    var ticketDAO: TicketsDao? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,16 +52,20 @@ class Login : Fragment() {
         return inflater.inflate(R.layout.connexion_page, container, false)
     }
 
+    @SuppressLint("BinaryOperationInTimber")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        Timber.tag("OnViewCreated").e("Passage dans account")
+        Timber.tag("OnViewCreated").d("Passage dans account")
 
 
         val signupbtn = view.findViewById<Button>(R.id.signupbtn)
 
         val loginbtn = view.findViewById<Button>(R.id.submit)
+
+        val usernameTV = view.findViewById<TextView>(R.id.username)
+        val passwordTV = view.findViewById<TextView>(R.id.password)
 
         signupbtn.setOnClickListener {
             val fragment = Signup()
@@ -78,50 +76,61 @@ class Login : Fragment() {
         }
 
         loginbtn.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
-                val usernameTV = view.findViewById<TextView>(R.id.username)
-                val passwordTV = view.findViewById<TextView>(R.id.password)
 
-                myDatabase = MyDatabase.getDatabase()
-                fanDAO = myDatabase!!.getFanDao()
-                ticketDAO = myDatabase!!.getTicketsDao()
 
-                Timber.tag("Connected").e(
-                    fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())
-                        .toString()
-                )
+            userVM.Login(usernameTV.text.toString(), passwordTV.text.toString())
 
-                if (fanDAO!!.login(usernameTV.text.toString(), passwordTV.text.toString())) {
-                    Timber.tag("Connected").e("Connected Good")
-                    CacheDataSource.setConnected(true)
-                    Timber.tag("Connected status").e(CacheDataSource.connected.toString())
-                    if (CacheDataSource.setFanConnected(fanDAO!!.getFanByMail(usernameTV.text.toString()))) {
-                        val fragment = Account()
-                        val transaction =
-                            requireActivity().supportFragmentManager.beginTransaction()
-                        transaction.replace(R.id.frame_layout, fragment)
-                        transaction.addToBackStack(null)
-                        transaction.commit()
-                    }
-                } else {
+            userVM.loginResponseLD.observe(viewLifecycleOwner) {
+                if (it.success()) {
+                    val fragment = Account()
+                    val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.frame_layout, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                } else if (it.failed()) {
+                    it.getFanError().last().let { error ->
+                        when (error) {
+                            FanErrors.VOID -> {
+                                android.app.AlertDialog.Builder(context)
+                                    .setTitle("Erreur")
+                                    .setMessage("Veuillez remplir tous les champs")
+                                    .setPositiveButton("OK", null)
+                                    .show()
+                            }
 
-                    if (usernameTV.text.toString() == "" || passwordTV.text.toString() == "") {
-                        withContext(Dispatchers.Main) {
-                            UserViewModel().ErrorDialog("void", requireContext())
+                            FanErrors.MAIL_NOT_FOUND -> {
+                                android.app.AlertDialog.Builder(context)
+                                    .setTitle("Erreur")
+                                    .setMessage("Auncun compte n'est associé à cette adresse mail")
+                                    .setPositiveButton("OK", null)
+                                    .show()
+                            }
+
+                            FanErrors.PASSWORD_INCORRECT -> {
+                                android.app.AlertDialog.Builder(context)
+                                    .setTitle("Erreur")
+                                    .setMessage("Mot de passe incorrect")
+                                    .setPositiveButton("OK", null)
+                                    .show()
+                            }
+
+                            else -> {
+                                android.app.AlertDialog.Builder(context)
+                                    .setTitle("Erreur")
+                                    .setMessage("Une erreur est survenue")
+                                    .setPositiveButton("OK", null)
+                                    .show()
+                            }
                         }
-                    } else {
-                        withContext(Dispatchers.Main) {
-                            UserViewModel().ErrorDialog("password", requireContext())
-                        }
-                    }
 
+                    }
 
                 }
 
+
             }
+
         }
-
-
     }
 
 

@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondnoir"
-    tools:context=".view.Fragements.Profil.Login">
+    tools:context=".view.Fragements.Profil.Signup">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:id="@+id/damierHome"
         android:layout_width="wrap_content"
         android:layout_height="83dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/damier4" />
+        android:layout_marginTop="16dp"
+        android:src="@drawable/damier4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titleAccount"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="40dp"
         android:fontFamily="@font/leckerli_one"
         android:text="Inscription"
         android:textColor="#FFFFFF"
-        android:textSize="42sp" />
+        android:textSize="42sp"
+        app:layout_constraintBottom_toBottomOf="@+id/damierHome"
+        app:layout_constraintEnd_toEndOf="@+id/damierHome"
+        app:layout_constraintStart_toStartOf="@+id/damierHome"
+        app:layout_constraintTop_toTopOf="@+id/damierHome" />
 
     <TextView
         android:id="@+id/textView2"
@@ -121,4 +126,5 @@
         tools:layout_editor_absoluteX="47dp"
         tools:layout_editor_absoluteY="498dp" />
 
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
