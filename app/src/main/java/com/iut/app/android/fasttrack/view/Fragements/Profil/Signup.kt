@@ -49,8 +49,8 @@ class Signup : Fragment() {
 
 
         //Find elements
-        val firstname = view.findViewById<TextView>(R.id.firstname)
-        val lastname = view.findViewById<TextView>(R.id.lastname)
+        val firstname = view.findViewById<TextView>(R.id.name)
+
         val usernameTV = view.findViewById<TextView>(R.id.username)
         val passwordTV = view.findViewById<TextView>(R.id.password)
         val buttonEnregistrer = view.findViewById<Button>(R.id.submitSignUp)
