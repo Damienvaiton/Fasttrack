@@ -20,6 +20,27 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildFeatures{
+            buildConfig = true
+        }
+
+    }
+
+    flavorDimensions += "environment"
+
+    productFlavors {
+        create("dev") {
+            dimension "environment"
+            versionNameSuffix "-dev"
+            buildConfigField "String", "BASE_URL", "\"http://ergast.com/api/f1/\""
+
+
+        }
+        create("realease") {
+            dimension "environment"
+            versionNameSuffix "-prod"
+        }
     }
 
     buildTypes {
@@ -29,7 +50,7 @@ android {
         }
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 
