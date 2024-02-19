@@ -9,6 +9,7 @@
     android:backgroundTint="@color/clear"
     app:cardUseCompatPadding="false">
 
+
     <ImageView
         android:id="@+id/divSchedulePrincipal"
         android:layout_width="458dp"
@@ -27,8 +28,8 @@
         android:layout_height="94dp"
         android:src="@drawable/demi_fonce_shop"
         app:layout_constraintBottom_toBottomOf="@+id/divSchedulePrincipal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.255"
+        app:layout_constraintEnd_toEndOf="@+id/divSchedulePrincipal"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="@+id/divSchedulePrincipal"
         app:layout_constraintTop_toTopOf="@+id/divSchedulePrincipal" />
 
@@ -38,8 +39,8 @@
         android:layout_height="95dp"
         android:src="@drawable/demi_clair_shop"
         app:layout_constraintBottom_toBottomOf="@+id/divSchedulePrincipal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.962"
+        app:layout_constraintEnd_toEndOf="@+id/divSchedulePrincipal"
+        app:layout_constraintHorizontal_bias="0.69"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divSchedulePrincipal"
         app:layout_constraintVertical_bias="0.526" />
