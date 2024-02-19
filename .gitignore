@@ -56,8 +56,7 @@ captures/
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
 
-# Google Services (e.g. APIs or Firebase)
-google-services.json
+
 
 # Freeline
 freeline.py
@@ -179,9 +178,6 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-### AndroidStudio Patch ###
-
-!/gradle/wrapper/gradle-wrapper.jar
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
@@ -265,7 +261,6 @@ cmake-build-*/
 # Mobile Tools for Java (J2ME)
 
 # Package Files #
-*.jar
 *.nar
 *.zip
 *.tar.gz
