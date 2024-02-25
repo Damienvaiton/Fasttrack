@@ -1,26 +1,15 @@
-# FastTrack🏎️
+# FastTrack 🏎️
 
-## Getting started
+Ce projet est un projet réalisé dans le cadre du cours de programmation avancée de l'IUT Informatique de Bourg-en-Bresse.
 
-Fastrack est une application dédiée aux passionnés de Formule 1, offrant une expérience immersive pour suivre les courses, les équipes et les pilotes.
-Max Max Super Max 🏎️
+## Objectif
 
-#Fonctionnalités
+Le but de ce projet est de réaliser une application d'informations pour les fans de Formule 1. Cette application doit permettre de consulter les résultats des courses, les classements des pilotes et des écuries.
 
-- [ ] Affichage des courses à venir
-- [ ] Affichage des courses passées
-- [ ] Affichage des équipes
-- [ ] Affichage des pilotes
-- [ ] Affichage des classements
+## Fonctionnalités
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://iutbg-gitlab.iutbourg.univ-lyon1.fr/2023-kotlin-android/fasttrack.git
-git branch -M main
-git push -uf origin main
-```
+- Affichage des résultats des courses
+- Affichage des classements des pilotes
+- Affichage des classements des écuries
+- Système de boutique pour acheter des places pour les courses
+- Système de connexion pour les utilisateurs
