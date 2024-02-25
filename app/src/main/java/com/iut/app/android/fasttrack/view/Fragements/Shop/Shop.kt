@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
-import com.iut.app.android.fasttrack.viewModel.ShopViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -46,34 +45,25 @@ class Shop : Fragment() {
         val rvContacts = view.findViewById(R.id.rvShop) as RecyclerView
 
         val scheduleViewModel by activityViewModels<ScheduleViewModel>()
-        val ShopVM by activityViewModels<ShopViewModel>()
 
-
-
-
-        scheduleViewModel.fetchCurrentSeason()
 
         scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) { response ->
             val calendar = response?.body()
-            scheduleViewModel.ResultsLiveData.observe(viewLifecycleOwner) { response2 ->
 
-                val calendarResult = response2?.body()
-                calendar?.let { calend ->
-                    calendarResult?.let {
-                        val adapter = ShopAdapter(calend)
+            calendar?.let { calend ->
+                val adapter = ShopAdapter(calend)
 
-                        rvContacts.adapter = adapter
+                rvContacts.adapter = adapter
 
-                        rvContacts.layoutManager = LinearLayoutManager(this.context)
-                    }
-                }
+                rvContacts.layoutManager = LinearLayoutManager(this.context)
             }
-
-
         }
+        scheduleViewModel.fetchCurrentSeason()
+}
 
 
-    }
+
+
 
     companion object {
         /**

@@ -50,10 +50,6 @@ class Schedule : Fragment() {
         val scheduleViewModel by activityViewModels<ScheduleViewModel>()
 
 
-
-        scheduleViewModel.fetchCurrentSeason()
-        scheduleViewModel.fetchRaceResults()
-
         scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) { response ->
             val calendar = response?.body()
             scheduleViewModel.ResultsLiveData.observe(viewLifecycleOwner) { response2 ->
@@ -84,6 +80,9 @@ class Schedule : Fragment() {
 
 
         }
+
+        scheduleViewModel.fetchCurrentSeason()
+        scheduleViewModel.fetchRaceResults()
 
 
     }
