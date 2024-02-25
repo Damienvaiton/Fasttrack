@@ -55,7 +55,7 @@ tools:context=".view.Fragements.Profil.Login">
         android:background="@drawable/edittext_background"
         android:ems="10"
         android:hint="Enter your e-mail"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:padding="12dp"
         android:textSize="18sp"
         android:layout_marginTop="295dp"
@@ -63,7 +63,8 @@ tools:context=".view.Fragements.Profil.Login">
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Password"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -78,7 +79,7 @@ tools:context=".view.Fragements.Profil.Login">
         android:background="@drawable/edittext_background"
         android:ems="10"
         android:hint="Enter your password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:padding="12dp"
         android:textSize="18sp"
         android:layout_marginTop="405dp"
