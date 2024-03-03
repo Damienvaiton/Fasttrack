@@ -2,12 +2,12 @@ package com.iut.app.android.fasttrack.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
@@ -76,18 +76,14 @@ class Home : Fragment() {
         val homeViewModel by activityViewModels<HomeViewModel>()
 
 
-        scheduleViewModel.getnextRace()
 
-        var ScheduleY = ArrayList<HomeViewModel.Seance>()
+        var ScheduleY: ArrayList<HomeViewModel.Seance>
 
-        //aller chercher un attribut dans le retour d api scheduleViewModel.getnextRace() et l'afficher dans le textview countryGp
 
         scheduleViewModel.NextRaceLiveData.observe(viewLifecycleOwner) { response ->
             val nextRace = response?.body()
 
-
-
-
+            Timber.tag("NextRace error").d(nextRace.toString())
 
             if (nextRace != null) {
                 val nRace = nextRace.mRData.raceTable.races[0]
@@ -137,10 +133,7 @@ class Home : Fragment() {
 
                     }
                 else {
-                    Timber.tag("Error API Home").e("No data in the parameter nextRace")
-                    countryGp.setText("Inconnu")
-                    nameGp.setText("Inconnu")
-                    dateGp.setText("Inconnu")
+                        Timber.tag("Error API Home").e("No data for hour and date")
 
                         nomSchedule1.setText("A definir")
                         dateSchedule1.setText("")
@@ -153,11 +146,25 @@ class Home : Fragment() {
                         nomSchedule3.setText("A definir")
                         dateSchedule3.setText("")
                         timeSchedule3.setText("")
-
                     }
                 }
                 else {
+                    Timber.tag("Error API Home").e("No data in the parameter nextRace")
+                    countryGp.setText("Inconnu")
+                    nameGp.setText("Inconnu")
+                    dateGp.setText("Inconnu")
 
+                    nomSchedule1.setText("A definir")
+                    dateSchedule1.setText("")
+                    timeSchedule1.setText("")
+
+                    nomSchedule2.setText("A definir")
+                    dateSchedule2.setText("")
+                    timeSchedule2.setText("")
+
+                    nomSchedule3.setText("A definir")
+                    dateSchedule3.setText("")
+                    timeSchedule3.setText("")
                 }
 
 
@@ -169,6 +176,8 @@ class Home : Fragment() {
             }
 
         }
+
+        scheduleViewModel.getnextRace()
 
     }
 

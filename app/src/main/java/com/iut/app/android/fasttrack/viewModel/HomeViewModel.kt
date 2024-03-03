@@ -55,6 +55,10 @@ class HomeViewModel : ViewModel() {
                     createSeance("Qualification", race.qualifying.date, race.qualifying.time)
                 val realrace = createSeance("Race", race.date, race.time)
                 if (nextRace.races[0].sprint == null) {
+                    if(race.thirdPractice == null){
+                        val FP3 = createSeance("FP3", "Date Inconnu", "Time Inconnu")
+                        return arrayListOf<Seance>(FP1, FP2, FP3, Quali, realrace)
+                    }
                     val FP3 = createSeance("FP3", race.thirdPractice.date, race.thirdPractice.time)
                     return arrayListOf<Seance>(FP1, FP2, FP3, Quali, realrace)
                 } else {

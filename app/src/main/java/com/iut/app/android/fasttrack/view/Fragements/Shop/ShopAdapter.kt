@@ -1,6 +1,5 @@
 package com.iut.app.android.fasttrack.view.Fragements.Shop
 
-import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import android.content.res.Resources
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.view.Fragements.Shop.ShopAdapter
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 
 class ShopAdapter(private val calendar: Schedule) :
@@ -75,7 +74,11 @@ class ShopAdapter(private val calendar: Schedule) :
 
         val dateTextView = viewHolder.dateGPTextView
 
-        var date = homeVM.writeDate(race.firstPractice.date, race.date)
+        val date = if (race.firstPractice != null) {
+            homeVM.writeDate(race.firstPractice.date, race.date)
+        } else {
+            race.date
+        }
 
         circuitPicture.setImageDrawable(resources.getDrawable(resourcePhoto, null))
 

@@ -82,16 +82,17 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
         viewHolder.cardView2.setColorFilter(resources.getColor(resourceID2, null))
         viewHolder.cardView3.setColorFilter(resources.getColor(resourceID2, null))
 
-        //val winnerImg = viewHolder.winnerImg
-
-        //winnerImg.setColorFilter(resources.getColor(resourceID2, null))
-
-
         val homeVM = HomeViewModel()
 
         val dateTextView = viewHolder.dateGPTextView
 
-        val date = homeVM.writeDate(race.firstPractice.date, race.date)
+        val date = if (race.firstPractice != null) {
+            homeVM.writeDate(race.firstPractice.date, race.date)
+        } else {
+            race.date
+        }
+
+
 
         circuitPicture.setImageDrawable(resources.getDrawable(resourcePhoto, null))
 
