@@ -102,6 +102,8 @@ class Home : Fragment() {
 
                     countryGp.setText(nRace.circuit.location.country)
 
+                    trackGp.setImageResource(resources.getIdentifier(idCircuit, "drawable", view.context.packageName))
+
 
 
                     nameGp.setText(homeViewModel.correctNameGP(nRace.raceName))
