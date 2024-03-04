@@ -10,20 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
 import com.iut.app.android.fasttrack.view.DriverRankingAdapter
 import com.iut.app.android.fasttrack.viewModel.RankingViewModel
 
 
 class Ranking : Fragment() {
 
-
-    lateinit var contacts: ArrayList<Sprint>
-    var IsConstructor = false
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

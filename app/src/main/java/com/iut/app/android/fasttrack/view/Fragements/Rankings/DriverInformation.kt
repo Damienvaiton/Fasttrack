@@ -6,14 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.model.dataclass.schedule.Sprint
-
-
 
 
 class DriverInformation : Fragment() {
-
-    lateinit var contacts: ArrayList<Sprint>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

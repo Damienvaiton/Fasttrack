@@ -39,7 +39,7 @@ class HomeViewModel : ViewModel() {
     fun getScheduleofTheRace(nextRace: RaceTable?, position: Int): ArrayList<Seance> {
         if (nextRace != null) {
             val race = nextRace.races[position]
-            if (race.firstPractice == null || race.date == null || race.secondPractice == null || race.time == null) {
+            if (race.firstPractice == null || race.secondPractice == null) {
                 val FP1 = createSeance("FP1", R.string.def.toString(), R.string.def.toString())
                 val FP2 = createSeance("FP2", R.string.def.toString(), R.string.def.toString())
                 val Quali =
@@ -55,17 +55,8 @@ class HomeViewModel : ViewModel() {
                 val Quali =
                     createSeance("Qualification", race.qualifying.date, race.qualifying.time)
                 val realrace = createSeance("Race", race.date, race.time)
-                if (nextRace.races[0].sprint == null) {
-                    if(race.thirdPractice == null){
-                        val FP3 = createSeance("FP3", "Date Inconnu", "Time Inconnu")
-                        return arrayListOf<Seance>(FP1, FP2, FP3, Quali, realrace)
-                    }
-                    val FP3 = createSeance("FP3", race.thirdPractice.date, race.thirdPractice.time)
-                    return arrayListOf<Seance>(FP1, FP2, FP3, Quali, realrace)
-                } else {
-                    val sprint = createSeance("Sprint Race", race.sprint.date, race.sprint.time)
-                    return arrayListOf<Seance>(FP1, Quali, FP2, sprint, realrace)
-                }
+                val sprint = createSeance("Sprint Race", race.sprint.date, race.sprint.time)
+                return arrayListOf<Seance>(FP1, Quali, FP2, sprint, realrace)
 
 
             }

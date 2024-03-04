@@ -16,16 +16,10 @@ import com.iut.app.android.fasttrack.viewModel.UserViewModel
 
 class Signup : Fragment() {
 
-    private var param1: String? = null
-    private var param2: String? = null
 
 
     val userVM by activityViewModels<UserViewModel>()
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
