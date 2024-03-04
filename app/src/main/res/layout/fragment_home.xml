@@ -218,7 +218,7 @@
         android:fontFamily="@font/major_mono_display"
         android:text="Japon"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/divNextGpInfos"
         app:layout_constraintHorizontal_bias="0.568"
         app:layout_constraintStart_toStartOf="@+id/divNextGpInfos"

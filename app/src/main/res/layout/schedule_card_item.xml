@@ -108,7 +108,7 @@
         android:layout_width="200px"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lilita_one"
-        android:maxWidth="200px"
+        android:maxWidth="250px"
         android:text="01 - 03 SEP"
         android:textColor="#FFFFFF"
         android:textSize="12sp"
