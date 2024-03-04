@@ -14,9 +14,6 @@ import com.iut.app.android.fasttrack.model.enums.FanErrors
 import com.iut.app.android.fasttrack.viewModel.UserViewModel
 
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 class Signup : Fragment() {
 
     private var param1: String? = null
@@ -28,12 +25,6 @@ class Signup : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-
-        }
-
     }
 
     override fun onCreateView(
@@ -48,7 +39,6 @@ class Signup : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        //Find elements
         val firstname = view.findViewById<TextView>(R.id.name)
 
         val usernameTV = view.findViewById<TextView>(R.id.username)
@@ -101,13 +91,13 @@ class Signup : Fragment() {
                                 .setTitle("Erreur")
                                 .setMessage("Une erreur est survenue")
                                 .setPositiveButton("OK", null)
-                                .show()}
+                                .show()
+                        }
                     }
                 }
             }
         }
     }
-
 }
 
 

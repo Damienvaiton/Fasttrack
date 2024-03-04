@@ -3,11 +3,12 @@ package com.iut.app.android.fasttrack.viewModel
 import androidx.lifecycle.ViewModel
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.schedule.RaceTable
-import com.iut.app.android.fasttrack.model.room.FanWithTickets
 import timber.log.Timber
 import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class HomeViewModel : ViewModel() {
 
@@ -105,13 +106,6 @@ class HomeViewModel : ViewModel() {
         return time.substring(0, 2) + "h" + time.substring(3, 5)
     }
 
-    fun WriteTicketsOfAFan(list: FanWithTickets): String {
-        var res = ""
-        for (ticket in list.tickets) {
-            res += ticket.nameGrandStand + " " + ticket.nameBlock + "\n"
-        }
-        return res
-    }
 }
 
 

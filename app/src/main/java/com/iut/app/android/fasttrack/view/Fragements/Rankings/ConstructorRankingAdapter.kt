@@ -14,7 +14,6 @@ import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.MRData
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.StandingsLists
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.StandingsTable
-import org.w3c.dom.Text
 
 class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanking) :
     RecyclerView.Adapter<ConstructorRankingAdapter.ViewHolder>() {

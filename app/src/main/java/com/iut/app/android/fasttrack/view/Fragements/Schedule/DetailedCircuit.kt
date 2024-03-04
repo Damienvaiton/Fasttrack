@@ -18,13 +18,9 @@ import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Circuit
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class DetailedCircuit : Fragment(), OnMapReadyCallback {
 
-    private var param1: String? = null
-    private var param2: String? = null
 
     val ScheduleVM by activityViewModels<ScheduleViewModel>()
 
@@ -32,14 +28,6 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
 
     private lateinit var circuit: Circuit
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -93,17 +81,6 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
 
         }
         ScheduleVM.getDetailCircuit()
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DetailedCircuit().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 
     override fun onMapReady(p0: GoogleMap) {
