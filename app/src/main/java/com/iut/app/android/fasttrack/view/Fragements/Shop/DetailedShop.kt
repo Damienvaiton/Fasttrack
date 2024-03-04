@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.iut.app.android.fasttrack.R
 
@@ -35,6 +36,9 @@ class DetailedShop : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val darkCard = view.findViewById<ImageView>(R.id.divScheduleFoncee)
+        val lightCard = view.findViewById<ImageView>(R.id.divScheduleClaire)
     }
 
     companion object {

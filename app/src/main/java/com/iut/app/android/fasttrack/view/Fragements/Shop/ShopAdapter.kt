@@ -7,13 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Race
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 
 class ShopAdapter(private val calendar: Schedule) :
     RecyclerView.Adapter<ShopAdapter.ViewHolder>() {
+
+    private var _selectedRaceLiveData = MutableLiveData<Race>()
+    val selectedRaceLD: MutableLiveData<Race> = _selectedRaceLiveData
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Your holder should contain and initialize a member variable
@@ -96,6 +101,11 @@ class ShopAdapter(private val calendar: Schedule) :
         countryTextView.setText(realNameGp)
         dateTextView.setText(date)
         circuitName.setText(nameCircuit3)
+
+
+        viewHolder.itemView.setOnClickListener {
+            _selectedRaceLiveData.postValue(race)
+        }
 
     }
 

@@ -3,9 +3,7 @@ package com.iut.app.android.fasttrack.model.dataclass
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.Driver
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Circuit
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Race
-
 import com.iut.app.android.fasttrack.model.room.users.Fan
-import com.iut.app.android.fasttrack.viewModel.UserViewModel
 import timber.log.Timber
 
 object CacheDataSource {
@@ -15,7 +13,11 @@ object CacheDataSource {
 
     var transitDriver: Driver? = null
 
-    var transitRace: Circuit? = null
+    var selectedRaceShop: Race? = null
+
+    var transitCircuit: Circuit? = null
+
+
 
     fun isConnected(): Boolean? {
         return connected
@@ -26,13 +28,13 @@ object CacheDataSource {
     }
 
     fun setCircuit(race : Circuit) : Boolean{
-        transitRace = race
-        Timber.d("setCircuit: %s in cache : ", transitRace?.circuitName)
+        transitCircuit = race
+        Timber.d("setCircuit: %s in cache : ", transitCircuit?.circuitName)
         return true
     }
 
     fun getCircuit() : Circuit?{
-        return transitRace
+        return transitCircuit
     }
 
     fun setFanConnected(fan: Fan): Boolean {
@@ -50,6 +52,15 @@ object CacheDataSource {
 
     fun setDriver(driver: Driver) {
         transitDriver = driver
+    }
+
+    fun setRaceSelected(race: Race) : Boolean{
+        selectedRaceShop = race
+        return true
+    }
+
+    fun getRaceSelected(): Race?{
+        return selectedRaceShop
     }
 
 

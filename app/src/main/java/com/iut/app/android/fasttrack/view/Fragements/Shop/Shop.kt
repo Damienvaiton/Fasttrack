@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
+import com.iut.app.android.fasttrack.viewModel.ShopViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -45,6 +46,7 @@ class Shop : Fragment() {
         val rvContacts = view.findViewById(R.id.rvShop) as RecyclerView
 
         val scheduleViewModel by activityViewModels<ScheduleViewModel>()
+        val shopViewModel by activityViewModels<ShopViewModel>()
 
 
         scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) { response ->
@@ -56,6 +58,15 @@ class Shop : Fragment() {
                 rvContacts.adapter = adapter
 
                 rvContacts.layoutManager = LinearLayoutManager(this.context)
+
+                adapter.selectedRaceLD.observe(viewLifecycleOwner) {
+                    shopViewModel.setSelectedRace(it)
+                    val fragment = DetailedShop()
+                    val transaction = parentFragmentManager.beginTransaction()
+                    transaction.replace(R.id.frame_layout, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                }
             }
         }
         scheduleViewModel.fetchCurrentSeason()
