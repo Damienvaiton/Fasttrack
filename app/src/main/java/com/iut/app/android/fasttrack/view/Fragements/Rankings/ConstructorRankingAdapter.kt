@@ -95,13 +95,13 @@ class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanki
     companion object {
         fun createEmpty(): ConstructorRanking {
             // Créez ici une instance de DriverRanking avec une liste vide de DriverStanding
-            var constructor = Constructor("red_bull", "Red Bull", "Austrian", "")
-            var constructorStandings = ConstructorStanding(constructor, "1", "1", "1", "1")
-            var listconstructorStandings = listOf(constructorStandings)
-            var standingsList = StandingsLists(listconstructorStandings, "1", "1")
-            var liststandingsList = listOf(standingsList)
-            var standingsTable = StandingsTable(liststandingsList, "1")
-            var mrData = MRData(standingsTable, "1", "1", "1", "1", "1", "1")
+            val constructor = Constructor("red_bull", "Red Bull", "Austrian", "")
+            val constructorStandings = ConstructorStanding(constructor, "1", "1", "1", "1")
+            val listconstructorStandings = listOf(constructorStandings)
+            val standingsList = StandingsLists(listconstructorStandings, "1", "1")
+            val liststandingsList = listOf(standingsList)
+            val standingsTable = StandingsTable(liststandingsList, "1")
+            val mrData = MRData(standingsTable, "1", "1", "1", "1", "1", "1")
             return ConstructorRanking(mrData)
         }
     }

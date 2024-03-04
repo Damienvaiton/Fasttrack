@@ -55,16 +55,16 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
 
             val Resources: Resources = resources
             val resourceId: Int =
-                Resources.getIdentifier(circuit?.circuitId, "color", context?.packageName)
+                Resources.getIdentifier(circuit.circuitId, "color", context?.packageName)
             val resourceId2: Int =
-                Resources.getIdentifier(circuit?.circuitId + "2", "color", context?.packageName)
+                Resources.getIdentifier(circuit.circuitId + "2", "color", context?.packageName)
             val resourceIdTrack: Int =
-                Resources.getIdentifier(circuit?.circuitId, "drawable", context?.packageName)
+                Resources.getIdentifier(circuit.circuitId, "drawable", context?.packageName)
             fond.setColorFilter(resources.getColor(resourceId, null))
             fond2.setColorFilter(resources.getColor(resourceId2, null))
-            circuitNameTv.text = circuit?.circuitName
+            circuitNameTv.text = circuit.circuitName
             circuitTrackIv.setImageDrawable(resources.getDrawable(resourceIdTrack, null))
-            nameContryTv.text = circuit?.location?.country
+            nameContryTv.text = circuit.location?.country
             circuitLatitudeTv.text = "Latitude : " + circuit?.location?.lat
             circuitLongitudeTv.text = "Longitude : " + circuit?.location?.long
 
@@ -114,5 +114,6 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
         }
 
     }
+
 
 }
