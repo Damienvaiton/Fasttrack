@@ -27,8 +27,8 @@ class Ranking : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val rvContacts = view.findViewById(R.id.rvRanking) as RecyclerView
-        val tabLayout = view.findViewById(R.id.tabLayout2) as TabLayout
+        val rvContacts: RecyclerView = view.findViewById(R.id.rvRanking)
+        val tabLayout: TabLayout = view.findViewById(R.id.tabLayout2)
 
         val rankingViewModel by activityViewModels<RankingViewModel>()
 
