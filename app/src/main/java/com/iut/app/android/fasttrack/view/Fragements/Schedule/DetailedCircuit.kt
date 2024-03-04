@@ -61,7 +61,6 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
         val circuitLongitudeTv = view.findViewById<TextView>(R.id.LongitudeGp)
         val maps = view.findViewById<MapView>(R.id.mapView2)
 
-        ScheduleVM.getDetailCircuit()
         ScheduleVM.DetailCircuitLiveData.observe(viewLifecycleOwner) { response ->
             circuit = response
 
@@ -93,7 +92,7 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
             }
 
         }
-
+        ScheduleVM.getDetailCircuit()
     }
 
     companion object {

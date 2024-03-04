@@ -11,9 +11,9 @@ import timber.log.Timber
 
 class ShopViewModel : ViewModel() {
 
-    private var _selectedRaceLiveData: MutableLiveData<Race?> = MutableLiveData<Race?>()
+    private var _selectedRaceLiveData: MutableLiveData<Race> = MutableLiveData<Race>()
 
-    val selectedRaceLiveData: LiveData<Race?> = _selectedRaceLiveData
+    val selectedRaceLiveData: LiveData<Race> = _selectedRaceLiveData
 
     fun getSelectedRace() {
         viewModelScope.launch {

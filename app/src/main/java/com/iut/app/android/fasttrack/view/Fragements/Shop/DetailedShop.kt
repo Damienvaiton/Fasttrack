@@ -1,12 +1,15 @@
 package com.iut.app.android.fasttrack.view.Fragements.Shop
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.viewModel.ShopViewModel
 
 
 private const val ARG_PARAM1 = "param1"
@@ -16,6 +19,8 @@ class DetailedShop : Fragment() {
 
     private var param1: String? = null
     private var param2: String? = null
+
+    val shopVM by activityViewModels<ShopViewModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +44,25 @@ class DetailedShop : Fragment() {
 
         val darkCard = view.findViewById<ImageView>(R.id.divScheduleFoncee)
         val lightCard = view.findViewById<ImageView>(R.id.divScheduleClaire)
+
+
+        shopVM.selectedRaceLiveData.observe(viewLifecycleOwner) { response ->
+
+            val race = response
+            val resource : Resources = resources
+
+            val resourceID : Int = resource.getIdentifier(race.circuit.circuitId, "color", requireContext().packageName)
+            val resourcesID2 : Int = resource.getIdentifier(race.circuit.circuitId + "2", "color", requireContext().packageName)
+            val resourcesTrack : Int = resource.getIdentifier(race.circuit.circuitId, "drawable", requireContext().packageName)
+
+
+
+
+        }
+
+
+
+
     }
 
     companion object {
