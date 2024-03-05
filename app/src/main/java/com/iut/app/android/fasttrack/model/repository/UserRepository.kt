@@ -1,6 +1,8 @@
 package com.iut.app.android.fasttrack.model.repository
 
 import com.iut.app.android.fasttrack.model.room.MyDatabase
+import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
+import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
 import com.iut.app.android.fasttrack.model.room.users.Fan
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
 import kotlinx.coroutines.flow.Flow
@@ -10,6 +12,7 @@ object UserRepository {
 
     var myDatabase: MyDatabase? = MyDatabase.getDatabase()
     var fanDAO: FanDAO? = myDatabase?.getFanDao()
+    var ticketDAO: TicketsDao? = myDatabase?.getTicketsDao()
     fun insertFan(user: Fan): Flow<Boolean> = flow {
         try {
             fanDAO!!.insertFan(user)
@@ -29,6 +32,15 @@ object UserRepository {
 
     fun getFanByMail(mail: String): Fan {
         return fanDAO!!.getFanByMail(mail)
+    }
+
+    fun insertTicket(ticket: Tickets): Flow<Boolean> = flow {
+        try {
+            ticketDAO!!.insertTickets(ticket)
+            emit(true)
+        } catch (e: Exception) {
+            emit(false)
+        }
     }
 
 }

@@ -124,7 +124,6 @@ class DriverRankingAdapter(private var ranking: DriverRanking) :
         PhotoDriver.setImageDrawable(resources.getDrawable(resourcePhoto, null))
         PhotoTeam.setImageDrawable(resources.getDrawable(resourceLogoConstructor, null))
 
-
         backgroundPilote.setColorFilter(resources.getColor(resourceId, null))
         ConstructorName.setTextColor(resources.getColor(resourceId, null))
         PointsDriver.setTextColor(resources.getColor(resourceId, null))

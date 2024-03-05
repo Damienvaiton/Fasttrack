@@ -14,6 +14,7 @@ import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.MRData
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.StandingsLists
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.StandingsTable
+import timber.log.Timber
 
 class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanking) :
     RecyclerView.Adapter<ConstructorRankingAdapter.ViewHolder>() {
@@ -45,6 +46,8 @@ class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanki
             constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].points
         val constructorId =
             constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].constructor.constructorId
+
+        Timber.e("constructorId: %s", constructorId)
 
         val resources: Resources = holder.itemView.context.resources
         val colorgold: Int = resources.getIdentifier("gold", "color", holder.itemView.context.packageName)
