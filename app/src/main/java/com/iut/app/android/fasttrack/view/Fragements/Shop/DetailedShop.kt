@@ -12,8 +12,7 @@ import androidx.fragment.app.activityViewModels
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 import com.iut.app.android.fasttrack.viewModel.ShopViewModel
-
-
+import kotlin.random.Random
 
 
 class DetailedShop : Fragment() {
@@ -40,6 +39,15 @@ class DetailedShop : Fragment() {
         val nameGp = view.findViewById<TextView>(R.id.nameGp)
         val country = view.findViewById<TextView>(R.id.nameGpShop)
         val dateGp = view.findViewById<TextView>(R.id.dateGp)
+
+        val textsiege = view.findViewById<TextView>(R.id.textsiege)
+        val textbloc = view.findViewById<TextView>(R.id.textbloc)
+        val textsiege2 = view.findViewById<TextView>(R.id.textsiege2)
+        val textbloc2 = view.findViewById<TextView>(R.id.textbloc2)
+        val textsiege3 = view.findViewById<TextView>(R.id.textsiege3)
+        val textbloc3 = view.findViewById<TextView>(R.id.textbloc3)
+        val textsiege4 = view.findViewById<TextView>(R.id.textsiege4)
+        val textbloc4 = view.findViewById<TextView>(R.id.textbloc4)
 
         val bigSquare1 = view.findViewById<ImageView>(R.id.grandCarreBillet)
         val bigSquare2 = view.findViewById<ImageView>(R.id.grandCarreBillet2)
@@ -106,6 +114,19 @@ class DetailedShop : Fragment() {
             } else {
                 race.date
             }
+
+            // Bloc + une lettre aleatoire
+            textbloc.text = "Bloc "+ ('A'..'E').random()
+            textbloc2.text = "Bloc "+ ('E'..'L').random()
+            textbloc3.text = "Bloc "+ ('L'..'Z').random()
+            textbloc4.text = "Bloc "+ ('L'..'Z').random()
+
+            // Siege + un chiffre aleatoire
+
+            textsiege.text = "Siege "+ Random.nextInt(1, 100).toString()
+            textsiege2.text = "Siege "+ Random.nextInt(1, 100).toString()
+            textsiege3.text = "Siege "+ Random.nextInt(1, 100)
+            textsiege4.text = "Siege "+ Random.nextInt(1, 100)
 
 
         }

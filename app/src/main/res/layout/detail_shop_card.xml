@@ -308,9 +308,12 @@
         app:layout_constraintStart_toStartOf="@+id/blockbloc"
         app:layout_constraintTop_toTopOf="@+id/blockbloc" />
 
+
+    <!-- CARD NUMBER 2 -->
+
     <TextView
         android:id="@+id/textsiege"
-        android:layout_width="44dp"
+        android:layout_width="55dp"
         android:layout_height="20dp"
         android:fontFamily="@font/monomaniac"
         android:maxWidth="290px"
@@ -319,18 +322,9 @@
         android:textColor="#FFFFFF"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/blocksiege"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.291"
         app:layout_constraintStart_toStartOf="@+id/blocksiege"
         app:layout_constraintTop_toTopOf="@+id/blocksiege" />
-
-
-
-
-
-
-
-
-    <!-- CARD NUMBER 2 -->
 
     <ImageView
         android:id="@+id/rectGradeShopDetail2"
@@ -465,9 +459,12 @@
         app:layout_constraintStart_toStartOf="@+id/blockbloc2"
         app:layout_constraintTop_toTopOf="@+id/blockbloc2" />
 
+
+    <!-- CARD NUMBER 3 -->
+
     <TextView
         android:id="@+id/textsiege2"
-        android:layout_width="44dp"
+        android:layout_width="55dp"
         android:layout_height="20dp"
         android:fontFamily="@font/monomaniac"
         android:maxWidth="290px"
@@ -476,18 +473,9 @@
         android:textColor="#FFFFFF"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/blocksiege2"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.291"
         app:layout_constraintStart_toStartOf="@+id/blocksiege2"
         app:layout_constraintTop_toTopOf="@+id/blocksiege2" />
-
-
-
-
-
-
-
-
-    <!-- CARD NUMBER 3 -->
 
     <ImageView
         android:id="@+id/rectGradeShopDetail3"
@@ -622,9 +610,12 @@
         app:layout_constraintStart_toStartOf="@+id/blockbloc3"
         app:layout_constraintTop_toTopOf="@+id/blockbloc3" />
 
+
+    <!-- CARD NUMBER 1 -->
+
     <TextView
         android:id="@+id/textsiege3"
-        android:layout_width="44dp"
+        android:layout_width="55dp"
         android:layout_height="20dp"
         android:fontFamily="@font/monomaniac"
         android:maxWidth="290px"
@@ -633,15 +624,9 @@
         android:textColor="#FFFFFF"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/blocksiege3"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.291"
         app:layout_constraintStart_toStartOf="@+id/blocksiege3"
         app:layout_constraintTop_toTopOf="@+id/blocksiege3" />
-
-
-
-
-
-    <!-- CARD NUMBER 1 -->
 
     <ImageView
         android:id="@+id/rectGradeShopDetail4"
@@ -778,7 +763,7 @@
 
     <TextView
         android:id="@+id/textsiege4"
-        android:layout_width="44dp"
+        android:layout_width="55dp"
         android:layout_height="20dp"
         android:fontFamily="@font/monomaniac"
         android:maxWidth="290px"
@@ -787,7 +772,7 @@
         android:textColor="#FFFFFF"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/blocksiege4"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.291"
         app:layout_constraintStart_toStartOf="@+id/blocksiege4"
         app:layout_constraintTop_toTopOf="@+id/blocksiege4" />
 
