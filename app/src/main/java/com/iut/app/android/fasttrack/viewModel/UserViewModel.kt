@@ -1,10 +1,8 @@
 package com.iut.app.android.fasttrack.viewModel
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.enums.FanErrors
 import com.iut.app.android.fasttrack.model.repository.UserRepository
@@ -22,9 +20,12 @@ class UserViewModel : ViewModel() {
 
     private var _signupResponseLD = MutableLiveData<FanResponse>()
     private var _loginResponseLD = MutableLiveData<FanResponse>()
+    private var _ticketResponse = MutableLiveData<Boolean>()
+
 
     val signupResponseLD: MutableLiveData<FanResponse> = _signupResponseLD
     val loginResponseLD: MutableLiveData<FanResponse> = _loginResponseLD
+    val ticketsResponse : MutableLiveData<Boolean> = _ticketResponse
 
 
     @SuppressLint("UseRequireInsteadOfGet")
@@ -36,7 +37,7 @@ class UserViewModel : ViewModel() {
         favoriteTeam: String?,
         favoriteDriver: String?,
         favoritenumber: Int?
-    ){
+    ) {
         var fanResponse = FanResponse()
         CoroutineScope(Dispatchers.IO).launch {
             if (userRepo.isFan(mail)) {
@@ -53,7 +54,7 @@ class UserViewModel : ViewModel() {
                         favoriteDriver,
                         favoritenumber
                     )
-                    userRepo.insertFan(fan).collect{
+                    userRepo.insertFan(fan).collect {
                         if (it) {
                             fanResponse.setFan(fan)
                         } else {
@@ -68,7 +69,7 @@ class UserViewModel : ViewModel() {
         }
     }
 
-    fun Login(mail: String, password: String){
+    fun Login(mail: String, password: String) {
         var fanResponse = FanResponse()
         CoroutineScope(Dispatchers.IO).launch {
             if (mail == "" || password == "") {
@@ -92,20 +93,36 @@ class UserViewModel : ViewModel() {
 
     }
 
-    suspend fun insertTicket(ticket: Tickets) {
-        viewModelScope.launch {
-            userRepo.insertTicket(ticket).collect{
-                if (it) {
-                    println("Ticket inserted")
-                } else {
-                    AlertDialog.Builder(null)
-                        .setTitle("Error")
-                        .setMessage("An error occured while inserting the ticket")
-                        .setPositiveButton("OK", null)
-                        .show()
-                }
+    fun insertTicket(
+        price: Int,
+        userId: Int,
+        raceId: String,
+        nameGrandStand: String,
+        nameBlock: String,
+        namePlace: String
+    ) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val ticket = Tickets(
+                0,
+                price,
+                userId,
+                raceId,
+                nameGrandStand,
+                nameBlock,
+                namePlace
+            )
+            userRepo.insertTicket(ticket).collect {
+                ticketsResponse.postValue(it)
             }
         }
+    }
+
+    fun isUserConnected(): Boolean {
+        return userRepo.isUserConnected()
+    }
+
+    fun getFanConnected(): Fan? {
+        return userRepo.getFanConnected()
     }
 
 

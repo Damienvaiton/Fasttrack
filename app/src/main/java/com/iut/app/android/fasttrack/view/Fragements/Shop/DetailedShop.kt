@@ -1,5 +1,6 @@
 package com.iut.app.android.fasttrack.view.Fragements.Shop
 
+import android.app.AlertDialog
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +11,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.iut.app.android.fasttrack.R
+import com.iut.app.android.fasttrack.view.Fragements.Profil.Login
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 import com.iut.app.android.fasttrack.viewModel.ShopViewModel
+import com.iut.app.android.fasttrack.viewModel.UserViewModel
 import kotlin.random.Random
 
 
@@ -19,7 +22,7 @@ class DetailedShop : Fragment() {
 
     val shopVM by activityViewModels<ShopViewModel>()
     val homeVM by activityViewModels<HomeViewModel>()
-
+    val userVM by activityViewModels<UserViewModel>()
 
 
     override fun onCreateView(
@@ -58,6 +61,11 @@ class DetailedShop : Fragment() {
         val blocBlock2 = view.findViewById<ImageView>(R.id.blockbloc2)
         val blocBlock3 = view.findViewById<ImageView>(R.id.blockbloc3)
         val blocBlock4 = view.findViewById<ImageView>(R.id.blockbloc4)
+
+        val blocBuy1 = view.findViewById<ImageView>(R.id.blockbuy)
+        val blocBuy2 = view.findViewById<ImageView>(R.id.blockbuy2)
+        val blocBuy3 = view.findViewById<ImageView>(R.id.blockbuy3)
+        val blocBuy4 = view.findViewById<ImageView>(R.id.blockbuy4)
 
         val blocSiege1 = view.findViewById<ImageView>(R.id.blocksiege)
         val blocSiege2 = view.findViewById<ImageView>(R.id.blocksiege2)
@@ -116,17 +124,217 @@ class DetailedShop : Fragment() {
             }
 
             // Bloc + une lettre aleatoire
-            textbloc.text = "Bloc "+ ('A'..'E').random()
-            textbloc2.text = "Bloc "+ ('E'..'L').random()
-            textbloc3.text = "Bloc "+ ('L'..'Z').random()
-            textbloc4.text = "Bloc "+ ('L'..'Z').random()
+            textbloc.text = "Bloc " + ('A'..'E').random()
+            textbloc2.text = "Bloc " + ('E'..'L').random()
+            textbloc3.text = "Bloc " + ('L'..'Z').random()
+            textbloc4.text = "Bloc " + ('L'..'Z').random()
 
             // Siege + un chiffre aleatoire
 
-            textsiege.text = "Siege "+ Random.nextInt(1, 100).toString()
-            textsiege2.text = "Siege "+ Random.nextInt(1, 100).toString()
-            textsiege3.text = "Siege "+ Random.nextInt(1, 100)
-            textsiege4.text = "Siege "+ Random.nextInt(1, 100)
+            textsiege.text = "Siege " + Random.nextInt(1, 100).toString()
+            textsiege2.text = "Siege " + Random.nextInt(1, 100).toString()
+            textsiege3.text = "Siege " + Random.nextInt(1, 100)
+            textsiege4.text = "Siege " + Random.nextInt(1, 100)
+
+            blocBuy1.setOnClickListener {
+                if (userVM.isUserConnected()) {
+
+                    userVM.ticketsResponse.observe(viewLifecycleOwner) {
+                        if (it) {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle("Billet acheté")
+                                .setMessage("Votre billet a bien été acheté")
+                                .setPositiveButton("OK") { dialog, which ->
+                                    dialog.dismiss()
+                                }
+                                .show()
+                        } else {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle("Erreur")
+                                .setMessage("Une erreur est survenue")
+                                .setPositiveButton("OK") { dialog, which ->
+                                    dialog.dismiss()
+                                }
+                                .show()
+                        }
+                    }
+
+                    userVM.insertTicket(
+                        1200,
+                        userVM.getFanConnected()!!.id,
+                        race.circuit.circuitId,
+                        "GrandStand",
+                        textbloc.text.toString(),
+                        textsiege.text.toString()
+                    )
+
+                } else {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Vous n'êtes pas connecté")
+                        .setMessage("Vous devez être connecté pour acheter un billet")
+                        .setPositiveButton("Se connecter") { dialog, which ->
+                            val fragment = Login()
+                            val transaction = parentFragmentManager.beginTransaction()
+                            transaction.replace(R.id.frame_layout, fragment)
+                            transaction.addToBackStack(null)
+                            transaction.commit()
+                        }
+                        .setNegativeButton("Annuler") { dialog, which ->
+                            dialog.dismiss()
+                        }
+                        .show()
+                }
+            }
+
+            blocBuy2.setOnClickListener {
+                if (userVM.isUserConnected()) {
+
+                    userVM.ticketsResponse.observe(viewLifecycleOwner) {
+                        if (it) {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle("Billet acheté")
+                                .setMessage("Votre billet a bien été acheté")
+                                .setPositiveButton("OK") { dialog, which ->
+                                    dialog.dismiss()
+                                }
+                                .show()
+                        } else {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle("Erreur")
+                                .setMessage("Une erreur est survenue")
+                                .setPositiveButton("OK") { dialog, which ->
+                                    dialog.dismiss()
+                                }
+                                .show()
+                        }
+                    }
+
+                    userVM.insertTicket(
+                        909,
+                        userVM.getFanConnected()!!.id,
+                        race.circuit.circuitId,
+                        "GrandStand",
+                        textbloc2.text.toString(),
+                        textsiege2.text.toString()
+                    )
+
+                } else {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Vous n'êtes pas connecté")
+                        .setMessage("Vous devez être connecté pour acheter un billet")
+                        .setPositiveButton("Se connecter") { dialog, which ->
+                            val fragment = Login()
+                            val transaction = parentFragmentManager.beginTransaction()
+                            transaction.replace(R.id.frame_layout, fragment)
+                            transaction.addToBackStack(null)
+                            transaction.commit()
+                        }
+                        .setNegativeButton("Annuler") { dialog, which ->
+                            dialog.dismiss()
+                        }
+                        .show()
+                }
+            }
+
+            blocBuy3.setOnClickListener {
+                if (userVM.isUserConnected()) {
+
+                    userVM.ticketsResponse.observe(viewLifecycleOwner) {
+                        if (it) {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle("Billet acheté")
+                                .setMessage("Votre billet a bien été acheté")
+                                .setPositiveButton("OK") { dialog, which ->
+                                    dialog.dismiss()
+                                }
+                                .show()
+                        } else {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle("Erreur")
+                                .setMessage("Une erreur est survenue")
+                                .setPositiveButton("OK") { dialog, which ->
+                                    dialog.dismiss()
+                                }
+                                .show()
+                        }
+                    }
+
+                    userVM.insertTicket(
+                        659,
+                        userVM.getFanConnected()!!.id,
+                        race.circuit.circuitId,
+                        "GrandStand",
+                        textbloc3.text.toString(),
+                        textsiege3.text.toString()
+                    )
+
+                } else {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Vous n'êtes pas connecté")
+                        .setMessage("Vous devez être connecté pour acheter un billet")
+                        .setPositiveButton("Se connecter") { dialog, which ->
+                            val fragment = Login()
+                            val transaction = parentFragmentManager.beginTransaction()
+                            transaction.replace(R.id.frame_layout, fragment)
+                            transaction.addToBackStack(null)
+                            transaction.commit()
+                        }
+                        .setNegativeButton("Annuler") { dialog, which ->
+                            dialog.dismiss()
+                        }
+                        .show()
+                }
+            }
+
+            blocBuy4.setOnClickListener {
+                if (userVM.isUserConnected()) {
+
+                    userVM.ticketsResponse.observe(viewLifecycleOwner) {
+                        if (it) {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle("Billet acheté")
+                                .setMessage("Votre billet a bien été acheté")
+                                .setPositiveButton("OK") { dialog, which ->
+                                    dialog.dismiss()
+                                }
+                                .show()
+                        } else {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle("Erreur")
+                                .setMessage("Une erreur est survenue")
+                                .setPositiveButton("OK") { dialog, which ->
+                                    dialog.dismiss()
+                                }
+                                .show()
+                        }
+                    }
+
+                    userVM.insertTicket(
+                        599,
+                        userVM.getFanConnected()!!.id,
+                        race.circuit.circuitId,
+                        "GrandStand",
+                        textbloc4.text.toString(),
+                        textsiege4.text.toString()
+                    )
+
+                } else {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Vous n'êtes pas connecté")
+                        .setMessage("Vous devez être connecté pour acheter un billet")
+                        .setPositiveButton("Se connecter") { dialog, which ->
+                            val fragment = Login()
+                            val transaction = parentFragmentManager.beginTransaction()
+                            transaction.replace(R.id.frame_layout, fragment)
+                            transaction.addToBackStack(null)
+                            transaction.commit()
+                        }
+                        .setNegativeButton("Annuler") { dialog, which ->
+                            dialog.dismiss()
+                        }
+                        .show()
+                }
+            }
 
 
         }

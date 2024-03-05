@@ -1,5 +1,6 @@
 package com.iut.app.android.fasttrack.model.repository
 
+import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.room.MyDatabase
 import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
 import com.iut.app.android.fasttrack.model.room.Tickets.TicketsDao
@@ -41,6 +42,15 @@ object UserRepository {
         } catch (e: Exception) {
             emit(false)
         }
+    }
+
+
+    fun isUserConnected(): Boolean {
+        return CacheDataSource.isConnected()!!
+    }
+
+    fun getFanConnected(): Fan? {
+        return CacheDataSource.getFan()
     }
 
 }
