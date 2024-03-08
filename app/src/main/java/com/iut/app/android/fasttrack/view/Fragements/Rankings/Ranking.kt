@@ -35,13 +35,13 @@ class Ranking : Fragment() {
         // Initialisez vos adaptateurs ici (si nécessaire)
         //val driverAdapter = DriverRankingAdapter(emptyList())
         //val constructorAdapter = ConstructorRankingAdapter(emptyList())
-        val driverAdapter = DriverRankingAdapter(DriverRankingAdapter.createEmpty())
-        val constructorAdapter = ConstructorRankingAdapter(ConstructorRankingAdapter.createEmpty())
+
 
         rvContacts.layoutManager = LinearLayoutManager(context)
 
         rankingViewModel.fetchDriverRanking()
         rankingViewModel.driverLiveDataRanking.observe(viewLifecycleOwner) { response ->
+            val driverAdapter = DriverRankingAdapter(response)
             driverAdapter.updateData(response)
             rvContacts.adapter = driverAdapter
         }
@@ -50,19 +50,19 @@ class Ranking : Fragment() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
                     0 -> { // Onglet "Drivers"
-                        rankingViewModel.fetchDriverRanking()
                         rankingViewModel.driverLiveDataRanking.observe(viewLifecycleOwner) { response ->
-                            driverAdapter.updateData(response) // Mettre à jour l'adaptateur avec de nouvelles données
+                            val driverAdapter = DriverRankingAdapter(response)
                             rvContacts.adapter = driverAdapter
                         }
+                        rankingViewModel.fetchDriverRanking()
                     }
 
                     1 -> { // Onglet "Teams"
-                        rankingViewModel.fetchConstructorRanking()
                         rankingViewModel.constructorLiveDataRanking.observe(viewLifecycleOwner) { response ->
-                            constructorAdapter.updateData(response) // Mettre à jour l'adaptateur avec de nouvelles données
+                            val constructorAdapter = ConstructorRankingAdapter(response)
                             rvContacts.adapter = constructorAdapter
                         }
+                        rankingViewModel.fetchConstructorRanking()
                     }
                 }
             }

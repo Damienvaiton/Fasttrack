@@ -41,9 +41,7 @@ class Login : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         Timber.tag("OnViewCreated").d("Passage dans account")
-
 
         val signupbtn = view.findViewById<Button>(R.id.signupbtn)
 

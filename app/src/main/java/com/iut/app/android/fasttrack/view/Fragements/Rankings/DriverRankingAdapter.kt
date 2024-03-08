@@ -9,13 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
-import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.Constructor
-import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.Driver
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.DriverRanking
-import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.DriverStanding
-import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.MRData
-import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.StandingsLists
-import com.iut.app.android.fasttrack.model.dataclass.Rankings.DriverRanking.StandingsTable
 
 class DriverRankingAdapter(private var ranking: DriverRanking) :
     RecyclerView.Adapter<DriverRankingAdapter.ViewHolder>() {
@@ -139,7 +133,7 @@ class DriverRankingAdapter(private var ranking: DriverRanking) :
         this.ranking = newDriverStandings
         notifyDataSetChanged()
     }
-
+/*
     companion object {
         fun createEmpty(): DriverRanking {
             // Créez ici une instance de DriverRanking avec une liste vide de DriverStanding
@@ -171,5 +165,5 @@ class DriverRankingAdapter(private var ranking: DriverRanking) :
             )
             return DriverRanking(mrData)
         }
-    }
+    }*/
 }
