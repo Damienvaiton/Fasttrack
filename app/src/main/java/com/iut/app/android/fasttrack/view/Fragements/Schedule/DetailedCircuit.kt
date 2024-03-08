@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.bumptech.glide.Glide
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -16,6 +17,8 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.CacheDataSource
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Circuit
+import com.iut.app.android.fasttrack.model.enums.flagsAsso
+import com.iut.app.android.fasttrack.viewModel.RankingViewModel
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
 
 
@@ -23,6 +26,7 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
 
 
     val ScheduleVM by activityViewModels<ScheduleViewModel>()
+    val RankingVM by activityViewModels<RankingViewModel>()
 
     private lateinit var mMap: GoogleMap
 
@@ -46,6 +50,7 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
         val nameContryTv = view.findViewById<TextView>(R.id.CoundtryGp)
         val circuitNameTv = view.findViewById<TextView>(R.id.nameCircuitGp)
         val circuitLatitudeTv = view.findViewById<TextView>(R.id.LatitudeGp)
+        val flags = view.findViewById<ImageView>(R.id.flagCOuntry)
         val circuitLongitudeTv = view.findViewById<TextView>(R.id.LongitudeGp)
         val maps = view.findViewById<MapView>(R.id.mapView2)
 
@@ -67,53 +72,66 @@ class DetailedCircuit : Fragment(), OnMapReadyCallback {
             nameContryTv.text = circuit.location?.country
             circuitLatitudeTv.text = "Latitude : " + circuit?.location?.lat
             circuitLongitudeTv.text = "Longitude : " + circuit?.location?.long
-
-
-            //Map
-            maps.onCreate(savedInstanceState)
-            maps.onResume()
-            maps.getMapAsync(this)
-
-            //Click Listener
-            fond.setOnClickListener {
-                activity?.onBackPressed()
+            val nb = flagsAsso.values().find { it.nameCountry == circuit.location?.country }?.numero
+            var result = ""
+            if (nb != null && nb < 100) {
+                result = "https://countryflagsapi-fzlw.onrender.com/png/0" + flagsAsso.values()
+                    .find { it.nameCountry == circuit.location?.country }?.numero.toString()
+            } else {
+                result = "https://countryflagsapi-fzlw.onrender.com/png/" + flagsAsso.values()
+                    .find { it.nameCountry == circuit.location?.country }?.numero.toString()
             }
 
-        }
-        ScheduleVM.getDetailCircuit()
-    }
+            Glide.with(this).load(result).into(flags)
 
-    override fun onMapReady(p0: GoogleMap) {
-        mMap = p0
-        val circuit = CacheDataSource.getCircuit()
-        val lat = circuit?.location?.lat?.toDouble()
-        val long = circuit?.location?.long?.toDouble()
-        val latLng = com.google.android.gms.maps.model.LatLng(lat!!, long!!)
-        mMap.addMarker(
-            MarkerOptions()
-                .position(latLng)
-                .title(circuit.circuitName)
+
+
+
+        //Map
+        maps.onCreate(savedInstanceState)
+        maps.onResume()
+        maps.getMapAsync(this)
+
+        //Click Listener
+        fond.setOnClickListener {
+            activity?.onBackPressed()
+        }
+
+    }
+    ScheduleVM.getDetailCircuit()
+}
+
+override fun onMapReady(p0: GoogleMap) {
+    mMap = p0
+    val circuit = CacheDataSource.getCircuit()
+    val lat = circuit?.location?.lat?.toDouble()
+    val long = circuit?.location?.long?.toDouble()
+    val latLng = com.google.android.gms.maps.model.LatLng(lat!!, long!!)
+    mMap.addMarker(
+        MarkerOptions()
+            .position(latLng)
+            .title(circuit.circuitName)
+    )
+
+
+    mMap.moveCamera(
+        com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(
+            latLng,
+            5f
         )
 
+    )
 
+    mMap.setOnMapLongClickListener {
         mMap.moveCamera(
             com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(
                 latLng,
                 5f
             )
-
         )
-
-        mMap.setOnMapLongClickListener {
-            mMap.moveCamera(
-                com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(
-                    latLng,
-                    5f
-                )
-            )
-        }
-
     }
+
+}
 
 
 }
