@@ -46,7 +46,6 @@ class DriverRankingAdapter(private var ranking: DriverRanking) :
 
         viewHolder.itemView.setOnClickListener {
             CacheDataSource.setDriver(ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver)
-
         }
         val prenomDriver =
             ranking.mRData.standingsTable.standingsLists[0].driverStandings[position].driver.givenName.get(
@@ -111,10 +110,6 @@ class DriverRankingAdapter(private var ranking: DriverRanking) :
             positionClassementTextView.setTextColor(resources.getColor(colorwhite, null))
         }
 
-
-
-
-
         PhotoDriver.setImageDrawable(resources.getDrawable(resourcePhoto, null))
         PhotoTeam.setImageDrawable(resources.getDrawable(resourceLogoConstructor, null))
 
@@ -129,41 +124,4 @@ class DriverRankingAdapter(private var ranking: DriverRanking) :
         return ranking.mRData.standingsTable.standingsLists[0].driverStandings.size
     }
 
-    fun updateData(newDriverStandings: DriverRanking) {
-        this.ranking = newDriverStandings
-        notifyDataSetChanged()
-    }
-/*
-    companion object {
-        fun createEmpty(): DriverRanking {
-            // Créez ici une instance de DriverRanking avec une liste vide de DriverStanding
-            var constructor = Constructor("red_bull", "Red Bull", "Austrian", "")
-            var listConstructor = listOf(constructor)
-            var driver = Driver(
-                "max_verstappen",
-                "Max",
-                "Verstappen",
-                "Dutch",
-                "https://en.wikipedia.org/wiki/Max_Verstappen",
-                "brasil",
-                "",
-                ""
-            )
-            var driverStanding = DriverStanding(listConstructor, driver, "0", "0", "0", "0")
-            var listDriverStanding = listOf(driverStanding)
-            var standingsLists = StandingsLists(listDriverStanding, "1", "2021")
-            var listStandinglist = listOf(standingsLists)
-            var standingsTable = StandingsTable(listStandinglist, "2021")
-            var mrData = MRData(
-                standingsTable,
-                "1.0",
-                "http://ergast.com/mrd/",
-                "f1",
-                "2021",
-                "https://en.wikipedia.org/wiki/2021_Formula_One_World_Championship",
-                "2021-07-18"
-            )
-            return DriverRanking(mrData)
-        }
-    }*/
 }

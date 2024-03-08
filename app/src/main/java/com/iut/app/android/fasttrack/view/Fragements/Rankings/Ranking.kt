@@ -16,7 +16,6 @@ import com.iut.app.android.fasttrack.viewModel.RankingViewModel
 
 class Ranking : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,7 +41,6 @@ class Ranking : Fragment() {
         rankingViewModel.fetchDriverRanking()
         rankingViewModel.driverLiveDataRanking.observe(viewLifecycleOwner) { response ->
             val driverAdapter = DriverRankingAdapter(response)
-            driverAdapter.updateData(response)
             rvContacts.adapter = driverAdapter
         }
 
