@@ -1,6 +1,5 @@
 package com.iut.app.android.fasttrack.view.Fragements.Shop
 
-import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import android.content.res.Resources
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,13 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.view.Fragements.Shop.ShopAdapter
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Race
+import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 
 class ShopAdapter(private val calendar: Schedule) :
     RecyclerView.Adapter<ShopAdapter.ViewHolder>() {
+
+    private var _selectedRaceLiveData = MutableLiveData<Race>()
+    val selectedRaceLD: MutableLiveData<Race> = _selectedRaceLiveData
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Your holder should contain and initialize a member variable
@@ -75,7 +79,11 @@ class ShopAdapter(private val calendar: Schedule) :
 
         val dateTextView = viewHolder.dateGPTextView
 
-        var date = homeVM.writeDate(race.firstPractice.date, race.date)
+        val date = if (race.firstPractice != null) {
+            homeVM.writeDate(race.firstPractice.date, race.date)
+        } else {
+            race.date
+        }
 
         circuitPicture.setImageDrawable(resources.getDrawable(resourcePhoto, null))
 
@@ -93,6 +101,11 @@ class ShopAdapter(private val calendar: Schedule) :
         countryTextView.setText(realNameGp)
         dateTextView.setText(date)
         circuitName.setText(nameCircuit3)
+
+
+        viewHolder.itemView.setOnClickListener {
+            _selectedRaceLiveData.postValue(race)
+        }
 
     }
 

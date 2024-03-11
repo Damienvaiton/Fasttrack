@@ -28,14 +28,15 @@ tools:context=".view.Fragements.Profil.Login">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="376dp"
+        android:layout_width="355dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="140dp"
         android:fontFamily="@font/monomaniac"
-        android:text="Content de vous revoir !"
+        android:textAlignment="center"
+        android:text="Hello !"
         android:textColor="#FFFFFFFF"
-        android:textSize="38sp" />
+        android:textSize="69sp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -54,7 +55,7 @@ tools:context=".view.Fragements.Profil.Login">
         android:background="@drawable/edittext_background"
         android:ems="10"
         android:hint="Enter your e-mail"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:padding="12dp"
         android:textSize="18sp"
         android:layout_marginTop="295dp"
@@ -62,7 +63,8 @@ tools:context=".view.Fragements.Profil.Login">
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Password"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -77,7 +79,7 @@ tools:context=".view.Fragements.Profil.Login">
         android:background="@drawable/edittext_background"
         android:ems="10"
         android:hint="Enter your password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:padding="12dp"
         android:textSize="18sp"
         android:layout_marginTop="405dp"

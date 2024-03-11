@@ -3,11 +3,12 @@ package com.iut.app.android.fasttrack.viewModel
 import androidx.lifecycle.ViewModel
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.schedule.RaceTable
-import com.iut.app.android.fasttrack.model.room.FanWithTickets
 import timber.log.Timber
 import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class HomeViewModel : ViewModel() {
 
@@ -55,10 +56,14 @@ class HomeViewModel : ViewModel() {
                     createSeance("Qualification", race.qualifying.date, race.qualifying.time)
                 val realrace = createSeance("Race", race.date, race.time)
                 if (nextRace.races[0].sprint == null) {
+                    if(race.thirdPractice == null){
+                        val FP3 = createSeance("FP3", "Date Inconnu", "Time Inconnu")
+                        return arrayListOf<Seance>(FP1, FP2, FP3, Quali, realrace)
+                    }
                     val FP3 = createSeance("FP3", race.thirdPractice.date, race.thirdPractice.time)
                     return arrayListOf<Seance>(FP1, FP2, FP3, Quali, realrace)
                 } else {
-                    val sprint = createSeance("Sprint Race", race.sprint.date, race.sprint.time)
+                    val sprint = createSeance("Sprint Race", race.sprint!!.date, race.sprint.time)
                     return arrayListOf<Seance>(FP1, Quali, FP2, sprint, realrace)
                 }
 
@@ -101,13 +106,6 @@ class HomeViewModel : ViewModel() {
         return time.substring(0, 2) + "h" + time.substring(3, 5)
     }
 
-    fun WriteTicketsOfAFan(list: FanWithTickets): String {
-        var res = ""
-        for (ticket in list.tickets) {
-            res += ticket.nameGrandStand + " " + ticket.nameBlock + "\n"
-        }
-        return res
-    }
 }
 
 

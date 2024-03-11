@@ -15,9 +15,9 @@
         android:layout_marginTop="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
+        android:alpha="0.7"
         android:scaleType="fitXY"
         android:src="@drawable/table_layout_bg"
-        android:alpha="0.7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -28,9 +28,9 @@
     <ImageView
         android:id="@+id/scheduleBack2"
         android:layout_width="312dp"
-        android:alpha="0.8"
         android:layout_height="194dp"
         android:layout_marginTop="12dp"
+        android:alpha="0.8"
         android:src="@drawable/scheduleqatarrectlarge"
         app:layout_constraintEnd_toEndOf="@+id/fondGp"
         app:layout_constraintHorizontal_bias="0.495"
@@ -48,11 +48,22 @@
         app:layout_constraintStart_toStartOf="@+id/fondGp"
         app:layout_constraintTop_toTopOf="@id/fondGp" />
 
+
+    <ImageView
+        android:id="@+id/flagCOuntry"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/losail"
+        app:layout_constraintEnd_toEndOf="@+id/fondGp"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="@+id/fondGp"
+        app:layout_constraintTop_toBottomOf="@+id/scheduleTrack" />
+
     <TextView
         android:id="@+id/CoundtryGp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:fontFamily="@font/major_mono_display"
         android:text="Qatar"
         android:textColor="@color/white"
@@ -60,7 +71,8 @@
         app:layout_constraintEnd_toEndOf="@+id/scheduleTrack"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/scheduleTrack"
-        app:layout_constraintTop_toBottomOf="@+id/scheduleTrack" />
+        app:layout_constraintTop_toBottomOf="@+id/flagCOuntry" />
+     />
 
     <TextView
         android:id="@+id/nameCircuitGp"
@@ -104,8 +116,8 @@
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView2"
-        android:layout_width="322dp"
-        android:layout_height="199dp"
+        android:layout_width="214dp"
+        android:layout_height="157dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="@+id/fondGp"
         app:layout_constraintHorizontal_bias="0.487"

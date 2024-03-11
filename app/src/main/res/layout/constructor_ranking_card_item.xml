@@ -16,6 +16,7 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="15dp"
         android:src="@drawable/fondpilote2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/red_bull" />
@@ -42,18 +43,7 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="@+id/imgcar" />
 
-    <ImageView
-        android:id="@+id/imgcar"
-        android:layout_width="249dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
-        android:src="@drawable/red_bull1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/divRankingPrincipal2"
-        app:layout_constraintTop_toTopOf="@+id/divRankingPrincipal"
-        app:layout_constraintVertical_bias="1.0" />
+
 
     <TextView
         android:id="@+id/rankingDriver"
@@ -79,6 +69,19 @@
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="@id/divRankingPrincipal"
         app:layout_constraintTop_toTopOf="@+id/divRankingPrincipal" />
+
+    <ImageView
+        android:id="@+id/imgcar"
+        android:layout_width="249dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/red_bull1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/divRankingPrincipal2"
+        app:layout_constraintTop_toTopOf="@+id/divRankingPrincipal"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/nbPointPiloteRanking"

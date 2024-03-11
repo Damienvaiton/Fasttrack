@@ -2,41 +2,20 @@ package com.iut.app.android.fasttrack.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.viewModel.HomeViewModel
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
 import timber.log.Timber
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Home.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Home : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -76,18 +55,14 @@ class Home : Fragment() {
         val homeViewModel by activityViewModels<HomeViewModel>()
 
 
-        scheduleViewModel.getnextRace()
 
-        var ScheduleY = ArrayList<HomeViewModel.Seance>()
+        var ScheduleY: ArrayList<HomeViewModel.Seance>
 
-        //aller chercher un attribut dans le retour d api scheduleViewModel.getnextRace() et l'afficher dans le textview countryGp
 
-        scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) { response ->
+        scheduleViewModel.NextRaceLiveData.observe(viewLifecycleOwner) { response ->
             val nextRace = response?.body()
 
-
-
-
+            Timber.tag("NextRace error").d(nextRace.toString())
 
             if (nextRace != null) {
                 val nRace = nextRace.mRData.raceTable.races[0]
@@ -99,12 +74,15 @@ class Home : Fragment() {
                     val resourceID2 =
                         resources.getIdentifier(idCircuit + "2", "color", view.context.packageName)
                     card.setColorFilter(resources.getColor(resourceId, null))
-                    Timber.tag("color").e(idCircuit)
+                    Timber.tag("color").d(idCircuit)
                     card2.setColorFilter(resources.getColor(resourceID2, null))
 
                     ScheduleY = homeViewModel.getScheduleofTheRace(nextRace.mRData.raceTable, 0)
 
                     countryGp.setText(nRace.circuit.location.country)
+
+                    trackGp.setImageResource(resources.getIdentifier(idCircuit, "drawable", view.context.packageName))
+
 
 
                     nameGp.setText(homeViewModel.correctNameGP(nRace.raceName))
@@ -115,6 +93,8 @@ class Home : Fragment() {
                             nRace.firstPractice.date,
                             nRace.date
                         )
+                        Timber.tag("Date error").d(correctDate)
+
                         dateGp.setText(correctDate)
 
                         //Remplissage des dernières séances
@@ -134,10 +114,7 @@ class Home : Fragment() {
 
                     }
                 else {
-                    Timber.tag("Error API Home").e("No data in the parameter nextRace")
-                    countryGp.setText("Inconnu")
-                    nameGp.setText("Inconnu")
-                    dateGp.setText("Inconnu")
+                        Timber.tag("Error API Home").e("No data for hour and date")
 
                         nomSchedule1.setText("A definir")
                         dateSchedule1.setText("")
@@ -150,8 +127,25 @@ class Home : Fragment() {
                         nomSchedule3.setText("A definir")
                         dateSchedule3.setText("")
                         timeSchedule3.setText("")
-
                     }
+                }
+                else {
+                    Timber.tag("Error API Home").e("No data in the parameter nextRace")
+                    countryGp.setText("Inconnu")
+                    nameGp.setText("Inconnu")
+                    dateGp.setText("Inconnu")
+
+                    nomSchedule1.setText("A definir")
+                    dateSchedule1.setText("")
+                    timeSchedule1.setText("")
+
+                    nomSchedule2.setText("A definir")
+                    dateSchedule2.setText("")
+                    timeSchedule2.setText("")
+
+                    nomSchedule3.setText("A definir")
+                    dateSchedule3.setText("")
+                    timeSchedule3.setText("")
                 }
 
 
@@ -164,26 +158,7 @@ class Home : Fragment() {
 
         }
 
-    }
+        scheduleViewModel.getnextRace()
 
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Home.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Home().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

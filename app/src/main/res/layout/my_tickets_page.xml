@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/fondnoir"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/damierHome"
+        android:layout_width="wrap_content"
+        android:layout_height="83dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/damier4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/leckerli_one"
+        android:text="Mes Billets"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp"
+        app:layout_constraintBottom_toBottomOf="@+id/damierHome"
+        app:layout_constraintEnd_toEndOf="@+id/damierHome"
+        app:layout_constraintStart_toStartOf="@+id/damierHome"
+        app:layout_constraintTop_toTopOf="@+id/damierHome"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMyTickets"
+        android:layout_width="411dp"
+        android:layout_height="546dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/damierHome"
+        app:layout_constraintVertical_bias="0.985"
+        tools:listitem="@layout/ticket_buy_card_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,30 +9,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iut.app.android.fasttrack.R
-import com.iut.app.android.fasttrack.view.Fragements.Schedule.ScheduleAdapter
 import com.iut.app.android.fasttrack.viewModel.ScheduleViewModel
+import com.iut.app.android.fasttrack.viewModel.ShopViewModel
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Shop.newInstance] factory method to
- * create an instance of this fragment.
- */
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 class Shop : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,50 +27,29 @@ class Shop : Fragment() {
         val rvContacts = view.findViewById(R.id.rvShop) as RecyclerView
 
         val scheduleViewModel by activityViewModels<ScheduleViewModel>()
+        val shopViewModel by activityViewModels<ShopViewModel>()
 
-
-
-        scheduleViewModel.fetchCurrentSeason()
 
         scheduleViewModel.ScheduleLiveData.observe(viewLifecycleOwner) { response ->
             val calendar = response?.body()
-            scheduleViewModel.ResultsLiveData.observe(viewLifecycleOwner) { response2 ->
 
-                val calendarResult = response2?.body()
-                calendar?.let { calend ->
-                    calendarResult?.let {
-                        val adapter = ShopAdapter(calend)
+            calendar?.let { calend ->
+                val adapter = ShopAdapter(calend)
 
-                        rvContacts.adapter = adapter
+                rvContacts.adapter = adapter
 
-                        rvContacts.layoutManager = LinearLayoutManager(this.context)
-                    }
+                rvContacts.layoutManager = LinearLayoutManager(this.context)
+
+                adapter.selectedRaceLD.observe(viewLifecycleOwner) {
+                    shopViewModel.setSelectedRace(it)
+                    val fragment = DetailedShop()
+                    val transaction = parentFragmentManager.beginTransaction()
+                    transaction.replace(R.id.frame_layout, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
                 }
             }
-
-
         }
-
-
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Shop.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Shop().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        scheduleViewModel.fetchCurrentSeason()
     }
 }

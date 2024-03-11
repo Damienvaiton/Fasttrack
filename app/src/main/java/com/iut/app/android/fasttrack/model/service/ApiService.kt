@@ -30,7 +30,6 @@ interface ApiService {
     suspend fun getDriverById(@Path("id") driverId: String): Response<DriverInformation>
 
 
-    //mettre en place un systeme de pagination avec limit = 30
     @GET("current/results.json")
     suspend fun getCurrentRaceResults(
         @Query("offset") offset: Int,

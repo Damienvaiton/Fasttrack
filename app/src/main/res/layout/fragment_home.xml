@@ -28,11 +28,13 @@
         android:layout_width="wrap_content"
         android:layout_height="83dp"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/damier4"
         app:layout_constraintBottom_toBottomOf="@+id/divActus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textFastTrack"
@@ -216,7 +218,7 @@
         android:fontFamily="@font/major_mono_display"
         android:text="Japon"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/divNextGpInfos"
         app:layout_constraintHorizontal_bias="0.568"
         app:layout_constraintStart_toStartOf="@+id/divNextGpInfos"

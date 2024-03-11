@@ -14,7 +14,7 @@ import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.MRData
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.StandingsLists
 import com.iut.app.android.fasttrack.model.dataclass.Rankings.ConstructorRanking.StandingsTable
-import org.w3c.dom.Text
+import timber.log.Timber
 
 class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanking) :
     RecyclerView.Adapter<ConstructorRankingAdapter.ViewHolder>() {
@@ -46,6 +46,8 @@ class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanki
             constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].points
         val constructorId =
             constructorRanking.mRData.standingsTable.standingsLists[0].constructorStandings[position].constructor.constructorId
+
+        Timber.e("constructorId: %s", constructorId)
 
         val resources: Resources = holder.itemView.context.resources
         val colorgold: Int = resources.getIdentifier("gold", "color", holder.itemView.context.packageName)
@@ -96,13 +98,13 @@ class ConstructorRankingAdapter(private var constructorRanking: ConstructorRanki
     companion object {
         fun createEmpty(): ConstructorRanking {
             // Créez ici une instance de DriverRanking avec une liste vide de DriverStanding
-            var constructor = Constructor("red_bull", "Red Bull", "Austrian", "")
-            var constructorStandings = ConstructorStanding(constructor, "1", "1", "1", "1")
-            var listconstructorStandings = listOf(constructorStandings)
-            var standingsList = StandingsLists(listconstructorStandings, "1", "1")
-            var liststandingsList = listOf(standingsList)
-            var standingsTable = StandingsTable(liststandingsList, "1")
-            var mrData = MRData(standingsTable, "1", "1", "1", "1", "1", "1")
+            val constructor = Constructor("red_bull", "Red Bull", "Austrian", "")
+            val constructorStandings = ConstructorStanding(constructor, "1", "1", "1", "1")
+            val listconstructorStandings = listOf(constructorStandings)
+            val standingsList = StandingsLists(listconstructorStandings, "1", "1")
+            val liststandingsList = listOf(standingsList)
+            val standingsTable = StandingsTable(liststandingsList, "1")
+            val mrData = MRData(standingsTable, "1", "1", "1", "1", "1", "1")
             return ConstructorRanking(mrData)
         }
     }
