@@ -163,7 +163,7 @@
      -->
 
     <Button
-        android:id="@+id/stylishButton"
+        android:id="@+id/myticketbtn"
         android:layout_width="203dp"
         android:layout_height="60dp"
         android:layout_margin="16dp"

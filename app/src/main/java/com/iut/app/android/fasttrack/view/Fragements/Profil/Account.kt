@@ -24,7 +24,16 @@ class Account : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val FirstNameTV = view.findViewById<TextView>(R.id.firstNameAccount)
+        val myTicketsPage = view.findViewById<TextView>(R.id.myticketbtn)
 
         FirstNameTV.text = CacheDataSource.FanConnected?.firstName
+
+        myTicketsPage.setOnClickListener {
+            val fragment = TicketsPage()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
     }
 }

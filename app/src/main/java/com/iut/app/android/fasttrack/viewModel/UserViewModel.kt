@@ -12,6 +12,7 @@ import com.iut.app.android.fasttrack.model.room.users.Fan
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class UserViewModel : ViewModel() {
 
@@ -21,11 +22,13 @@ class UserViewModel : ViewModel() {
     private var _signupResponseLD = MutableLiveData<FanResponse>()
     private var _loginResponseLD = MutableLiveData<FanResponse>()
     private var _ticketResponse = MutableLiveData<Boolean>()
+    private var _ticketsResponseLD = MutableLiveData<List<Tickets>>()
 
 
     val signupResponseLD: MutableLiveData<FanResponse> = _signupResponseLD
     val loginResponseLD: MutableLiveData<FanResponse> = _loginResponseLD
     val ticketsResponse : MutableLiveData<Boolean> = _ticketResponse
+    val ticketsResponseLD: MutableLiveData<List<Tickets>> = _ticketsResponseLD
 
 
     @SuppressLint("UseRequireInsteadOfGet")
@@ -124,6 +127,17 @@ class UserViewModel : ViewModel() {
     fun getFanConnected(): Fan? {
         return userRepo.getFanConnected()
     }
+
+     fun getTicketsByUserId(userId: Int) {
+         CoroutineScope(Dispatchers.IO).launch {
+            userRepo.getTicketsByFanId(userId).collect {
+                Timber.e("UserViewModel get tickets : $it")
+                _ticketsResponseLD.postValue(it)
+            }
+        }
+    }
+
+
 
 
 }

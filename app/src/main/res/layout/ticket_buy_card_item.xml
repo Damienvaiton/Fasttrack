@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.526" />
 
     <TextView
-        android:id="@+id/nameGpShop"
+        android:id="@+id/nameGpShopcard"
         android:layout_width="85dp"
         android:layout_height="17dp"
         android:fontFamily="@font/major_mono_display"
@@ -62,7 +62,7 @@
         app:layout_constraintVertical_bias="0.04000002" />
 
     <TextView
-        android:id="@+id/nameGp"
+        android:id="@+id/nameGpcard"
         android:layout_width="60dp"
         android:layout_height="11dp"
         android:layout_marginTop="4dp"
@@ -74,10 +74,10 @@
         app:layout_constraintEnd_toEndOf="@+id/divTicketFoncee"
         app:layout_constraintHorizontal_bias="0.324"
         app:layout_constraintStart_toStartOf="@+id/divTicketFoncee"
-        app:layout_constraintTop_toBottomOf="@+id/nameGpShop" />
+        app:layout_constraintTop_toBottomOf="@+id/nameGpShopcard" />
 
     <TextView
-        android:id="@+id/dateGp"
+        android:id="@+id/dateGpcard"
         android:layout_width="200px"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lilita_one"
@@ -86,10 +86,10 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/divTicketFoncee"
-        app:layout_constraintEnd_toEndOf="@+id/nameGp"
+        app:layout_constraintEnd_toEndOf="@+id/nameGpcard"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/nameGp"
-        app:layout_constraintTop_toBottomOf="@+id/nameGp"
+        app:layout_constraintStart_toStartOf="@+id/nameGpcard"
+        app:layout_constraintTop_toBottomOf="@+id/nameGpcard"
         app:layout_constraintVertical_bias="0.13" />
 
     <ImageView
@@ -134,7 +134,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/blockbloc"
+        android:id="@+id/blocblockcard"
         android:layout_width="68dp"
         android:layout_height="29dp"
         android:src="@drawable/rectblockshopdetail"
@@ -146,7 +146,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textbloc"
+        android:id="@+id/textbloccard"
         android:layout_width="45dp"
         android:layout_height="16dp"
         android:fontFamily="@font/monomaniac"
@@ -155,12 +155,12 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="@+id/blockbloc"
-        app:layout_constraintStart_toStartOf="@+id/blockbloc"
-        app:layout_constraintTop_toTopOf="@+id/blockbloc" />
+        app:layout_constraintEnd_toEndOf="@+id/blocblockcard"
+        app:layout_constraintStart_toStartOf="@+id/blocblockcard"
+        app:layout_constraintTop_toTopOf="@+id/blocblockcard" />
 
     <ImageView
-        android:id="@+id/blocksiege"
+        android:id="@+id/blocksiegecard"
         android:layout_width="68dp"
         android:layout_height="29dp"
         android:src="@drawable/rectblockshopdetail"
@@ -185,11 +185,11 @@
         app:layout_constraintEnd_toStartOf="@+id/scheduleTrack"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/divTicketClaire"
-        app:layout_constraintTop_toBottomOf="@+id/blockbloc"
+        app:layout_constraintTop_toBottomOf="@+id/blocblockcard"
         app:layout_constraintVertical_bias="0.07999998" />
 
     <TextView
-        android:id="@+id/textsiege"
+        android:id="@+id/textsiegecard"
         android:layout_width="44dp"
         android:layout_height="20dp"
         android:fontFamily="@font/monomaniac"
@@ -198,10 +198,10 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="@+id/blocksiege"
+        app:layout_constraintEnd_toEndOf="@+id/blocksiegecard"
         app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="@+id/blocksiege"
-        app:layout_constraintTop_toTopOf="@+id/blocksiege" />
+        app:layout_constraintStart_toStartOf="@+id/blocksiegecard"
+        app:layout_constraintTop_toTopOf="@+id/blocksiegecard" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

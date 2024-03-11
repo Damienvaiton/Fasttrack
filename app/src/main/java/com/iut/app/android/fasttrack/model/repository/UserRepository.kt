@@ -8,6 +8,7 @@ import com.iut.app.android.fasttrack.model.room.users.Fan
 import com.iut.app.android.fasttrack.model.room.users.FanDAO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import timber.log.Timber
 
 object UserRepository {
 
@@ -51,6 +52,17 @@ object UserRepository {
 
     fun getFanConnected(): Fan? {
         return CacheDataSource.getFan()
+    }
+
+    fun getTicketsByFanId(fanId: Int): Flow<List<Tickets>> = flow {
+        try {
+            val tickets = ticketDAO!!.getTicketsByFanId(fanId)
+            Timber.e("ticketsrepo  : $tickets")
+            emit(tickets)
+        } catch (e: Exception) {
+            Timber.e("ticketsrepo  : $e")
+            emit(emptyList())
+        }
     }
 
 }

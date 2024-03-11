@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
-import com.iut.app.android.fasttrack.model.room.FanWithTickets
 
 @Dao
 interface TicketsDao {
@@ -16,8 +15,8 @@ interface TicketsDao {
     fun getTicketsById(id: Int): Tickets
 
     @Transaction
-    @Query("SELECT * FROM fanTable")
-    fun getTicketsByFanId(): List<FanWithTickets>
+    @Query("SELECT * FROM ticketTable WHERE userId = :id")
+    fun getTicketsByFanId(id: Int): List<Tickets>
 
 
 }
