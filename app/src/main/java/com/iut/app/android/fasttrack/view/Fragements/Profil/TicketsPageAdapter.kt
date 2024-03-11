@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.zxing.MultiFormatWriter
 import com.iut.app.android.fasttrack.R
 import com.iut.app.android.fasttrack.model.dataclass.schedule.Schedule
 import com.iut.app.android.fasttrack.model.room.Tickets.Tickets
+import com.journeyapps.barcodescanner.BarcodeEncoder
 
 class TicketsPageAdapter(private val listTicket: List<Tickets>, private val raceList: Schedule?) :
     RecyclerView.Adapter<TicketsPageAdapter.TicketsViewHolder>() {
@@ -19,6 +21,8 @@ class TicketsPageAdapter(private val listTicket: List<Tickets>, private val race
         val textSiege = itemView.findViewById<TextView>(R.id.textsiegecard)
         val namecircuit = itemView.findViewById<TextView>(R.id.nameGpcard)
         val dateGpShop = itemView.findViewById<TextView>(R.id.dateGpcard)
+
+        val qrCode = itemView.findViewById<ImageView>(R.id.QRCodeIV)
 
         val cardfoncee = itemView.findViewById<ImageView>(R.id.divTicketFoncee)
         val cardclaire = itemView.findViewById<ImageView>(R.id.divTicketClaire)
@@ -38,6 +42,7 @@ class TicketsPageAdapter(private val listTicket: List<Tickets>, private val race
     }
 
     override fun onBindViewHolder(holder: TicketsViewHolder, position: Int) {
+
         val ticket = listTicket[position]
 
         val race =
@@ -48,6 +53,8 @@ class TicketsPageAdapter(private val listTicket: List<Tickets>, private val race
         val dateGp = holder.dateGpShop
         val textBloc = holder.textBloc
         val textSiege = holder.textSiege
+
+        val qrCode = holder.qrCode
 
         val cardfoncee = holder.cardfoncee
         val cardclaire = holder.cardclaire
@@ -71,6 +78,19 @@ class TicketsPageAdapter(private val listTicket: List<Tickets>, private val race
         blocblock.setColorFilter(resources.getColor(resourceId,null))
         blocsiege.setColorFilter(resources.getColor(resourceId,null))
 
+        val multliformat : MultiFormatWriter = MultiFormatWriter()
 
+        val string =  "\n Ticket ID " + ticket.ticketsId + "\nName GP " + (race?.circuit?.circuitName ?: "No name") + "\n Date GP" + (race?.date
+                ?: "No date") + "\n Bloc " + ticket.nameBlock + "\n Siege " + ticket.namePlace + "\n prix"+ ticket.price + "€"
+
+        try  {
+            val bitMatrix = multliformat.encode(string, com.google.zxing.BarcodeFormat.QR_CODE,qrCode.width,qrCode.height)
+            val barcodeEncoder = BarcodeEncoder()
+            val bitmap = barcodeEncoder.createBitmap(bitMatrix)
+            qrCode.setImageBitmap(bitmap)
+        } catch (e: Exception) {
+            e.printStackTrace()
+
+        }
     }
 }

@@ -93,7 +93,7 @@
         app:layout_constraintVertical_bias="0.13" />
 
     <ImageView
-        android:id="@+id/scheduleTrack"
+        android:id="@+id/QRCodeIV"
         android:layout_width="63dp"
         android:layout_height="56dp"
         android:layout_marginEnd="3dp"
@@ -182,7 +182,7 @@
         android:textColor="#FFFFFF"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/divTicketClaire"
-        app:layout_constraintEnd_toStartOf="@+id/scheduleTrack"
+        app:layout_constraintEnd_toStartOf="@+id/QRCodeIV"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/divTicketClaire"
         app:layout_constraintTop_toBottomOf="@+id/blocblockcard"

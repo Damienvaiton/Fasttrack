@@ -106,6 +106,14 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
 
+    //QRCode
+    implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
+    implementation 'com.google.zxing:core:3.4.1'
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+
+
     //Maps
 
     implementation 'com.google.maps.android:android-maps-utils:2.2.5'
