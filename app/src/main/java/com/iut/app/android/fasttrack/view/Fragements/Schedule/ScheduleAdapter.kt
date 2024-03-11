@@ -92,8 +92,6 @@ class ScheduleAdapter(private val calendar: Schedule, private val calendarResult
             race.date
         }
 
-
-
         circuitPicture.setImageDrawable(resources.getDrawable(resourcePhoto, null))
 
 
