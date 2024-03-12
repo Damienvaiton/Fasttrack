@@ -56,11 +56,11 @@
         android:layout_height="210dp"
         android:layout_marginHorizontal="20dp"
         android:src="@drawable/rectblanc"
-        app:layout_constraintBottom_toTopOf="@+id/divActus"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.783" />
+        app:layout_constraintTop_toBottomOf="@+id/damierHome"
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <TextView
         android:id="@+id/seance2nextgp"
@@ -171,13 +171,13 @@
         android:layout_width="159dp"
         android:layout_height="161dp"
         android:layout_marginHorizontal="25dp"
+        android:layout_marginEnd="2dp"
         android:src="@drawable/rectrouge"
         app:layout_constraintBottom_toBottomOf="@+id/divNextGp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/divNextGp"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/divNextGp"
         app:layout_constraintTop_toTopOf="@+id/divNextGp"
-        app:layout_constraintVertical_bias="0.469"
         app:tint="@color/suzuka" />
 
     <ImageView
@@ -211,18 +211,21 @@
 
     <TextView
         android:id="@+id/firstNameNextGp"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_width="107dp"
+        android:layout_height="18dp"
         android:layout_marginHorizontal="40dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/major_mono_display"
         android:text="Japon"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageTrackNextGp"
         app:layout_constraintEnd_toEndOf="@+id/divNextGpInfos"
-        app:layout_constraintHorizontal_bias="0.568"
         app:layout_constraintStart_toStartOf="@+id/divNextGpInfos"
-        app:layout_constraintTop_toTopOf="@+id/divNextGp" />
+        app:layout_constraintTop_toTopOf="@+id/divNextGp"
+        app:layout_constraintVertical_bias="0.19" />
 
     <TextView
         android:id="@+id/secondNameNextGp"
@@ -234,10 +237,12 @@
         android:text="Suzuka GP"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageTrackNextGp"
         app:layout_constraintEnd_toEndOf="@+id/divNextGpInfos"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="@+id/divNextGpInfos"
-        app:layout_constraintTop_toBottomOf="@+id/firstNameNextGp" />
+        app:layout_constraintTop_toBottomOf="@+id/firstNameNextGp"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/dateNextGP"
@@ -249,10 +254,12 @@
         android:text="22 - 24 SEP"
         android:textColor="#FFFFFF"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageTrackNextGp"
         app:layout_constraintEnd_toEndOf="@+id/divNextGpInfos"
         app:layout_constraintHorizontal_bias="0.176"
         app:layout_constraintStart_toStartOf="@+id/divNextGpInfos"
-        app:layout_constraintTop_toBottomOf="@+id/secondNameNextGp" />
+        app:layout_constraintTop_toBottomOf="@+id/secondNameNextGp"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/seance1nextgp"
@@ -311,11 +318,13 @@
         android:layout_width="345dp"
         android:layout_height="310dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/grandrectblanc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96" />
 
     <TextView
         android:id="@+id/titleActualites"
@@ -343,21 +352,6 @@
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="@+id/divActus"
         app:layout_constraintTop_toTopOf="@+id/imageFirstActu" />
-
-    <TextView
-        android:id="@+id/redTextFirstActu"
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/monomaniac"
-        android:text="Motorsport.com"
-        android:textColor="#F44336"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="@+id/texteFirstActu"
-        app:layout_constraintEnd_toEndOf="@+id/texteFirstActu"
-        app:layout_constraintHorizontal_bias="0.757"
-        app:layout_constraintStart_toStartOf="@+id/texteFirstActu"
-        app:layout_constraintTop_toTopOf="@+id/texteFirstActu"
-        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageFirstActu"
@@ -387,21 +381,6 @@
         app:layout_constraintStart_toStartOf="@+id/divActus"
         app:layout_constraintTop_toTopOf="@+id/imageSecondActu" />
 
-    <TextView
-        android:id="@+id/redTextSecondActu"
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/monomaniac"
-        android:text="f1lover.com"
-        android:textColor="#F44336"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textSecondActu"
-        app:layout_constraintEnd_toEndOf="@+id/textSecondActu"
-        app:layout_constraintHorizontal_bias="0.42"
-        app:layout_constraintStart_toStartOf="@+id/textSecondActu"
-        app:layout_constraintTop_toTopOf="@+id/textSecondActu"
-        app:layout_constraintVertical_bias="1.0" />
-
     <ImageView
         android:id="@+id/imageSecondActu"
         android:layout_width="64dp"
@@ -429,21 +408,6 @@
         app:layout_constraintStart_toStartOf="@+id/divActus"
         app:layout_constraintTop_toTopOf="@+id/imageThridActu"
         app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/redTextThirdActu"
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/monomaniac"
-        android:text="racing365.com"
-        android:textColor="#F44336"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textThirdActu"
-        app:layout_constraintEnd_toEndOf="@+id/textThirdActu"
-        app:layout_constraintHorizontal_bias="0.297"
-        app:layout_constraintStart_toStartOf="@+id/textThirdActu"
-        app:layout_constraintTop_toTopOf="@+id/textThirdActu"
-        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageThridActu"

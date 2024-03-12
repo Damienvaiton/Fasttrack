@@ -118,7 +118,7 @@
         android:id="@+id/mapView2"
         android:layout_width="214dp"
         android:layout_height="157dp"
-        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fondGp"
         app:layout_constraintEnd_toEndOf="@+id/fondGp"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/fondGp"
